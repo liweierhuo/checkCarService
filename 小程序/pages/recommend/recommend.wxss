@@ -1,0 +1,44 @@
+/* pages/recommend/recommend.wxss */
+.recommendItem{
+  /* height: 240rpx; */
+  border-top: 2px solid #88c9f3;
+  padding: 50rpx;
+  display: flex;
+}
+.recommendItemImg{
+  display: block;
+  width: 195rpx;
+  height: 135rpx;
+  margin-right: 50rpx
+}
+.recommendItemImg2{
+  display: block;
+  width: 195rpx;
+  height: 135rpx;
+  border-radius:10rpx ;
+}
+.recommendItemRight{
+  flex: 1;
+}
+.locationName{
+    flex: 1;
+  color: #88c9f3;
+  font-size: 38rpx;
+  margin-right: 20rpx;
+  width: 180rpx;
+  overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+}
+.right1{
+  display: flex;
+}
+.stars{
+  display: flex;
+  align-items: center;
+  width: 220rpx
+}
+.starOn{
+  display: block;
+  width: 28rpx;
+  height: 27rpx;
+  margin-right: 16rpx
+}

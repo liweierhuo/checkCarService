@@ -1,0 +1,28 @@
+
+.container {
+  /* height: 100%; */
+  padding: 0;margin: 0
+} 
+
+.commonFoot{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120rpx;
+  background-color: #96c3f4;
+  display: flex
+}
+.commonFootIem{
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  color: #fff
+}
+.commonFootIcon{
+  display: block;
+  width: 40rpx;
+  height: 45rpx;
+  margin-right: 15rpx
+}

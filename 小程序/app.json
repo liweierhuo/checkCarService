@@ -1,0 +1,12 @@
+{
+  "pages":[
+        "pages/index/index",
+    "pages/recommend/recommend"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+      "navigationBarTitleText": "Wechat",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle":"black"
+  }
+}
