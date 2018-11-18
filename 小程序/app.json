@@ -1,12 +1,18 @@
 {
-  "pages":[
-        "pages/index/index",
+  "pages": [
+  "pages/success/success",
+    "pages/index/index",
+    "pages/information/information",
+    "pages/appointment/appointment",
+    "pages/myNewDetail/myNewDetail",
+    "pages/myNew/myNew",
+    "pages/myOrder/myOrder",
     "pages/recommend/recommend"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-      "navigationBarTitleText": "Wechat",
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "Wechat",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   }
 }

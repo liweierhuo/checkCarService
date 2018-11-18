@@ -4,11 +4,11 @@ const app = getApp()
 
 Page({
   data: {
-    imgSrc:"../../img/upload.png",
+    imgSrc: "../../img/upload.png",
     selected: true,
   },
   selected: function (e) {
-    let that=this
+    let that = this
     this.setData({
       selected: true
     })
@@ -17,6 +17,16 @@ Page({
     let that = this
     this.setData({
       selected: false
+    })
+  },
+  goMy:function(){
+    wx.navigateTo({
+      url: '../myOrder/myOrder'
+    })
+  },
+  goAppointment:function(){
+    wx.navigateTo({
+      url: '../appointment/appointment'
     })
   },
   onLoad: function () {

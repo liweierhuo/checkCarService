@@ -1,0 +1,60 @@
+/* pages/success/success.wxss */
+
+.top {
+  height: 240rpx;
+  background-color: #98d2f5;
+  padding-top: 40rpx;
+  margin-bottom: 100rpx;
+}
+
+.topImg {
+  width: 130rpx;
+  height: 130rpx;
+  display: block;
+  margin: 0 auto;
+}
+
+.name {
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
+  margin-top: 30rpx;
+}
+
+.tip1 {
+  text-align: center;
+  color: #0b7aff;
+  font-size: 34rpx;
+  margin-top: 40rpx;
+}
+
+.countDown {
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  background-color: #77aeec;
+  color: #fff;
+  border-radius: 50%;
+  margin: 40rpx auto;
+  font-size: 34rpx;
+}
+
+.tip2 {
+  text-align: center;
+  color: #000;
+  font-size: 34rpx;
+  margin-top: 80rpx;
+}
+
+.gohome {
+  width: 330rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background-color: #77aeec;
+  color: #fff;
+  border-radius: 5px;
+  margin: 80rpx auto;
+  font-size: 30rpx;
+}

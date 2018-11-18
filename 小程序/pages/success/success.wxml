@@ -1,0 +1,22 @@
+<!--pages/success/success.wxml-->
+<view class='container'>
+  <view class='top'>
+    <image class='topImg' mode="widthFix" src="../../img/face.png"></image>
+    <view class='name'>张三</view>
+  </view>
+  <view class='tip1'>
+    预约成功！
+  </view>
+  <view class='countDown'>
+    10
+  </view>
+  <view class='tip1'>
+    秒后自动返回首页
+  </view>
+  <view class='tip2'>
+    订单生成中...
+  </view>
+  <view class='gohome' bindtap="gohome">
+    返回首页
+  </view>
+</view>

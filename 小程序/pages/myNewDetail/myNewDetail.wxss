@@ -1,0 +1,39 @@
+/* pages/myNewDetail/myNewDetail.wxss */
+page {
+  height: 100%;
+}
+
+.container {
+  background-color: #98d1f5;
+  min-height: 100%;
+  padding-bottom: 10px;
+}
+.newList{
+  margin: 0 40rpx;
+  background-color: #fff;
+  border-radius: 5px;
+  padding:40rpx;
+  font-size: 26rpx
+}
+
+
+
+.newItem {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 45rpx
+}
+.newItem1 {
+  font-size: 26rpx;
+  line-height: 45rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.remark{
+  margin: 40rpx auto 80rpx auto
+}
+.demoImg{
+  display: block;
+  width: 100%;
+  margin-top: 40rpx
+}

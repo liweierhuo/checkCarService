@@ -1,0 +1,45 @@
+/* pages/information/information.wxss */
+
+.container {
+  border-top: 3px solid #99d6f5;
+}
+
+.items {
+  padding: 0 65rpx;
+  color: #000;
+}
+
+.face {
+  color: #000;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}
+
+.infomation {
+  height: 130rpx;
+  line-height: 130rpx;
+  border-bottom: 1px solid #bfbfbf;
+  font-size: 30rpx;
+  display: flex;
+}
+
+.infomationItem {
+  width: 140rpx;
+  word-break: normal;
+}
+
+.ls {
+  letter-spacing: 15rpx;
+}
+
+.nextBt {
+  width: 470rpx;
+  height: 115rpx;
+  margin: 60rpx auto;
+  color: #fff;
+  text-align: center;
+  line-height: 115rpx;
+  background-color: #1cace1;
+  font-size: 28rpx;
+  border-radius: 5px;
+}

@@ -1,8 +1,66 @@
 
 .container {
   /* height: 100%; */
-  padding: 0;margin: 0
+  padding: 0;margin: 0;
+  font-size: 12px
 } 
+
+.face {
+  /* width: 130rpx; */
+  height: 130rpx;
+}
+
+.myData {
+  padding: 70rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+}
+
+.faceImg {
+  width: 130rpx;
+  height: 130rpx;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: block;
+  margin-right: 10rpx;
+}
+
+.myOrderImg {
+  width: 40rpx;
+  height: 56rpx;
+  display: block;
+  margin-right: 10rpx;
+}
+
+.face, .myOrder, .new {
+  display: flex;
+  color: #fff;
+  align-items: center;
+}
+
+.newImg {
+  width: 50rpx;
+  height: 50rpx;
+  display: block;
+  margin-right: 10rpx;
+  position: relative
+}
+.dian{
+ position: absolute;
+ width: 16rpx;
+ height: 16rpx;
+ right: 0;
+ top: 0;
+ background-color: #f39800;
+ border-radius: 50%;
+}
+.myOrderBorder {
+  margin-left: 15rpx;
+  width: 1px;
+  height: 35%;
+  background-color: #fff;
+}
 
 .commonFoot{
   position: fixed;

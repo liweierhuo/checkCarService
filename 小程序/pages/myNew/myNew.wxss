@@ -1,0 +1,39 @@
+/* pages/myNew/myNew.wxss */
+
+page {
+  height: 100%;
+}
+
+.container {
+  background-color: #98d1f5;
+  min-height: 100%;
+  padding-bottom: 10px;
+}
+
+.newList {
+  margin: 0 40rpx;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 0 40rpx;
+}
+
+.newItem:first-child {
+  padding-top: 50rpx;
+}
+
+.newItem:last-child {
+  border: none;
+}
+
+.newItem {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 50rpx;
+  margin-top: 40rpx;
+}
+
+.newItem1 {
+  font-size: 26rpx;
+  line-height: 45rpx;
+  display: flex;
+  justify-content: space-between;
+}

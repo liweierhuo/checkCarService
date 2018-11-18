@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="myData">
+    <view class='face'>
+      <image class='faceImg' mode="widthFix" src="../../img/face.png"></image>
+      张三
+    </view>
+    <view class='myOrder'>
+      <image class='myOrderImg' mode="widthFix" src="../../img/myOrder.png"></image>
+      订单
+      <!-- <view class='myOrderBorder'></view> -->
+    </view>
+    <view class='new'>
+      <image class='newImg' mode="widthFix" src="../../img/new.png">
+        <view class='dian'></view>
+      </image>
+      消息
+    </view>
+  </view>
+  <view class='newList'>
+    <view class='newItem'>
+      <view class='newItem1'>
+        <view>2018/07/03 </view>
+        <view>订单号：123456</view>
+      </view>
+      <view class='newItem1'>
+        <view>右边胎花纹不合格</view>
+        <view style='color:#60abd7'>照片不合格</view>
+      </view>
+    </view>
+    <view class='remark'>
+    备注：轮胎花纹受损，导致拍摄的照片不符合查验要求。
+    </view>
+    <view class='demo'>
+     站端拍摄的正确图片示例
+    </view>
+     <image class='demoImg' mode="widthFix" src="../../img/demo1.png"></image>
+  </view>
+</view>
