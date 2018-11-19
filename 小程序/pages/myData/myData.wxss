@@ -1,0 +1,69 @@
+/* pages/myData/myData.wxss */
+
+page {
+  min-height: 100%;
+  background-color: #f9f9f9;
+}
+
+.myList {
+  border-top: 3px solid #f9f9f9;
+  font-size: 28rpx;
+  background-color: #fff;
+}
+
+.myItem {
+  border-bottom: 2px solid #f9f9f9;
+  padding: 0 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  height: 140rpx;
+}
+
+.myItem1 {
+  color: #7d7d7d;
+}
+
+.myItem2 {
+  color: #949494;
+  widows: 70%;
+}
+
+.myItem2 input {
+  text-align: right;
+}
+
+.myItem2Img {
+  display: block;
+  width: 125rpx;
+  height: 125rpx;
+  margin-right: 30rpx;
+}
+
+.rightArrow {
+  width: 25rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 60rpx;
+  top: 50rpx;
+}
+
+.Arrow {
+  display: block;
+  width: 100%;
+}
+
+.saveBt {
+  margin: 30rpx 60rpx;
+  text-align: center;
+  color: #fff;
+  height: 85rpx;
+  line-height: 85rpx;
+  background-color: #0fb4ff;
+}
+
+.empty {
+  text-align: center;
+  color: #7d7d7d;
+}

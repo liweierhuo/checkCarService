@@ -1,0 +1,53 @@
+/* pages/personal/personal.wxss */
+.top{
+  position: relative;
+  background-color: #98d2f5;
+  padding: 45rpx 0
+}
+.personalImg{
+  width: 125rpx;
+  height: 125rpx;
+  display: block;
+  margin: 0 auto
+}
+.personalName{
+  text-align: center;
+  color: #fff;
+  margin-top: 35rpx
+}
+.topBts{
+  position: absolute;
+  right: 30rpx;
+  top: 30rpx;
+  display: flex
+}
+.new{
+  margin-right: 5px
+}
+.items{
+padding: 70rpx 40rpx;
+background-color: #fff;
+display: flex;
+  box-shadow: 0px 7px 16px 0px rgba(38, 46, 49, 0.3);
+}
+.item{
+  flex: 1;
+  text-align: center
+}
+.myCar{
+  display: block;
+  width: 80rpx;
+  height: 65rpx;
+  margin: 0 auto;
+}
+.myOrder{
+   display: flex;
+  width: 60rpx;
+  margin: 0 auto;
+  align-items: center
+}
+.myDai{
+    display: block;
+  width: 75rpx;
+  margin: 0 auto;
+}

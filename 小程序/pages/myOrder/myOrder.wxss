@@ -1,129 +1,28 @@
 /* pages/myOrder/myOrder.wxss */
 
-page {
-  height: 100%;
-}
-
 .container {
-  background-color: #98d1f5;
-  min-height: 100%;
-  padding-bottom: 10px;
-}
-
-.orderList {
   background-color: #fff;
-  margin: 0 40rpx 10rpx 40rpx;
-  border-radius: 10rpx;
+}
+.myData2{
+  height: 170rpx;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  padding: 0 60rpx;
+  font-size: 30rpx
+}
+
+.orderList{
   padding: 40rpx;
+  border-bottom: 2px solid #f9f9f9
 }
-
-.recommendItem {
+.orderItem{
   display: flex;
-  border-bottom: 1px solid #bfbfbf;
-  padding-bottom: 40rpx;
+  justify-content: space-between
 }
-
-.recommendItemImg {
-  display: block;
-  width: 195rpx;
-  height: 135rpx;
-  margin-right: 50rpx;
+.stata{
+  color: #0069ff
 }
-
-.recommendItemImg2 {
-  display: block;
-  width: 195rpx;
-  height: 135rpx;
-  border-radius: 10rpx;
-}
-
-.recommendItemRight {
-  flex: 1;
-  align-content: space-between;
-}
-
-.locationName {
-  flex: 1;
-  color: #88c9f3;
-  font-size: 38rpx;
-  width: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.right1 {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.stars {
-  display: flex;
-  align-items: center;
-  width: 220rpx;
-}
-
-.starOn {
-  display: block;
-  width: 28rpx;
-  height: 27rpx;
-  margin-right: 16rpx;
-}
-
-.address {
-  flex: 1;
-  width: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 13px;
-}
-
-.costPrice {
-  color: #717171;
-  text-decoration: line-through;
-  font-size: 13px;
-}
-
-.rightArrow2 {
-  width: 14rpx;
-  height: 11rpx;
-  margin: 0 15rpx;
-}
-
-.discountedPrice {
-  color: #ef842c;
-  font-size: 13px;
-}
-
-.orderTip {
-  color: #fff;
-  font-size: 12px;
-  background-color: #a6a6a6;
-  margin-left: 20rpx;
-  border-radius: 10rpx;
-  position: absolute;
-  right: 0;
-}
-
-.orderTime {
-  color: #73abeb;
-  font-size: 13px;
-  line-height: 30px;
-  position: relative;
-}
-
-.message {
-  width: 30rpx;
-  height: 30rpx;
-  position: absolute;
-  right: 0;
-  top: 15rpx;
-}
-
-.messageImg {
-  display: block;
-  width: 30rpx;
-  height: 30rpx;
+.stata2{
+  color: #ff4747
 }

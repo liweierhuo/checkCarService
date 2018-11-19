@@ -1,12 +1,18 @@
 {
   "pages": [
-  "pages/success/success",
+    "pages/review/review",
+    "pages/myData/myData",
+    "pages/myOrder/myOrder",
+    "pages/myCar/myCar",
     "pages/index/index",
-    "pages/information/information",
+    "pages/personal/personal",
+    "pages/uploadDrivingLicense/uploadDrivingLicense",
+    "pages/myOrder-old/myOrder-old",
     "pages/appointment/appointment",
+    "pages/information/information",
+    "pages/success/success",
     "pages/myNewDetail/myNewDetail",
     "pages/myNew/myNew",
-    "pages/myOrder/myOrder",
     "pages/recommend/recommend"
   ],
   "window": {

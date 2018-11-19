@@ -1,0 +1,41 @@
+<!--pages/personal/personal.wxml-->
+<view class='container'>
+  <view class='top'>
+    <image class='personalImg' mode="widthFix" src="../../img/face.png"></image>
+    <view class='personalName'>奥斯卡欠你一堆奖</view>
+    <view class='topBts'>
+      <view class='new'>
+        <image class='newImg' mode="widthFix" src="../../img/new.png">
+          <view class='dian'></view>
+        </image>
+      </view>
+      <view class='myOrder'>
+        <image class='myOrderImg' mode="widthFix" src="../../img/book.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class='items'>
+    <view class='item'>
+      <image class='myCar' mode="widthFix" src="../../img/my_car.png" bindtap="goMyCar"></image>
+      我的车辆
+    </view>
+    <view class='item'>
+      <image class='myOrder' mode="widthFix" src="../../img/my_order.png"></image>
+      我的订单
+    </view>
+    <view class='item'>
+      <image class='myDai' mode="widthFix" src="../../img/my_dai.png"></image>
+      代理标订单
+    </view>
+  </view>
+  <view class='commonFoot'>
+    <view class='commonFootIem'>
+      <image class='commonFootIcon' mode="widthFix" src="../../img/footer_home.png"></image>
+      <view>主页</view>
+    </view>
+    <view class='commonFootIem' bindtap="goMy">
+      <image class='commonFootIcon' mode="widthFix" src="../../img/footer_my.png"></image>
+      <view>我的</view>
+    </view>
+  </view>
+</view>

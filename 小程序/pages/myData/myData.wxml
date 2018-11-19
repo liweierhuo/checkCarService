@@ -1,0 +1,43 @@
+<!--pages/myData/myData.wxml-->
+<view class='container'>
+  <view class='myList'>
+    <view class='myItem'>
+      <view class='myItem1'>头像</view>
+      <view class='myItem2'>
+        <image class='myItem2Img' mode="widthFix" src="../../img/face.png"></image>
+      </view>
+      <view class='rightArrow'>
+        <image class='Arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
+      </view>
+    </view>
+    <view class='myItem'>
+      <view class='myItem1'>昵称</view>
+      <view class='myItem2'>
+        张三
+      </view>
+    </view>
+    <view class='myItem'>
+      <view class='myItem1'>手机号</view>
+      <view class='myItem2'>
+        <input placeholder='请输入手机号'></input>
+      </view>
+    </view>
+    <view class='myItem'>
+      <view class='myItem1'>地区</view>
+      <view class='myItem2'>
+        <input placeholder='请输入地区'></input>
+      </view>
+    </view>
+    <view class='myItem'>
+      <view class='myItem1'>详细地址</view>
+      <view class='myItem2'>
+        <input placeholder='请输入详细地址'></input>
+      </view>
+    </view>
+
+  </view>
+  <view class='saveBt'>
+    保存
+  </view>
+  <view class='empty'>清空缓存</view>
+</view>

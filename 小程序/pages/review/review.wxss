@@ -1,0 +1,115 @@
+/* pages/review/review.wxss */
+
+.top {
+  position: relative;
+  background-color: #98d2f5;
+  padding: 45rpx 0;
+}
+
+.personalImg {
+  width: 125rpx;
+  height: 125rpx;
+  display: block;
+  margin: 0 auto;
+}
+
+.personalName {
+  text-align: center;
+  color: #fff;
+  margin-top: 35rpx;
+}
+
+.scheduleList {
+  margin-top: 40rpx;
+  padding: 0 60rpx;
+}
+
+.remark {
+  margin: 0 60rpx;
+  border-top: 1px solid #bfbfbf;
+  padding: 0 3px;
+  color: #c1c1c1;
+  line-height: 40px;
+}
+
+.comment {
+  margin: 0 60rpx;
+  border-top: 1px solid #bfbfbf;
+  padding: 0 3px;
+}
+
+.scheduleItem {
+  height: 120rpx;
+  border-left: 1px dotted #e9e9e9;
+  position: relative;
+}
+
+.scheduleItem:last-child {
+  border: none;
+}
+
+.circle {
+  position: absolute;
+  top: 0;
+  left: -17rpx;
+  background-color: #fff;
+  border: 2px solid #d8d8d8;
+  width: 35rpx;
+  height: 35rpx;
+  border-radius: 50%;
+}
+
+.content {
+  display: flex;
+  margin-left: 100rpx;
+  align-items: center;
+  color: #c0c0c0;
+}
+
+.right {
+  display: block;
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 5px;
+}
+
+.on .content {
+  color: #2286ff;
+}
+
+.on .circle {
+  border: 2px solid #2286ff;
+}
+
+.scheduleItem.on {
+  border-left: 1px dotted #2286ff;
+}
+
+.stata {
+  color: #0177ff;
+}
+.comment{margin-bottom: 20px}
+.comment1 {
+  color: #f4ea2a;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+
+.comment2 {
+  color: #b8b8b8;
+  display: flex;
+  align-items: center;
+}
+
+.comment2 .textarea {
+  display: flex;
+  border:1px solid #b8b8b8;
+  height: 230rpx;
+  border-radius:5px ;
+  padding: 5px
+}
+.tip{
+  width: 100rpx;
+
+}

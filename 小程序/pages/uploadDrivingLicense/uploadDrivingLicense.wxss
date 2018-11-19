@@ -1,0 +1,32 @@
+/* pages/uploadDrivingLicense/uploadDrivingLicense.wxss */
+.title{
+  height: 90rpx;line-height: 90rpx;
+  background-color: #99d5f5;
+  color: #fff;
+  padding: 0 60rpx
+
+}
+.upload{
+  margin: 40rpx;
+  border: 1px dotted #bbbbbb;
+}
+.uploadImg{
+  display: block;
+  width: 100%
+}
+.uploadTest{
+  color: #000;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  text-align: center
+}
+.uploadTest2{
+   color: #ff7979;
+  line-height: 50rpx;
+  text-align: center
+}
+.uploadTest3{
+   color: #16a9ff;
+  margin-top: 150rpx;
+  text-align: center
+}

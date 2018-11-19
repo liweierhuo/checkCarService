@@ -1,0 +1,45 @@
+<!--pages/review/review.wxml-->
+<view class='container'>
+  <view class='top'>
+    <image class='personalImg' mode="widthFix" src="../../img/face.png"></image>
+    <view class='personalName'>奥斯卡欠你一堆奖</view>
+  </view>
+  <view class='scheduleList'>
+    <view class='scheduleItem on'>
+      <view class='circle'></view>
+      <view class='content'>
+        <image class='right' mode="widthFix" src="../../img/right.png"></image>
+        <view>下单成功，正在生成订单</view>
+      </view>
+    </view>
+    <view class='scheduleItem '>
+      <view class='circle'></view>
+      <view class='content'>
+        <image class='right' mode="widthFix" src="../../img/noright.png"></image>
+        <view>审核结果</view>
+      </view>
+    </view>
+    <view class='scheduleItem '>
+      <view class='circle'></view>
+      <view class='content'>
+        <image class='right' mode="widthFix" src="../../img/noright.png"></image>
+        <view>检验</view>
+      </view>
+    </view>
+  </view>
+  <view class='remark'>
+    <view>审核不成功原因：</view>
+    <view class='stata'>右前轮花纹受损</view>
+    <view>请您整改合格之后再来预约，谢谢使用。</view>
+  </view>
+  <view class='comment'>
+    <view class='comment1'>
+      <view class='tip'>评分：</view>
+
+    </view>
+    <view class='comment2'>
+      <view class='tip'>评论：</view>
+      <textarea class='textarea'></textarea>
+    </view>
+  </view>
+</view>

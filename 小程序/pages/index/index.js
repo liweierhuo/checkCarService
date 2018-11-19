@@ -21,7 +21,7 @@ Page({
   },
   goMy:function(){
     wx.navigateTo({
-      url: '../myOrder/myOrder'
+      url: '../personal/personal'
     })
   },
   goAppointment:function(){
