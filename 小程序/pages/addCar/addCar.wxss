@@ -1,0 +1,102 @@
+/* pages/addCar/addCar.wxss */
+.title{
+  height: 90rpx;line-height: 90rpx;
+  background-color: #99d5f5;
+  color: #fff;
+  padding: 0 60rpx
+
+}
+.upload{
+  margin: 40rpx;
+  background-color: #fafafa;
+  border: 1px dotted #bbbbbb;
+}
+.uploadImg{
+  display: block;
+  width: 100%;
+  height: 400rpx
+}
+.items{
+  margin: 0 40rpx;
+  font-size: 32rpx
+}
+.item{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #bbbbbb;
+  height: 145rpx;
+  align-items: center
+}
+.stata1{
+  color: #00a6ff
+}
+.xiala{
+  width: 100rpx;
+  height: 50rpx;
+  border: 1px solid #00a6ff;
+  border-radius: 3px;
+  position: absolute;
+  right: 280rpx
+}
+.xiala2{
+  flex: 1;
+  position: relative
+}
+.picker{
+  text-align: center;
+  color: #00a6ff
+}
+.picker2{
+  text-align: right;
+  margin-right: 50rpx
+}
+.stata2{
+  width: 220rpx;
+  text-align: center
+}
+.stata3{
+  text-align: center;
+  flex: 1
+}
+.stata3 input{text-align: right}
+.arrow{
+  width: 15rpx;
+  height: 37rpx;
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+  transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+}
+.arrow2{
+   width: 15rpx;
+  height: 37rpx;
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+  transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+}
+.datePicker{
+  text-align: right
+}
+.tip{
+  font-size: 13px;
+  color: #cecece;
+  line-height: 40px
+}
+.saveBt{
+  text-align: center;
+  margin: 20px 10px;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #fff;
+  font-size: 15px;
+  background-color: #00a0e9;
+}

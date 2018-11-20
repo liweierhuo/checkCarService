@@ -1,38 +1,38 @@
 /* pages/appointment/appointment.wxss */
 
 .container {
-  border-top: 3px solid #99d6f5;
+  /* border-top: 3px solid #99d6f5; */
 }
 
 .items {
-  padding: 0 65rpx;
+  padding: 0 30rpx;
   color: #000;
 }
 
 .face {
-  color: #000;
-  margin-top: 20rpx;
+  color: #fff;
   font-size: 28rpx;
+  background-color: #99d6f5;
+  padding: 35rpx 60rpx;
 }
 
-.number {
-  width: 330rpx;
-  height: 55rpx;
-  border: 1px solid #8bb6de;
-  border-radius: 10rpx;
-  margin-top: 60rpx;
-  padding: 15rpx;
+.number, .china, .locationWrap {
+  height: 115rpx;
+  border-bottom: 1px solid #d0d0d0;
+  margin-top: 30rpx;
   display: flex;
+  align-items: center;
 }
 
-.china {
-  width: 330rpx;
-  height: 55rpx;
-  border: 1px solid #8bb6de;
-  border-radius: 10rpx;
-  margin-bottom: 30rpx;
-  padding: 15rpx;
-  display: flex;
+.locationWrap {
+  justify-content: space-between;
+}
+
+.locationWrap view {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .picker {
@@ -70,25 +70,17 @@
   margin: 0 10rpx;
 }
 
-.numberTips {
-  color: #bebebe;
-  line-height: 80rpx;
-  font-size: 24rpx;
-}
-
 .location {
   width: 90rpx;
   height: 35rpx;
 }
 
 .chooseTime {
-  border-top: 2px solid #81b4ef;
-  border-bottom: 2px solid #81b4ef;
-  height: 130rpx;
-  padding: 0 60rpx;
-  line-height: 130rpx;
-  font-size: 28rpx;
+  height: 115rpx;
+  border-bottom: 1px solid #d0d0d0;
+  margin-top: 30rpx;
   display: flex;
+  align-items: center;
 }
 
 .datePicker {
@@ -100,18 +92,6 @@
   line-height: 130rpx;
   font-size: 28rpx;
   display: flex;
-}
-
-.phoneInput {
-  flex: 1;
-  color: #bbb;
-  display: flex;
-  align-items: center;
-  text-align: center;
-}
-
-.phoneInput input {
-  display: block;
 }
 
 .nextBt {

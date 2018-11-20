@@ -1,0 +1,40 @@
+/* pages/appointment/appointment.wxss */
+
+.container {
+  /* border-top: 3px solid #99d6f5; */
+}
+
+.items {
+  padding: 0 30rpx;
+  color: #000;
+}
+
+.face {
+  color: #fff;
+  font-size: 28rpx;
+  background-color: #99d6f5;
+  padding: 35rpx 60rpx;
+}
+
+.number {
+  height: 115rpx;
+  border-bottom: 1px solid #d0d0d0;
+  margin-top: 30rpx;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nextBt {
+  width: 470rpx;
+  height: 115rpx;
+  margin: 60rpx auto;
+  color: #fff;
+  text-align: center;
+  line-height: 115rpx;
+  background-color: #1cace1;
+  font-size: 28rpx;
+  border-radius: 5px;
+}

@@ -1,65 +1,43 @@
 <view class='container'>
+  <view class='face'>
+    <image class='faceImg' mode="widthFix" src="../../img/face.png"></image>
+    张三
+  </view>
   <view class='items'>
-    <view class='face'>
-      <image class='faceImg' mode="widthFix" src="../../img/face.png"></image>
-      张三
-    </view>
     <view class='number'>
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" class="picker">
-        <view class="picker">
-          {{array[index]}}
-        </view>
-        <image class='xiala' mode="widthFix" src="../../img/arrow.png"></image>
-      </picker>
+      手机号：
       <input placeholder="" class='numberInput' />
     </view>
-    <view class='numberTips'>
-      (车牌号上传了行驶证之后可以不填)
-    </view>
     <view class='china'>
-      <picker bindchange="provincePickerChange" value="{{provinceIndex}}" range="{{provinceArray}}" class="picker1">
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" class="picker1">
         <view class="picker1">
-          {{provinceArray[provinceIndex]}}
+          {{region[0]}}，{{region[1]}}，{{region[2]}}
         </view>
-        <image class='xiala' mode="widthFix" src="../../img/arrow.png"></image>
       </picker>
     </view>
-    <view class='china'>
-      <picker bindchange="cityPickerChange" value="{{cityIndex}}" range="{{cityArray}}" class="picker1">
-        <view class="picker1">
-          {{cityArray[cityIndex]}}
-        </view>
-        <image class='xiala' mode="widthFix" src="../../img/arrow.png"></image>
-      </picker>
-    </view>
-    <view class='china'>
-      <picker bindchange="districtPickerChange" value="{{districtIndex}}" range="{{districtArray}}" class="picker1">
-        <view class="picker1">
-          {{districtArray[districtIndex]}}
-        </view>
-        <image class='xiala' mode="widthFix" src="../../img/arrow.png"></image>
-      </picker>
-    </view>
-    <view class='location'>
+    <view class='locationWrap'>
+      <view>贵州省贵阳市白云区</view>
       <image class='location' mode="widthFix" src="../../img/location.png"></image>
     </view>
-    <view class='numberTips'>
-      (选择定位将不用手填写地址，帮助您主动导航附近监测站)
+    <view class='number'>
+      详情地址（选填）
+      <input placeholder="" class='numberInput' />
     </view>
-  </view>
-  <view class='chooseTime'>
-    <view class="section__title">日期：</view>
-    <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange" class='datePicker'>
-      <view class="datePicker">
-        {{date}}
-      </view>
-    </picker>
-
-  </view>
-  <view class='phoneNumber'>
-    <view>手机号：</view>
-    <view class='phoneInput'>
-      <input placeholder="请输入您的手机号" />
+    <view class='chooseTime'>
+      <view class="section__title">日期：</view>
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange" class='datePicker'>
+        <view class="datePicker">
+          {{date}}
+        </view>
+      </picker>
+    </view>
+    <view class='chooseTime'>
+      <view class="section__title">时段：</view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" class='datePicker'>
+        <view>
+          {{array[index]}}
+        </view>
+      </picker>
     </view>
   </view>
   <view class='nextBt'>下一步</view>

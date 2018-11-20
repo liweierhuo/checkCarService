@@ -1,27 +1,13 @@
-// pages/appointment/appointment.js
+// pages/appointmentConfirmation/appointmentConfirmation.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    region: ['广东省', '广州市', '海珠区'],
-    date: '2016-09-01',
-    array: ['上午', '下午'],
-    index: 0
-  }, 
-  bindRegionChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      region: e.detail.value
-    })
+
   },
 
-  bindDateChange: function (e){
-    this.setData({
-      date: e.detail.value
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */

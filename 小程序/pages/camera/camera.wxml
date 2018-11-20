@@ -1,0 +1,14 @@
+<!--pages/camera/camera.wxml-->
+<view class='container'>
+  <view class='tip'>
+    {{tip}}
+  </view>
+  <view class='cameraContainer'>
+    <camera device-position="back" flash="off" binderror="error" style="width: 100%; height: 550rpx;" wx:if="{{finish}}"></camera>
+    <image mode="widthFix" class='showImg' src="{{src}}" wx:if="{{!finish}}"></image>
+  </view>
+  <view class='tip1' wx:if="{{finish}}">请拍右后轮胎照片。</view>
+   <view class='tip2' wx:if="{{!finish}}">请点击提交</view>
+  <view class='photoBt' bindtap="takePhoto" wx:if="{{finish}}">确认拍照</view>
+  <view class='photoBt'  wx:if="{{!finish}}">提交</view>
+</view>

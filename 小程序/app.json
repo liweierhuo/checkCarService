@@ -1,5 +1,10 @@
 {
   "pages": [
+    "pages/addCar/addCar",
+    "pages/appointmentConfirmation/appointmentConfirmation",
+    "pages/success/success",
+    "pages/appointment/appointment",
+    "pages/camera/camera",
     "pages/review/review",
     "pages/myData/myData",
     "pages/myOrder/myOrder",
@@ -8,9 +13,7 @@
     "pages/personal/personal",
     "pages/uploadDrivingLicense/uploadDrivingLicense",
     "pages/myOrder-old/myOrder-old",
-    "pages/appointment/appointment",
     "pages/information/information",
-    "pages/success/success",
     "pages/myNewDetail/myNewDetail",
     "pages/myNew/myNew",
     "pages/recommend/recommend"

@@ -1,0 +1,24 @@
+<view class='container'>
+  <view class='face'>
+    <image class='faceImg' mode="widthFix" src="../../img/face.png"></image>
+    张三
+  </view>
+  <view class='items'>
+    <view class='number'>
+      手机号：13600000000
+    </view>
+    <view class='number'>
+      贵州省 贵阳市 白云区
+    </view>
+    <view class='number'>
+      详细地址....
+    </view>
+    <view class='number'>
+      详细地址（选填）
+    </view>
+    <view class='number'>
+      时间： 2018/07/07 上午
+    </view>
+  </view>
+  <view class='nextBt'>下一步</view>
+</view>

@@ -1,0 +1,40 @@
+/* pages/camera/camera.wxss */
+page{
+  height: 100%;
+  background-color: #6fa2dc
+}
+.cameraContainer{
+  padding: 0 5px
+}
+.tip{
+  height: 260rpx;
+  text-align: center;
+  line-height: 260rpx;
+  background-color: #99d3f5
+}
+.tip1{
+   height: 200rpx;
+  text-align: center;
+  line-height: 200rpx;
+}
+.tip2{
+    height: 200rpx;
+  text-align: center;
+  line-height: 200rpx;
+  color: #fff
+}
+.photoBt{
+  width: 450rpx;
+  height: 100rpx;
+  margin: 0 auto;
+  background-color: #1cace1;
+  color: #fff;
+  text-align: center;
+  line-height: 100rpx;
+  border-radius:5px 
+}
+.showImg{
+  display: block;
+  width: 100%;
+   height: 550rpx;
+}

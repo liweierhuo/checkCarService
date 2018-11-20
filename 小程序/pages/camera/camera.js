@@ -1,26 +1,29 @@
-// pages/appointment/appointment.js
+// pages/camera/camera.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    region: ['广东省', '广州市', '海珠区'],
-    date: '2016-09-01',
-    array: ['上午', '下午'],
-    index: 0
-  }, 
-  bindRegionChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      region: e.detail.value
+    tip:"请按提示拍照",
+    src:'',
+    finish:true, //是否完成拍照
+  },
+  takePhoto() {
+    const ctx = wx.createCameraContext()
+    ctx.takePhoto({
+      quality: 'high',
+      success: (res) => {
+        this.setData({
+          tip:'信息采集完成',
+          src: res.tempImagePath,
+          finish:false
+        })
+      }
     })
   },
-
-  bindDateChange: function (e){
-    this.setData({
-      date: e.detail.value
-    })
+  error(e) {
+    console.log(e.detail)
   },
   /**
    * 生命周期函数--监听页面加载
