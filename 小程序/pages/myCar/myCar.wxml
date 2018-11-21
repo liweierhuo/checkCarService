@@ -4,17 +4,17 @@
     <view class='carItem'>
       <view class='carNumber'>贵123456</view>
       <view class='carBts'>
-        <view class='bt1'>查看详情</view>
+        <view class='bt1' bindtap="goDetails">查看详情</view>
         <view class='bt2'>删除</view>
       </view>
     </view>
     <view class='carItem'>
       <view class='carNumber'>贵123456</view>
       <view class='carBts'>
-        <view class='bt1'>查看详情</view>
+        <view class='bt1' bindtap="goDetails">查看详情</view>
         <view class='bt2'>删除</view>
       </view>
     </view>
   </view>
-  <view class='addCar'>添加车辆</view>
+  <view class='addCar' bindtap="goDetails">添加车辆</view>
 </view>

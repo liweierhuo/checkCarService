@@ -2,9 +2,10 @@
 <view class='container'>
  <view class='title'>行驶证</view>
  <view class='upload'>
-     <image class='uploadImg' mode="widthFix" src="../../img/uploadBg.jpg"></image>
+     <image class='uploadImg' mode="widthFix"  src="{{src}}" wx:if="{{!finish}}" bindtap="showPhoto"></image>
+      <camera device-position="back" flash="off" binderror="error" style="width: 100%;  height: 420rpx;" wx:if="{{finish}}"></camera>
  </view>
  <view class='uploadTest'>上传行驶证</view>
   <view class='uploadTest2'>*识别功能正在开发中，请暂时手动输入车辆详细信息</view>
-   <view class='uploadTest3'>手动输入车辆详细信息</view>
+   <view class='uploadTest3' bindtap="goAddCar">手动输入车辆详细信息</view>
 </view>

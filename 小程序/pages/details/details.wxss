@@ -1,27 +1,13 @@
-/* pages/myOrder/myOrder.wxss */
-
-page {
-  height: 100%;
-}
-
+/* pages/details/details.wxss */
 .container {
-  background-color: #98d1f5;
-  min-height: 100%;
-  padding-bottom: 10px;
-}
-
-.orderList {
-  background-color: #fff;
-  margin: 0 40rpx 10rpx 40rpx;
-  border-radius: 10rpx;
+  border-top: 3px solid #99d6f5;
   padding: 40rpx;
 }
 
 .recommendItem {
   display: flex;
-  border-bottom: 1px solid #bfbfbf;
-  padding-bottom: 40rpx;
 }
+
 
 .recommendItemImg {
   display: block;
@@ -38,8 +24,10 @@ page {
 }
 
 .recommendItemRight {
+  display: flex;
+  flex-direction: column;
   flex: 1;
-  align-content: space-between;
+  justify-content: space-between
 }
 
 .locationName {
@@ -55,7 +43,6 @@ page {
 .right1 {
   display: flex;
   align-items: center;
-  position: relative;
 }
 
 .stars {
@@ -71,19 +58,30 @@ page {
   margin-right: 16rpx;
 }
 
+.rightArrow {
+  width: 19rpx;
+  height: 37rpx;
+}
+
 .address {
   flex: 1;
   width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 13px;
+  font-size: 12px;
+}
+
+.arrow {
+  display: block;
+  width: 19rpx;
+  height: 37rpx;
 }
 
 .costPrice {
   color: #717171;
   text-decoration: line-through;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .rightArrow2 {
@@ -94,36 +92,34 @@ page {
 
 .discountedPrice {
   color: #ef842c;
-  font-size: 13px;
-}
-
-.orderTip {
-  color: #fff;
   font-size: 12px;
-  background-color: #a6a6a6;
-  margin-left: 20rpx;
-  border-radius: 10rpx;
-  position: absolute;
-  right: 0;
 }
-
-.orderTime {
-  color: #73abeb;
-  font-size: 13px;
-  line-height: 30px;
-  position: relative;
+.infomation{
+  display: flex;
+  justify-content: space-between;
+  line-height: 50px;
+  font-size: 12px
 }
-
-.message {
-  width: 30rpx;
-  height: 30rpx;
-  position: absolute;
-  right: 0;
-  top: 15rpx;
+.infomation text{
+  color: #88c9f3;
 }
-
-.messageImg {
-  display: block;
-  width: 30rpx;
-  height: 30rpx;
+.abstract{
+  border: 1px solid #dfdfdf;
+  border-radius: 5px;
+  padding: 20rpx;
+  line-height: 28px
+}
+.mapTip{
+  margin-top: 30px;
+  margin-bottom: 5px
+}
+.bt{
+  width: 470rpx;
+  height: 100rpx;
+  text-align: center;
+  color: #fff;
+  line-height: 100rpx;
+  background-color: #e4762d;
+  border-radius: 5px;
+  margin: 10px auto
 }

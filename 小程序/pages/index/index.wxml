@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <view class='homeHead'>
-    <view class='homeUpload'>
+    <view class='homeUpload' bindtap="goUploadDriving">
       <view class='uploadTest'>上传驾驶证</view>
       <view class='uploadItem'>
         <image class='uploadItemImg' mode="widthFix" src="{{imgSrc}}"></image>
@@ -25,7 +25,7 @@
 
   <view class="{{selected?'show':'hidden'}}">
     <view class="iconList">
-      <view class='iconItem'>
+      <view class='iconItem' bindtap="goAppointment">
         <image class='' mode="widthFix" src="../../img/icon-appointment.png"></image>
         <text>车检预约</text>
       </view>
@@ -51,7 +51,7 @@
       <view class='tipList'>
         <view class='tipIcon'></view>
         <view class='tipLi'>
-          <text bindtap="goAppointment">线上预约，</text>选择查验和时间</view>
+          <text>线上预约，</text>选择查验和时间</view>
       </view>
       <view class='tipList'>
         <view class='tipIcon1'></view>

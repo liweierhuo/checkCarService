@@ -1,6 +1,6 @@
 <view class="container">
   <view class='recommendList'>
-    <view class='recommendItem'>
+    <view class='recommendItem' bindtap="goDetails">
       <view class='recommendItemImg'>
         <image class='recommendItemImg2' mode="widthFix" src="../../img/demo1.png"></image>
       </view>
@@ -30,7 +30,7 @@
         </view>
       </view>
     </view>
-    <view class='recommendItem'>
+    <view class='recommendItem' bindtap="goDetails">
       <view class='recommendItemImg'>
         <image class='recommendItemImg2' mode="widthFix" src="../../img/demo1.png"></image>
       </view>

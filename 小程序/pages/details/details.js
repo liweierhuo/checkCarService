@@ -1,11 +1,24 @@
-// pages/myOrder/myOrder.js
+// pages/details/details.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    markers: [{
+      id: 0,
+      latitude: 23.099994,
+      longitude: 113.324520,
+      label:{
+        display:"ALWAYS",
+        borderRadius:5,
+        borderWidth:1,
+        bgColor:'#fff',
+        borderColor:"#aeaeae",
+        padding:5,
+        content:"均运汽车检测有限公司\n地址：贵州省贵阳市白云区\n电话：1360000000"
+      }
+    }],
   },
 
   /**

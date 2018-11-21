@@ -12,6 +12,21 @@ Page({
       url: '../myCar/myCar'
     })
   },
+  goMyData: function () {
+    wx.navigateTo({
+      url: '../myData/myData'
+    })
+  },
+  goIndex: function () {
+    wx.navigateTo({
+      url: '../index/index'
+    })
+  },
+  goMyOrder: function () {
+    wx.navigateTo({
+      url: '../myOrder/myOrder'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

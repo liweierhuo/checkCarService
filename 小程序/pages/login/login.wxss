@@ -1,0 +1,38 @@
+/* pages/login/login.wxss */
+
+page {
+  height: 100%;
+  background: -webkit-linear-gradient(#6ba5e8, #7daee4); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#6ba5e8, #7daee4); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#6ba5e8, #7daee4); /* Firefox 3.6 - 15 */
+  background: linear-gradient(#6ba5e8, #7daee4); /* 标准的语法 */
+
+}
+.container{
+ height: 100%;
+}
+.loginform{
+  padding: 0 90rpx;
+  margin-top: 345rpx
+}
+.loginItem{
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: #fff;
+  border-radius:4px ;
+  display: flex;
+  margin-bottom: 50rpx;
+  font-size: 15px;
+  padding: 0 5px;
+  color: #6ba5e8
+}
+.loginBt{
+   height: 100rpx;
+  line-height: 100rpx;
+  background-color: #fff;
+  border-radius:4px ;
+  font-size: 15px;
+  color: #6ba5e8;
+  text-align: center
+}
+.loginItem input{flex: 1;display: block;height: 100%}

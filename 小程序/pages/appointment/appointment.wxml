@@ -40,5 +40,5 @@
       </picker>
     </view>
   </view>
-  <view class='nextBt'>下一步</view>
+  <view class='nextBt' bindtap="next">下一步</view>
 </view>

@@ -29,6 +29,11 @@ Page({
       url: '../appointment/appointment'
     })
   },
+  goUploadDriving: function () {
+    wx.navigateTo({
+      url: '../uploadDrivingLicense/uploadDrivingLicense'
+    })
+  },
   onLoad: function () {
 
   },

@@ -1,5 +1,12 @@
 {
   "pages": [
+        "pages/index/index",
+    "pages/uploadDrivingLicense/uploadDrivingLicense",
+    "pages/auditingReview/auditingReview",
+    "pages/auditingDetails/auditingDetails",
+    "pages/orderList/orderList",
+    "pages/login/login",
+    "pages/details/details",
     "pages/addCar/addCar",
     "pages/appointmentConfirmation/appointmentConfirmation",
     "pages/success/success",
@@ -9,11 +16,7 @@
     "pages/myData/myData",
     "pages/myOrder/myOrder",
     "pages/myCar/myCar",
-    "pages/index/index",
     "pages/personal/personal",
-    "pages/uploadDrivingLicense/uploadDrivingLicense",
-    "pages/myOrder-old/myOrder-old",
-    "pages/information/information",
     "pages/myNewDetail/myNewDetail",
     "pages/myNew/myNew",
     "pages/recommend/recommend"
