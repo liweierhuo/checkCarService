@@ -15,15 +15,15 @@
     </view>
   </view>
   <view class='items'>
-    <view class='item'>
-      <image class='myCar' mode="scaleToFill" src="../../img/my_car.png" bindtap="goMyCar"></image>
+    <view class='item'bindtap="goMyCar">
+      <image class='myCar' mode="scaleToFill" src="../../img/my_car.png" ></image>
       我的车辆
     </view>
-    <view class='item'>
-      <image class='myOrder' mode="scaleToFill" src="../../img/my_order.png" bindtap="goMyOrder"></image>
+    <view class='item'bindtap="goMyOrder">
+      <image class='myOrder' mode="scaleToFill" src="../../img/my_order.png" ></image>
       我的订单
     </view>
-    <view class='item'>
+    <view class='item' bindtap="goMyOrder2">
       <image class='myDai' mode="scaleToFill" src="../../img/my_dai.png"></image>
       代理标订单
     </view>

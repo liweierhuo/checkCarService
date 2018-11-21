@@ -1,5 +1,6 @@
 {
   "pages": [
+    
         "pages/index/index",
     "pages/uploadDrivingLicense/uploadDrivingLicense",
     "pages/auditingReview/auditingReview",

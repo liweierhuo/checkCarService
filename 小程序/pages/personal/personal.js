@@ -27,6 +27,11 @@ Page({
       url: '../myOrder/myOrder'
     })
   },
+  goMyOrder2: function () {
+    wx.navigateTo({
+      url: '../orderList/orderList'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

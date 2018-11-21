@@ -44,7 +44,8 @@
 }
 .picker{
   text-align: center;
-  color: #00a6ff
+  color: #00a6ff;
+  margin-right: 20rpx
 }
 .picker2{
   text-align: right;
@@ -52,7 +53,7 @@
 }
 .stata2{
   width: 220rpx;
-  text-align: center
+  text-align: right
 }
 .stata3{
   text-align: center;
