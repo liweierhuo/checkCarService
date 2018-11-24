@@ -62,6 +62,10 @@
         <view class='tipIcon1'></view>
         <view class='tipLi'> 到站办理，客服一对一服务</view>
       </view>
+        <view class='tipList'>
+        <view class='tipIcon1'></view>
+        <view class='tipLi'> 等待查验，预计30分钟完成</view>
+      </view>
       <view class='tipList'>
         <view class='tipIcon'></view>
         <view class='tipLi'> 查验完成，查看车况，感谢您的使用</view>

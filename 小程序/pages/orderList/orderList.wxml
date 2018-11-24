@@ -8,23 +8,48 @@
   </view>
   <view class='orderLists'>
     <view class='orderList'>
-      <view>订单号：123456</view>
-      <view style='margin-right:40rpx'>贵A123456</view>
+      <view>
+        <view>订单号：123456</view>
+        <view>车牌号：贵123456</view>
+      </view>
+      <view>上午</view>
+      <view style='margin-right:40rpx'>预审核中</view>
       <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
     </view>
     <view class='orderList'>
-      <view>订单号：123456</view>
-      <view style='margin-right:40rpx'>贵A123456</view>
+      <view>
+        <view>订单号：123456</view>
+        <view>车牌号：贵123456</view>
+      </view>
+      <view>上午</view>
+      <view style='margin-right:40rpx'>
+        <view>已预审</view>
+        <view>下单成功</view>
+      </view>
       <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
     </view>
     <view class='orderList'>
-      <view>订单号：123456</view>
-      <view style='margin-right:40rpx'>贵A123456</view>
+      <view>
+        <view>订单号：123456</view>
+        <view>车牌号：贵123456</view>
+      </view>
+      <view>上午</view>
+      <view style='margin-right:40rpx'>
+        <view>已预审</view>
+        <view>下单成功</view>
+      </view>
       <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
     </view>
     <view class='orderList'>
-      <view>订单号：123456</view>
-      <view style='margin-right:40rpx'>贵A123456</view>
+      <view>
+        <view>订单号：123456</view>
+        <view>车牌号：贵123456</view>
+      </view>
+      <view>上午</view>
+      <view style='margin-right:40rpx'>
+        <view>已预审</view>
+        <view>下单成功</view>
+      </view>
       <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
     </view>
   </view>

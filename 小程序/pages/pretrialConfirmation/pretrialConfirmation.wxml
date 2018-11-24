@@ -1,0 +1,19 @@
+<!--pages/pretrialConfirmation/pretrialConfirmation.wxml-->
+<view class='container'>
+  <view class='item'>
+    <view>温馨提示：</view>
+    <view>1.查验车辆要注册年限6年以上；</view>
+    <view>2.提前处理交通或违章</view>
+    <view>3.车辆无改装</view>
+    <view>4.携带行驶证原件和保单副本</view>
+  </view>
+  <view class='item2'>
+    <view>监测站：XXXXXXX</view>
+    <view>车牌号：XXXXXX</view>
+    <view>手机号：1355555555</view>
+    <view>地址：XXXXXX</view>
+    <view>时间：2018/03/12 上午</view>
+  </view>
+  <view class='bt' bindtap='next'>减少往返先预审</view>
+  <view class='bt' bindtap='next'>已到站跳过预审</view>
+</view>

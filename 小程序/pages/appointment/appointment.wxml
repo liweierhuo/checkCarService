@@ -4,6 +4,15 @@
     张三
   </view>
   <view class='items'>
+   <view class='number'>
+      车牌号：
+      <picker bindchange="bindNumberChange" value="{{numberIndex}}" range="{{numberArray}}" class='numberPicker'>
+      <view>
+        {{numberArray[numberIndex]}}
+      </view>
+    </picker>
+     <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
+    </view>
     <view class='number'>
       手机号：
       <input placeholder="" class='numberInput' />
@@ -14,6 +23,7 @@
           {{region[0]}}，{{region[1]}}，{{region[2]}}
         </view>
       </picker>
+      <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
     </view>
     <view class='locationWrap'>
       <view>贵州省贵阳市白云区</view>
@@ -33,7 +43,7 @@
     </view>
     <view class='chooseTime'>
       <view class="section__title">时段：</view>
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" class='datePicker'>
+      <picker bindchange="bindDateChange" value="{{index}}" range="{{array}}" class='datePicker'>
         <view>
           {{array[index]}}
         </view>

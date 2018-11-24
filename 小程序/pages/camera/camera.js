@@ -25,6 +25,11 @@ Page({
   error(e) {
     console.log(e.detail)
   },
+  next: function () {
+    wx.navigateTo({
+      url: '../review/review'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

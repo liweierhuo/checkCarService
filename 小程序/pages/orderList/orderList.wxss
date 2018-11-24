@@ -43,7 +43,7 @@ page {
 
 .orderList {
   display: flex;
-  height: 80rpx;
+  height: 120rpx;
   padding: 0 40rpx;
   align-items: center;
   justify-content: space-between;
@@ -55,7 +55,7 @@ page {
   width: 16rpx;
   position: absolute;
   right: 40rpx;
-  top: 14px;
+  top: 24px;
 }
 .tips{
   text-align: center;

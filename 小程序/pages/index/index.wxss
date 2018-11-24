@@ -67,7 +67,7 @@
 
 .show {
   display: block;
-  margin-bottom: 120rpx;
+  padding-bottom: 200rpx;
 }
 
 .hidden {

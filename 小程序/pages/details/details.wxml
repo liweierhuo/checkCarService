@@ -42,5 +42,5 @@
   </view>
   <view class='mapTip'>均运汽车监测有限公司交通证明</view>
   <map id="map" longitude="113.324520" latitude="23.099994" enable-zoom="true" scale="14" markers="{{markers}}" show-location style="width: 100%; height: 475rpx;"></map>
-  <view class='bt'>下单</view>
+  <view class='bt' bindtap='next'>下单</view>
 </view>

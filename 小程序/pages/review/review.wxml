@@ -35,11 +35,21 @@
   <view class='comment'>
     <view class='comment1'>
       <view class='tip'>评分：</view>
-
+      <view class='stars'>
+        <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
+        <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
+        <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
+        <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
+        <image class='starOn' mode="widthFix" src="../../img/star2.png"></image>
+      </view>
     </view>
     <view class='comment2'>
       <view class='tip'>评论：</view>
       <textarea class='textarea'></textarea>
+    </view>
+    <view class='commentTip'>
+    <view class='tip1'>文字描述最多200字，还可以输入50字</view>
+    <view class='bt'>提交</view>
     </view>
   </view>
 </view>

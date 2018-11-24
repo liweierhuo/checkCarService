@@ -88,7 +88,11 @@
 .stata {
   color: #0177ff;
 }
-.comment{margin-bottom: 20px}
+
+.comment {
+  margin-bottom: 20px;
+}
+
 .comment1 {
   color: #f4ea2a;
   height: 100rpx;
@@ -104,12 +108,38 @@
 
 .comment2 .textarea {
   display: flex;
-  border:1px solid #b8b8b8;
+  border: 1px solid #000;
   height: 230rpx;
-  border-radius:5px ;
-  padding: 5px
+  border-radius: 5px;
+  padding: 5px;
+  color: #000
 }
-.tip{
-  width: 100rpx;
 
+.tip {
+  width: 100rpx;
+}
+
+.starOn {
+  width: 30rpx;
+}
+
+.commentTip {
+  display: flex;
+  margin-top: 40rpx;
+  padding-bottom: 50rpx
+}
+
+.tip1 {
+  flex: 1;
+  word-break: break-all;
+}
+
+.bt {
+  width: 80rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background-color: #01b4ff;
+  text-align: center;
+  color: #fff;
+  border-radius: 3px;
 }

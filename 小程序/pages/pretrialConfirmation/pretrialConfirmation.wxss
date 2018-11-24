@@ -1,0 +1,29 @@
+/* pages/pretrialConfirmation/pretrialConfirmation.wxss */
+
+.container {
+  border-top: 1px solid #b5b5b5;
+  padding: 50rpx;
+}
+
+.item {
+  color: #ff8400;
+  line-height: 50rpx;
+  padding-bottom: 50rpx;
+}
+
+.item2 {
+  padding-top: 50rpx;
+  border-top: 1px solid #b5b5b5;
+  color: #000;
+  line-height: 50rpx;
+  margin-bottom: 40rpx
+}
+.bt{
+  background-color: #01b4ff;
+  color: #fff;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 50x;
+  margin-top: 50rpx;
+}

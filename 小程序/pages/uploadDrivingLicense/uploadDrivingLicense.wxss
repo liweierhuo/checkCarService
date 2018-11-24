@@ -10,6 +10,16 @@
   margin: 40rpx;
   border: 1px dotted #bbbbbb;
 }
+.chooseNumber{
+  margin: 100rpx 40rpx;
+  border: 1px solid #bbbbbb;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
 .uploadImg{
   display: block;
   width: 100%;
@@ -30,4 +40,12 @@
    color: #16a9ff;
   margin-top: 150rpx;
   text-align: center
+}
+.datePicker{
+  flex: 1;
+  text-align: right
+}
+.arrow{
+  width: 18rpx;
+  margin-left: 30rpx
 }

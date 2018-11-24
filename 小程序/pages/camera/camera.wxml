@@ -10,5 +10,5 @@
   <view class='tip1' wx:if="{{finish}}">请拍右后轮胎照片。</view>
    <view class='tip2' wx:if="{{!finish}}">请点击提交</view>
   <view class='photoBt' bindtap="takePhoto" wx:if="{{finish}}">确认拍照</view>
-  <view class='photoBt'  wx:if="{{!finish}}">提交</view>
+  <view class='photoBt'  wx:if="{{!finish}}" bindtap='next'>提交</view>
 </view>

@@ -8,7 +8,9 @@ Page({
     region: ['广东省', '广州市', '海珠区'],
     date: '2016-09-01',
     array: ['上午', '下午'],
-    index: 0
+    index: 0,
+    numberArray: ['贵A123456', '贵A111111'],
+    numberIndex:0
   }, 
   bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -19,12 +21,17 @@ Page({
 
   bindDateChange: function (e){
     this.setData({
-      date: e.detail.value
+      index: e.detail.value
+    })
+  },
+  bindNumberChange: function (e) {
+    this.setData({
+      numberIndex: e.detail.value
     })
   },
   next: function () {
     wx.navigateTo({
-      url: '../recommend/recommend'
+      url: '../appointmentConfirmation/appointmentConfirmation'
     })
   },
   /**
