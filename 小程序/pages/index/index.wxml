@@ -72,6 +72,7 @@
       </view>
     </view>
   </view>
+  <!--
   <view class='commonFoot'>
     <view class='commonFootIem'>
       <image class='commonFootIcon' mode="widthFix" src="../../img/footer_home.png"></image>
@@ -82,4 +83,5 @@
       <view>我的</view>
     </view>
   </view>
+  -->
 </view>

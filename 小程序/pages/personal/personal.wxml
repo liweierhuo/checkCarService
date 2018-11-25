@@ -1,35 +1,47 @@
 <!--pages/personal/personal.wxml-->
 <view class='container'>
   <view class='top'>
-    <image class='personalImg' mode="widthFix" src="../../img/face.png" ></image>
+
+ 
+   <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo"    bindgetuserinfo="getUserInfo" class='getUserInfoBtn'>获取头像昵称</button>
+    <block wx:else>
+      <image class='personalImg' src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class='personalName'>{{userInfo.nickName}}</view>
+    </block>
+
+    <!--
+    <image class='personalImg' mode="widthFix" src="{{avatarUrl}}"></image>
     <view class='personalName'>奥斯卡欠你一堆奖</view>
+    -->
+
     <view class='topBts'>
       <view class='new'>
         <image class='newImg' mode="widthFix" src="../../img/new.png">
           <view class='dian'></view>
         </image>
       </view>
-      <view class='myOrder'bindtap="goMyData" >
+      <view class='myOrder' bindtap='goMyData'>
         <image class='myOrderImg' mode="widthFix" src="../../img/book.png"></image>
       </view>
     </view>
   </view>
   <view class='items'>
-    <view class='item'bindtap="goMyCar">
-      <image class='myCar' mode="scaleToFill" src="../../img/my_car.png" ></image>
+    <view class='item' bindtap='goMyCar'>
+      <image class='myCar' mode="widthFix" src="../../img/my_car.png"></image>
       我的车辆
     </view>
-    <view class='item'bindtap="goMyOrder">
-      <image class='myOrder' mode="scaleToFill" src="../../img/my_order.png" ></image>
+    <view class='item' bindtap='goMyOrder'>
+      <image class='myOrder' mode="widthFix" src="../../img/my_order.png"></image>
       我的订单
     </view>
-    <view class='item' bindtap="goMyOrder2">
-      <image class='myDai' mode="scaleToFill" src="../../img/my_dai.png"></image>
+    <view class='item'>
+      <image class='myDai' mode="widthFix" src="../../img/my_dai.png"></image>
       代理标订单
     </view>
   </view>
+  <!--
   <view class='commonFoot'>
-    <view class='commonFootIem' bindtap="goIndex">
+    <view class='commonFootIem'>
       <image class='commonFootIcon' mode="widthFix" src="../../img/footer_home.png"></image>
       <view>主页</view>
     </view>
@@ -38,4 +50,5 @@
       <view>我的</view>
     </view>
   </view>
+  -->
 </view>

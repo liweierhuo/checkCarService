@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "推荐站"
+  "navigationBarTitleText": "推荐站",
+  "enablePullDownRefresh": true
 }

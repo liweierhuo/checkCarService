@@ -1,62 +1,32 @@
 <view class="container">
   <view class='recommendList'>
-    <view class='recommendItem' bindtap="goDetails">
+    <view class='recommendItem' bindtap='goDetail(item.id)' wx:for="{{stationList}}" wx:for-item="item" wx:key="listKey">
       <view class='recommendItemImg'>
-        <image class='recommendItemImg2' mode="widthFix" src="../../img/demo1.png"></image>
+        <image class='recommendItemImg2' mode="widthFix" src="{{item.log_img.url}}"></image>
       </view>
       <view class='recommendItemRight'>
         <view class='right1'>
-          <view class='locationName'>均运站</view>
+          <view class='locationName'>{{item.name}}</view>
           <view class='stars'>
-            <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
-            <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
-            <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
-            <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
-            <image class='starOn' mode="widthFix" src="../../img/star2.png"></image>
+            <image class='starOn' mode="widthFix" src="{{item.star_mark>=1 ? '../../img/star1.png' : '../../img/star2.png' }}"></image>
+             <image class='starOn' mode="widthFix" src="{{item.star_mark>=2 ? '../../img/star1.png' : '../../img/star2.png' }}"></image>
+              <image class='starOn' mode="widthFix" src="{{item.star_mark>=3 ? '../../img/star1.png' : '../../img/star2.png' }}"></image>
+               <image class='starOn' mode="widthFix" src="{{item.star_mark>=4 ? '../../img/star1.png' : '../../img/star2.png' }}"></image>
+                <image class='starOn' mode="widthFix" src="{{item.star_mark>=5 ? '../../img/star1.png' : '../../img/star2.png' }}"></image>
           </view>
         </view>
         <view class='right1'>
           <view class='address'>
-            贵阳市白云区白云南路134号
+          {{item.address}}
           </view>
           <view class='rightArrow'>
             <image class='arrow' mode="widthFix" src="../../img/arrow.png"></image>
           </view>
         </view>
         <view class='right1'>
-          <view class='costPrice'>￥400</view>
+          <view class='costPrice'>￥{{item.old_price}}</view>
           <image class='rightArrow2' mode="widthFix" src="../../img/arrow2.png"></image>
-          <view class='discountedPrice'>￥200</view>
-        </view>
-      </view>
-    </view>
-    <view class='recommendItem' bindtap="goDetails">
-      <view class='recommendItemImg'>
-        <image class='recommendItemImg2' mode="widthFix" src="../../img/demo1.png"></image>
-      </view>
-      <view class='recommendItemRight'>
-        <view class='right1'>
-          <view class='locationName'>均运站</view>
-          <view class='stars'>
-            <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
-            <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
-            <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
-            <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
-            <image class='starOn' mode="widthFix" src="../../img/star2.png"></image>
-          </view>
-        </view>
-        <view class='right1'>
-          <view class='address'>
-            贵阳市白云区白云南路134号
-          </view>
-          <view class='rightArrow'>
-            <image class='arrow' mode="widthFix" src="../../img/arrow.png"></image>
-          </view>
-        </view>
-        <view class='right1'>
-          <view class='costPrice'>￥400</view>
-          <image class='rightArrow2' mode="widthFix" src="../../img/arrow2.png"></image>
-          <view class='discountedPrice'>￥200</view>
+          <view class='discountedPrice'>￥{{item.now_price}}</view>
         </view>
       </view>
     </view>
