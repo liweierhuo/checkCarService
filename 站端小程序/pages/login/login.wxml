@@ -1,0 +1,14 @@
+<!--pages/login/login.wxml-->
+<view class='container'>
+  <view class='loginform'>
+    <view class='loginItem'>
+      账号：
+      <input type='text' placeholder='请输入账号'></input>
+    </view>
+    <view class='loginItem'>
+      密码：
+      <input type='password' placeholder='请输入密码'></input>
+    </view>
+    <view class='loginBt' bindtap='login'>登录</view>
+  </view>
+</view>

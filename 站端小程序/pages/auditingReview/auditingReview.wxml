@@ -1,0 +1,17 @@
+<!--pages/auditingReview/auditingReview.wxml-->
+<view class='container'>
+  <view class='title'>
+    <view>订单号：123456</view>
+    <view>车牌号：123456</view>
+  </view>
+  <view class='photos'>
+    <view class='photo'>
+      <view>左前轮胎花纹</view>
+      <image class='demoImg' mode="widthFix" src="../../img/demo1.png"></image>
+    </view>
+    <view class='photo'>
+      <view>左前轮胎花纹</view>
+      <image class='demoImg' mode="widthFix" src="../../img/demo1.png"></image>
+    </view>
+  </view>
+</view>
