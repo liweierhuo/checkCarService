@@ -4,7 +4,7 @@
     <view class='myItem'>
       <view class='myItem1'>头像</view>
       <view class='myItem2'>
-        <image class='myItem2Img' mode="widthFix" src="../../img/face.png"></image>
+        <image class='myItem2Img' mode="scaleToFill" src="../../img/demo1.png"></image>
       </view>
       <view class='rightArrow'>
         <image class='Arrow' mode="widthFix" src="../../img/arrow_black.png"></image>

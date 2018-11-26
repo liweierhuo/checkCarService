@@ -2,16 +2,18 @@
 <view class='container'>
   <view class='carList'>
     <view class='carItem'>
+      <image class='jiazi1' mode="widthFix" src="../../img/jiazi.png"></image>
+      <image class='jiazi2' mode="widthFix" src="../../img/jiazi.png"></image>
       <view class='carNumber'>贵123456</view>
       <view class='carBts'>
-        <view class='bt1' bindtap="goDetails">查看详情</view>
         <view class='bt2'>删除</view>
       </view>
     </view>
     <view class='carItem'>
+      <image class='jiazi1' mode="widthFix" src="../../img/jiazi.png"></image>
+      <image class='jiazi2' mode="widthFix" src="../../img/jiazi.png"></image>
       <view class='carNumber'>贵123456</view>
       <view class='carBts'>
-        <view class='bt1' bindtap="goDetails">查看详情</view>
         <view class='bt2'>删除</view>
       </view>
     </view>

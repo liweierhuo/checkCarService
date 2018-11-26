@@ -1,0 +1,60 @@
+/* pages/myOrder/myOrder.wxss */
+
+.container {
+  background-color: #fff;
+}
+.myData2{
+  height: 170rpx;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  padding: 0 60rpx;
+  font-size: 30rpx
+}
+.orderLists {
+  background-color: #fff;
+}
+
+.orderList {
+  display: flex;
+  height: 120rpx;
+  padding: 0 40rpx;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #7fc3f3;
+  position: relative;
+}
+
+.arrow {
+  width: 16rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 24px;
+}
+.tips{
+  text-align: center;
+  color: #fff;
+  line-height: 40px;
+  font-size: 14px
+}
+.itemright{
+  display: flex;
+  margin-right: 40rpx
+}
+.time{
+  margin-right: 20rpx;display: flex;align-items: center
+}
+.statas{width: 130rpx;word-break: nowrap;text-align: right}
+.zhixiao{
+  color: #fff;
+  width: 90rpx;
+  height: 90rpx;
+  border-radius:50%;
+  line-height: 90rpx;text-align: center;
+  background-color: #cce4ff; 
+   transform: rotate(-30deg);
+  -ms-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg);
+  -o-transform: rotate(-30deg);
+}

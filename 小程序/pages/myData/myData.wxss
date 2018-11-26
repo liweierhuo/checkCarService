@@ -38,6 +38,7 @@ page {
   display: block;
   width: 125rpx;
   height: 125rpx;
+  border-radius: 50%;
   margin-right: 30rpx;
 }
 
