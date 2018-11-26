@@ -1,10 +1,12 @@
 // pages/details/details.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    station: {},
     markers: [{
       id: 0,
       latitude: 23.099994,
@@ -22,13 +24,15 @@ Page({
   },
   next: function () {
     wx.navigateTo({
-      url: '../pretrialConfirmation/pretrialConfirmation'
+      url: '../../pretrialConfirmation/pretrialConfirmation'
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.info("stationId:"+options.stationId);
+    this.getStationInfo(options.stationId);
 
   },
 
@@ -79,5 +83,46 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getStationInfo : function (id) {
+    var _this = this;
+    wx.request({
+      url: app.globalData.requestBase + '/api/v1/station/'+id,
+      data: { time: new Date() },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data);
+        if (res.data.code = app.globalData.SUCCESS_CODE) {
+          console.info("res.result" + res.data.result);
+          if (res.data.result != undefined && res.data.result != null 
+          && res.data.result != '') {
+            var marker = {
+              id: 0,
+              latitude: 23.099994,
+              longitude: 113.324520,
+              label: {
+                display: "ALWAYS",
+                borderRadius: 5,
+                borderWidth: 1,
+                bgColor: '#fff',
+                borderColor: "#aeaeae",
+                padding: 5,
+                content: res.data.result.name + "\n地址：" + res.data.result.address + "\n电话：" 
+                  + res.data.result.mobile
+              }
+            };
+            var myMarkers = new Array(1);
+            myMarkers[0] = marker;
+            _this.setData({
+              station: res.data.result,
+              markers: myMarkers,
+            });
+          }
+        }
+      }
+    });
   }
 })

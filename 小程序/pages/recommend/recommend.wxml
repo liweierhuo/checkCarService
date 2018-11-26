@@ -1,6 +1,6 @@
 <view class="container">
   <view class='recommendList'>
-    <view class='recommendItem' bindtap='goDetail(item.id)' wx:for="{{stationList}}" wx:for-item="item" wx:key="listKey">
+    <view class='recommendItem' data-id="{{item.id}}" bindtap='goDetail' wx:for="{{stationList}}" wx:for-item="item" wx:key="listKey">
       <view class='recommendItemImg'>
         <image class='recommendItemImg2' mode="widthFix" src="{{item.log_img.url}}"></image>
       </view>

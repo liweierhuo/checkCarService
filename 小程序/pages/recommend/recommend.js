@@ -82,19 +82,18 @@ Page({
   onShareAppMessage: function() {
 
   },
-  goDetail : function (id) {
-    console.info("id" + id);
-  
+  goDetail : function (e) {
+    console.info("id:" + e.currentTarget.dataset.id);
+    wx.navigateTo({
+      url: '../details/details?stationId=' + e.currentTarget.dataset.id,
+    })
   },
   //获取监测站列表
   getStation : function () {
     var _this = this;
     wx.request({
       url: app.globalData.requestBase+'/api/v1/station/all', 
-      data: {
-        x: '',
-        y: ''
-      },
+      data: {time:new Date()},
       method: 'GET',
       header: {
         'content-type': 'application/json' // 默认值

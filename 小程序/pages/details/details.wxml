@@ -6,41 +6,41 @@
     </view>
     <view class='recommendItemRight'>
       <view class='right1'>
-        <view class='locationName'>均运站</view>
+        <view class='locationName'>{{station.name}}</view>
         <view class='stars'>
-          <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
-          <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
-          <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
-          <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
-          <image class='starOn' mode="widthFix" src="../../img/star2.png"></image>
+          <image class='starOn' mode="widthFix" src="{{station.star_mark>=1 ? '../../img/star1.png' : '../../img/star2.png' }}"></image>
+             <image class='starOn' mode="widthFix" src="{{station.star_mark>=2 ? '../../img/star1.png' : '../../img/star2.png' }}"></image>
+              <image class='starOn' mode="widthFix" src="{{station.star_mark>=3 ? '../../img/star1.png' : '../../img/star2.png' }}"></image>
+               <image class='starOn' mode="widthFix" src="{{station.star_mark>=4 ? '../../img/star1.png' : '../../img/star2.png' }}"></image>
+                <image class='starOn' mode="widthFix" src="{{station.star_mark>=5 ? '../../img/star1.png' : '../../img/star2.png' }}"></image>
         </view>
       </view>
       <view class='right1'>
         <view class='address'>
-          贵阳市白云区白云南路134号
+          {{station.address}}
         </view>
         <view class='rightArrow'>
           <image class='arrow' mode="widthFix" src="../../img/arrow.png"></image>
         </view>
       </view>
       <view class='right1'>
-        <view class='costPrice'>￥400</view>
+        <view class='costPrice'>￥{{station.old_price}}</view>
         <image class='rightArrow2' mode="widthFix" src="../../img/arrow2.png"></image>
-        <view class='discountedPrice'>￥200</view>
+        <view class='discountedPrice'>￥{{station.now_price}}</view>
       </view>
     </view>
   </view>
   <view class='infomation'>
     <view>电话：
-      <text>13600000000</text>
+      <text>{{station.mobile}}</text>
     </view>
-    <view>服务时间：周一至周五80:00-16:00</view>
+    <view>服务时间：{{station.service_time}}</view>
   </view>
   <view class='abstract'>
     <view>公司简介：</view>
-    <view>阿撒打算大神大大三大大神大大神大声道阿撒打算大神大大三大大神大大神大声道阿撒打算大神大大三大大神大大神大声道阿撒打算大神大大三大大神大大神大声道</view>
+    <view>{{station.introduction}}</view>
   </view>
-  <view class='mapTip'>均运汽车监测有限公司交通证明</view>
+  <view class='mapTip'>{{station.name}}交通地图</view>
   <map id="map" longitude="113.324520" latitude="23.099994" enable-zoom="true" scale="14" markers="{{markers}}" show-location style="width: 100%; height: 475rpx;"></map>
   <view class='bt' bindtap='next'>下单</view>
 </view>

@@ -35,7 +35,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    switchTabIndex: "home",
     isMock: false,
     requestBase: "https://www.sqyan.com:444/",
     SUCCESS_CODE: 200,

@@ -1,31 +1,61 @@
 {
   "pages": [
-    
-        "pages/index/index",
+    "pages/recommend/recommend",
+    "pages/index/index",
     "pages/uploadDrivingLicense/uploadDrivingLicense",
-    "pages/auditingReview/auditingReview",
-    "pages/auditingDetails/auditingDetails",
-    "pages/orderList/orderList",
-    "pages/login/login",
-    "pages/details/details",
     "pages/addCar/addCar",
     "pages/appointmentConfirmation/appointmentConfirmation",
+    
+    "pages/myOrder/myOrder",
+    "pages/orderList/orderList",
+    
+   
+    "pages/auditingReview/auditingReview",
+    "pages/auditingDetails/auditingDetails",
+    
+    "pages/login/login",
+    "pages/details/details",
+    
+    
     "pages/success/success",
     "pages/appointment/appointment",
     "pages/camera/camera",
     "pages/review/review",
     "pages/myData/myData",
-    "pages/myOrder/myOrder",
+    
     "pages/myCar/myCar",
     "pages/personal/personal",
     "pages/myNewDetail/myNewDetail",
-    "pages/myNew/myNew",
-    "pages/recommend/recommend"
+    "pages/myNew/myNew"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarTitleText": "Wechat",
+    "navigationBarTitleText": "机动车服务中心",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default",
+    "backgroundColor": "#96c3f4"
+  },
+  "debug": true,
+  "tabBar": {
+    "backgroundColor": "#96c3f4",
+    "borderStyle": "white",
+    "color": "#ffffff",
+    "selectedColor": "#3393ff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "img/nav/home_off.png",
+        "selectedIconPath": "img/nav/home_on.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "iconPath": "img/nav/me_off.png",
+        "selectedIconPath": "img/nav/me_on.png",
+        "text": "我的"
+      }
+    ]
   }
 }
