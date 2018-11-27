@@ -24,7 +24,7 @@ Page({
   },
   next: function () {
     wx.navigateTo({
-      url: '../../pretrialConfirmation/pretrialConfirmation'
+      url: '../pretrialConfirmation/pretrialConfirmation'
     })
   },
   /**

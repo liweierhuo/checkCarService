@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/auditFailure/auditFailure",
+    "pages/index/index",
     "pages/recommend/recommend",
     "pages/uploadDrivingLicense/uploadDrivingLicense",
     "pages/addCar/addCar",
@@ -20,7 +20,8 @@
     "pages/myCar/myCar",
     "pages/personal/personal",
     "pages/myNewDetail/myNewDetail",
-    "pages/myNew/myNew"
+    "pages/myNew/myNew",
+    "pages/pretrialConfirmation/pretrialConfirmation"
   ],
   "window": {
     "backgroundTextStyle": "light",
