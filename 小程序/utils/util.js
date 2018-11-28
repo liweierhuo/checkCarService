@@ -8,7 +8,11 @@ function isNotBlank(str) {
   return true;
 }
 
+function getPages(totalCount,pageSize) {
+  return Math.ceil(parseInt(totalCount) /parseInt(pageSize));
+}
 
 module.exports = {
-  isNotBlank: isNotBlank
+  isNotBlank: isNotBlank,
+  getPages: getPages
 }

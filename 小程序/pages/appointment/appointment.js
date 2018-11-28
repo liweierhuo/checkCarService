@@ -1,4 +1,5 @@
 // pages/appointment/appointment.js
+const app = getApp();
 Page({
 
   /**
@@ -10,8 +11,9 @@ Page({
     array: ['上午', '下午'],
     index: 0,
     numberArray: ['贵A123456', '贵A111111'],
-    numberIndex:0
-  }, 
+    numberIndex: 0,
+    address:'',
+  },
   bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
@@ -19,7 +21,7 @@ Page({
     })
   },
 
-  bindDateChange: function (e){
+  bindDateChange: function (e) {
     this.setData({
       index: e.detail.value
     })
@@ -52,7 +54,30 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var _this = this;
+    wx.getStorage({
+      key: 'ad_info',
+      success(res) {
+        console.log(res.data)
+        var province= res.data.province;
+        var city = res.data.city;
+        var district = res.data.district;
+        var myRegion = [province, city, district]
+        _this.setData({
+          region: myRegion
+        })
+      }
+    });
+    wx.getStorage({
+      key: 'address',
+      success(res) {
+        console.log(res.data)
+        var address = res.data;
+        _this.setData({
+          address: address
+        })
+      }
+    })
   },
 
   /**
@@ -88,5 +113,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  selectAddress:function() {
+    wx.navigateTo({
+      url: '../location/location',
+    })
   }
 })

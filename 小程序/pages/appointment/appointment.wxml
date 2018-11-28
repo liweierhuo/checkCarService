@@ -26,8 +26,8 @@
       <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
     </view>
     <view class='locationWrap'>
-      <view>贵州省贵阳市白云区</view>
-      <image class='location' mode="widthFix" src="../../img/location.png"></image>
+      <view>{{address}}</view>
+      <image class='location' mode="widthFix" src="../../img/location.png" bindtap='selectAddress'></image>
     </view>
     <view class='number'>
       详情地址（选填）

@@ -1,0 +1,19 @@
+<!--pages/location/location.wxml-->
+<view class='container'>
+  <view class='top'>
+    <view class='search'>
+      <input placeholder='搜索附近' placeholder-style="color:#99d4f5;" value="{{keyword}}" bindconfirm="bindconfirm"></input>
+      <image class='searchIcon' mode="widthFix" src="../../img/search.png"></image>
+    </view>
+  </view>
+  <view class='orderLists'>
+    <view class='orderList' wx:for="{{addressList}}" wx:key="key" bindtap='selectedThis' data-address="{{item.address}}" data-ad_info="{{item.ad_info}}">
+      <view>
+        <view>{{item.title}}</view>
+        <view>{{item.address}}</view>
+      </view>
+      <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
+    </view>
+  </view>
+</view>
+

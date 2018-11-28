@@ -38,5 +38,6 @@ App({
     isMock: false,
     requestBase: "https://www.sqyan.com:444/",
     SUCCESS_CODE: 200,
+    QQ_MAP_APP_KEY:'4RPBZ-2KCK4-LFFUR-XO3OJ-LWJB6-OMFHP'
   },
 })
