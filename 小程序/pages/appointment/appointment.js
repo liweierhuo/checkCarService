@@ -1,4 +1,6 @@
 // pages/appointment/appointment.js
+var util = require('../../utils/util.js');
+const config = require('../../config');
 const app = getApp();
 Page({
 
@@ -13,6 +15,8 @@ Page({
     numberArray: ['贵A123456', '贵A111111'],
     numberIndex: 0,
     address:'',
+    latitude: 23.099994,
+    longitude: 113.324520,
   },
   bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -40,7 +44,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var _this = this;
+    wx.getLocation({
+      type: 'wgs84',
+      success(res) {
+        const latitude = res.latitude
+        const longitude = res.longitude
+        const speed = res.speed
+        const accuracy = res.accuracy
+        _this.setData({
+          latitude: latitude,
+          longitude: longitude,
+        })
+        //util.reverseGeocoder(latitude, longitude);
+      }
+    });
+    
   },
 
   /**
@@ -115,8 +134,21 @@ Page({
 
   },
   selectAddress:function() {
+    /*
     wx.navigateTo({
       url: '../location/location',
     })
+    */
+    wx.chooseLocation({
+      success: function (res) {
+        console.log(res);
+        //选择地点之后返回到原来页面
+
+        
+      },
+      fail: function (err) {
+        console.log(err)
+      }
+    });
   }
 })

@@ -1,5 +1,8 @@
 // pages/details/details.js
 const app = getApp();
+var util = require('../../utils/util.js');
+var config = require('../../config.js');
+var network = require('../../network.js');
 Page({
 
   /**
@@ -84,45 +87,63 @@ Page({
   onShareAppMessage: function () {
 
   },
+  makePhoneCall(e) {
+    console.info("id:" + e.currentTarget.dataset.phone);
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phone,
+      success() {
+        console.log('成功拨打电话')
+      }
+    })
+  },
   getStationInfo : function (id) {
     var _this = this;
-    wx.request({
-      url: app.globalData.requestBase + '/api/v1/station/'+id,
-      data: { time: new Date() },
-      method: 'GET',
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success(res) {
-        console.log(res.data);
-        if (res.data.code = app.globalData.SUCCESS_CODE) {
-          console.info("res.result" + res.data.result);
-          if (res.data.result != undefined && res.data.result != null 
+    network.getStationDetail(id ,function (res, xhr) {
+      console.log(res.data);
+      if (res.data.code = config.SUCCESS_CODE) {
+        console.info("res.result" + res.data.result);
+        if (res.data.result != undefined && res.data.result != null
           && res.data.result != '') {
-            var marker = {
-              id: 0,
-              latitude: 23.099994,
-              longitude: 113.324520,
-              label: {
-                display: "ALWAYS",
-                borderRadius: 5,
-                borderWidth: 1,
-                bgColor: '#fff',
-                borderColor: "#aeaeae",
-                padding: 5,
-                content: res.data.result.name + "\n地址：" + res.data.result.address + "\n电话：" 
-                  + res.data.result.mobile
-              }
-            };
-            var myMarkers = new Array(1);
-            myMarkers[0] = marker;
-            _this.setData({
-              station: res.data.result,
-              markers: myMarkers,
-            });
-          }
+          var marker = {
+            id: 0,
+            latitude: 23.099994,
+            longitude: 113.324520,
+            label: {
+              display: "ALWAYS",
+              borderRadius: 5,
+              borderWidth: 1,
+              bgColor: '#fff',
+              borderColor: "#aeaeae",
+              padding: 5,
+              content: res.data.result.name + "\n地址：" + res.data.result.address + "\n电话："
+                + res.data.result.mobile
+            }
+          };
+          var myMarkers = new Array(1);
+          myMarkers[0] = marker;
+          _this.setData({
+            station: res.data.result,
+            markers: myMarkers,
+          });
         }
       }
     });
-  }
+  },
+  previewImage : function () {
+    wx.previewImage({
+      current: 'http://www.tjfae.com/res/cms/upload/201807/261335019tyf.png', // 当前显示图片的http链接
+      urls: ['http://www.tjfae.com/res/cms/upload/201807/261335019tyf.png'], // 需要预览的图片http链接列表
+      success: function (res) {
+        // success
+      },
+      fail: function (res) {
+        // fail
+        console.log(res)
+      },
+      complete: function (res) {
+        // complete
+        //console.log(res)
+      }
+    });
+  },
 })

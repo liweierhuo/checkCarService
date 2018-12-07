@@ -1,5 +1,6 @@
 // pages/personal/personal.js
-
+var util = require('../../utils/util.js');
+var config = require('../../config.js');
 const app = getApp();     // 取得全局App
 Page({
 
@@ -34,7 +35,16 @@ Page({
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
-          app.globalData.userInfo = res.userInfo
+          app.globalData.userInfo = res.userInfo;
+          wx.setStorageSync(config.USER_INFO_KEY, res.userInfo);
+          wx.setStorageSync(config.RAM_DATA_KEY, res.rawData);
+          wx.setStorageSync(config.SIGNATURE_KEY, res.signature);
+          wx.setStorageSync(config.ENCYYPTED_DATA_KEY, res.encryptedData);
+          wx.setStorageSync(config.IV_KEY, res.iv);
+          var token = wx.getStorageSync(config.SESSION_KEY);
+          if (!util.isNotBlank(token)) {
+            util.login();
+          }
           this.setData({
             userInfo: res.userInfo,
             hasUserInfo: true
@@ -45,7 +55,16 @@ Page({
   },
   getUserInfo: function (e) {
     console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+    app.globalData.userInfo = e.detail.userInfo;
+    wx.setStorageSync(config.USER_INFO_KEY, e.detail.userInfo);
+    wx.setStorageSync(config.RAM_DATA_KEY, e.detail.rawData);
+    wx.setStorageSync(config.SIGNATURE_KEY, e.detail.signature);
+    wx.setStorageSync(config.ENCYYPTED_DATA_KEY, e.detail.encryptedData);
+    wx.setStorageSync(config.IV_KEY, e.detail.iv);
+    var token = wx.getStorageSync(config.SESSION_KEY);
+    if (!util.isNotBlank(token)) {
+      util.login();
+    }
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true

@@ -2,7 +2,7 @@
 <view class='container'>
   <view class='recommendItem'>
     <view class='recommendItemImg'>
-      <image class='recommendItemImg2' mode="widthFix" src="../../img/demo1.png"></image>
+      <image class='recommendItemImg2' bindtap='previewImage' mode="widthFix" src="../../img/demo1.png"></image>
     </view>
     <view class='recommendItemRight'>
       <view class='right1'>
@@ -31,7 +31,7 @@
     </view>
   </view>
   <view class='infomation'>
-    <view>电话：
+    <view bindtap="makePhoneCall" data-phone='{{station.mobile}}'>电话：
       <text>{{station.mobile}}</text>
     </view>
     <view>服务时间：{{station.service_time}}</view>

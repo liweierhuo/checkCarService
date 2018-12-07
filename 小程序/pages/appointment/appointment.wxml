@@ -4,14 +4,14 @@
     张三
   </view>
   <view class='items'>
-   <view class='number'>
+    <view class='number'>
       车牌号：
       <picker bindchange="bindNumberChange" value="{{numberIndex}}" range="{{numberArray}}" class='numberPicker'>
-      <view>
-        {{numberArray[numberIndex]}}
-      </view>
-    </picker>
-     <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
+        <view>
+          {{numberArray[numberIndex]}}
+        </view>
+      </picker>
+      <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
     </view>
     <view class='number'>
       手机号：
@@ -20,7 +20,7 @@
     <view class='china'>
       <picker mode="region" bindchange="bindRegionChange" value="{{region}}" class="picker1">
         <view class="picker1">
-          {{region[0]}}，{{region[1]}}，{{region[2]}}
+          {{region[0]}}-{{region[1]}}-{{region[2]}}
         </view>
       </picker>
       <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>

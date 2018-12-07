@@ -1,6 +1,8 @@
 // pages/recommend/recommend.js
 const app = getApp();
 var util = require('../../utils/util.js');
+var config = require('../../config.js');
+var network = require('../../network.js');
 Page({
   /**
    * 页面的初始数据
@@ -14,6 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    //util.login();
     this.getStation();
 
   },
@@ -91,25 +94,17 @@ Page({
   //获取监测站列表
   getStation : function () {
     var _this = this;
-    wx.request({
-      url: app.globalData.requestBase+'/api/v1/station/all', 
-      data: {time:new Date()},
-      method: 'GET',
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success(res) {
-        console.log(res.data);
-        if (res.data.code = app.globalData.SUCCESS_CODE) {
-          console.info("res.result" + res.data.result);
-          if (res.data.result != undefined && res.data.result != null 
+    network.getStationList(function(res,xhr){
+      console.log(res.data);
+      if (res.data.code == config.SUCCESS_CODE) {
+        console.info("res.result" + res.data.result);
+        if (res.data.result != undefined && res.data.result != null
           && res.data.result.length > 0) {
-            _this.setData({
-              stationList: res.data.result,
-            });
-          }
+          _this.setData({
+            stationList: res.data.result,
+          });
         }
       }
-    });
+    })
   }
 })
