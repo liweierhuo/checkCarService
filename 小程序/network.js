@@ -1,30 +1,15 @@
 const config = require('./config');
 const util = require('./utils/util.js');
+const handleLogin = require('./utils/handleLogin.js');
 function execute(url, method , params, callback) {
   wx.showLoading({ title: '加载中',});
   wx.showNavigationBarLoading();
   function _callback(ret, status, xhr) {
-    if (ret.data.code == config.SESSION_TIME_OUT) {
-      wx.showModal({
-        title: '提示',
-        content: '信息过期，重新登录',
-        showCancel: false,
-        confirmText: '确定',
-        success(res) {
-          if (res.confirm) {
-            wx.navigateTo({
-              url: '../personal/personal',
-            })
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
-        }
-      })
-    } else {
-      callback(ret, xhr);
-    }
     wx.hideLoading();
     wx.hideNavigationBarLoading();
+    if(handleLogin.handleError(ret.data)) {
+      callback(ret, xhr);
+    }
   }
   return new Promise(function (resove, reject) {
     wx.request({
@@ -51,20 +36,17 @@ function sessionIntercepter(url) {
   var header = {
     'content-type': 'application/json', // 默认值
   };
-  var token = wx.getStorageSync(config.SESSION_KEY);
-  if (util.isNotBlank(token)) {
-    //token = util.checkSession();
-  } else {
-    token = util.login();
-  }
   var intercep = [
     config.stationListUrl,
     config.stationDetailUrl,
+    config.carListUrl,
+    config.carDetailUrl,
+    config.addCard,
   ];
-
   for (var index in intercep) {
     let str = intercep[index];
     if (url.indexOf(str) > -1) {
+      var token = handleLogin.isLogin();
       if (token != undefined && token != null) {
         header = {
           'content-type': 'application/json', // 默认值
@@ -93,4 +75,14 @@ module.exports = {
   getCarDetail: function (id, callback) {
     execute(config.carDetailUrl + id, 'GET',{}, callback);
   },
+  //用户登录
+  userLogin: function (code, signature, iv, encryptedData,rawData,callback) {
+    execute(config.loginUrl, 'POST', { code: code, signature: signature, iv: iv, encryptedData: encryptedData, rawData: rawData}, callback);
+  },
+
+  //新增车辆
+  addCard: function (car_number, callback) {
+    execute(config.addCard, 'POST', {car_number:car_number}, callback);
+  },
+
 };

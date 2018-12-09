@@ -1,6 +1,6 @@
 // pages/recommend/recommend.js
 const app = getApp();
-var util = require('../../utils/util.js');
+var util = require('../../utils/util.js'); 
 var config = require('../../config.js');
 var network = require('../../network.js');
 Page({
@@ -16,9 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    //util.login();
     this.getStation();
-
   },
 
   /**
@@ -94,7 +92,7 @@ Page({
   //获取监测站列表
   getStation : function () {
     var _this = this;
-    network.getStationList(function(res,xhr){
+    network.getStationList(function (res, xhr) {
       console.log(res.data);
       if (res.data.code == config.SUCCESS_CODE) {
         console.info("res.result" + res.data.result);

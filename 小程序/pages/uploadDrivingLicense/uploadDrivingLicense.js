@@ -1,4 +1,8 @@
 // pages/uploadDrivingLicense/uploadDrivingLicense.js
+const app = getApp();
+var util = require('../../utils/util.js');
+var config = require('../../config.js');
+var network = require('../../network.js');
 Page({
 
   /**
@@ -8,7 +12,8 @@ Page({
     src:'../../img/uploadBg.jpg',
     finish:false,
     array: ['贵A12345', '贵A111111'],
-    index: 0
+    index: 0,
+    carNumber : '',
   },
   showPhoto:function(){
     this.setData({
@@ -16,6 +21,7 @@ Page({
     })
   },
   takePhoto:function(){
+    /*
     const ctx = wx.createCameraContext()
     ctx.takePhoto({
       quality: 'high',
@@ -28,12 +34,36 @@ Page({
         })
       }
     })
+    */
+    this.setData({
+      finish: false
+    })
+    
   },
   bindPickerChange: function (e) {
     this.setData({
       index: e.detail.value
     })
   },
+  carNumberInput: function(e) {
+    console.log("carNumberInput" + e.detail.value);
+    this.setData({
+      carNumber: e.detail.value
+    })
+  },
+
+  saveFunc : function() {
+    console.info("this.carNumber=="+this.data.carNumber);
+    network.addCard(this.data.carNumber, function (res, xhr){
+      console.log(res.data);
+      if (res.data.code == config.SUCCESS_CODE) {
+        wx.showToast({
+          title: '添加成功',
+        })
+      }
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -87,6 +117,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return {
+      title: '返回首页',
+      path: '/pages/index/index',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

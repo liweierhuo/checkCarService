@@ -1,5 +1,6 @@
 // pages/personal/personal.js
 var util = require('../../utils/util.js');
+var handleLogin = require('../../utils/handleLogin.js');
 var config = require('../../config.js');
 const app = getApp();     // 取得全局App
 Page({
@@ -10,67 +11,31 @@ Page({
   data: {
     avatarUrl : "../../img/face.png",
     userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+    var _this = this;
+    
+    var storeUserInfo = _this.getUserInfoByStore();
+    
+    if (storeUserInfo != undefined && storeUserInfo != null) {
+      storeUserInfo = JSON.parse(storeUserInfo);
+      _this.setData({
+        userInfo: storeUserInfo,
       })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
     } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo;
-          wx.setStorageSync(config.USER_INFO_KEY, res.userInfo);
-          wx.setStorageSync(config.RAM_DATA_KEY, res.rawData);
-          wx.setStorageSync(config.SIGNATURE_KEY, res.signature);
-          wx.setStorageSync(config.ENCYYPTED_DATA_KEY, res.encryptedData);
-          wx.setStorageSync(config.IV_KEY, res.iv);
-          var token = wx.getStorageSync(config.SESSION_KEY);
-          if (!util.isNotBlank(token)) {
-            util.login();
-          }
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+      handleLogin.login(function () {
+        storeUserInfo = _this.getUserInfoByStore();
+        storeUserInfo = JSON.parse(storeUserInfo);
+        _this.setData({
+          userInfo: storeUserInfo,
+        })
+      });
     }
+    app.globalData.userInfo = storeUserInfo;
   },
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo;
-    wx.setStorageSync(config.USER_INFO_KEY, e.detail.userInfo);
-    wx.setStorageSync(config.RAM_DATA_KEY, e.detail.rawData);
-    wx.setStorageSync(config.SIGNATURE_KEY, e.detail.signature);
-    wx.setStorageSync(config.ENCYYPTED_DATA_KEY, e.detail.encryptedData);
-    wx.setStorageSync(config.IV_KEY, e.detail.iv);
-    var token = wx.getStorageSync(config.SESSION_KEY);
-    if (!util.isNotBlank(token)) {
-      util.login();
-    }
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -138,5 +103,20 @@ Page({
     wx.navigateTo({
       url: '../myNew/myNew',
     })
-  }
+  },
+  getUserInfoByStore : function() {
+    var storeUserInfo;
+    try {
+      var value = wx.getStorageSync(config.USER_INFO_KEY)
+      if (value) {
+        console.log(value);
+        storeUserInfo = value;
+      }
+    } catch (e) {
+      // Do something when catch error
+      console.error("getUserInfoByStore is error:"+e);
+    }
+    return storeUserInfo;
+  },
+
 })

@@ -21,47 +21,6 @@
         <input></input>
       </view>
     </view>
-    <view class='item'>
-      <view class='stata1'>所有人</view>
-      <view class='stata3'>
-        <input></input>
-      </view>
-    </view>
-    <view class='item'>
-      <view class='stata1'>使用性质</view>
-      <view class='stata3'>
-        <view class='xiala2'>
-          <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{array2}}">
-            <view class="picker2">
-              {{array2[index2]}}
-            </view>
-            <image class='arrow2' mode="widthFix" src="../../img/arrow_black.png"></image>
-          </picker>
-        </view>
-      </view>
-    </view>
-    <view class='item'>
-      <view class='stata1'>车架号</view>
-      <view class='stata3'>
-        <input></input>
-      </view>
-    </view>
-    <view class='item'>
-      <view class='stata1'>发动机号</view>
-      <view class='stata3'>
-        <input></input>
-      </view>
-    </view>
-    <view class='item'>
-      <view class='stata1'>注册日期</view>
-      <view class='stata3'>
-        <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange" class='datePicker'>
-          <view class="datePicker">
-            {{date}}
-          </view>
-        </picker>
-      </view>
-    </view>
     <view class='tip'>
       *您的车辆信息仅用于车辆服务，我们将严格保密。
     </view>

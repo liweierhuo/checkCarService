@@ -52,73 +52,8 @@ function reverseGeocoder(latitude, longitude) {
   });
 }
 
-function login() {
-  // 登录
-  wx.login({
-    success: res => {
-      // ------ 获取凭证 ------
-      var code = res.code;
-
-      if (code) {
-        // console.log('获取用户登录凭证：' + code);
-        // ------ 发送凭证 ------
-        wx.getUserInfo({
-          success: res => {
-            app.globalData.userInfo = res.userInfo;
-            var rawData = res.rawData;
-            var signature = res.signature;
-            var encryptedData = res.encryptedData;
-            var iv = res.iv;
-            wx.request({
-              url: config.loginUrl,
-              data: { 'code': code, 'signature': signature, 'rawData': rawData, 'encryptedData': encryptedData, 'iv': iv },
-              method: 'POST',
-              header: {
-                'content-type': 'application/json'
-              },
-              success: function (res) {
-                if (res.data != undefined && res.data != null) {
-                  wx.setStorageSync(config.SESSION_KEY, res.data.token);
-                  return res.data.token;
-                } else {
-                  wx.showToast({
-                    title: res.data.msg,
-                    icon: 'none'
-                  });
-                }
-              },
-              fail: function (res) {
-                wx.showToast({
-                  title: '登录失败',
-                  icon: 'none'
-                })
-              }
-            })
-          }
-        })
-      } else {
-        console.log('获取用户登录失败：' + res.errMsg);
-      }
-    }
-  });
-}
-function checkSession() {
-  wx.checkSession({
-    success() {
-      //session_key 未过期，并且在本生命周期一直有效
-      return wx.getStorageSync(config.SESSION_KEY);
-    },
-    fail() {
-      // session_key 已经失效，需要重新执行登录流程
-      return login(); //重新登录
-    }
-  })
-}
-
 module.exports = {
   isNotBlank: isNotBlank,
   getPages: getPages,
   reverseGeocoder: reverseGeocoder,
-  login: login,
-  checkSession: checkSession,
 }

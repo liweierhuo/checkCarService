@@ -1,22 +1,14 @@
 <!--pages/myCar/myCar.wxml-->
 <view class='container'>
   <view class='carList'>
-    <view class='carItem'>
+    <view class='carItem' wx:for="{{carList}}" wx:for-item="item" wx:key="carListKey">
       <image class='jiazi1' mode="widthFix" src="../../img/jiazi.png"></image>
       <image class='jiazi2' mode="widthFix" src="../../img/jiazi.png"></image>
-      <view class='carNumber'>贵123456</view>
-      <view class='carBts'>
-        <view class='bt2'>删除</view>
-      </view>
-    </view>
-    <view class='carItem'>
-      <image class='jiazi1' mode="widthFix" src="../../img/jiazi.png"></image>
-      <image class='jiazi2' mode="widthFix" src="../../img/jiazi.png"></image>
-      <view class='carNumber'>贵123456</view>
+      <view class='carNumber'>{{item.car_number}}</view>
       <view class='carBts'>
         <view class='bt2'>删除</view>
       </view>
     </view>
   </view>
-  <view class='addCar' bindtap="goDetails">添加车辆</view>
+  <view class='addCar' bindtap="goAddCar">添加车辆</view>
 </view>

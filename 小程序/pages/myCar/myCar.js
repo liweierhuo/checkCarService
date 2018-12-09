@@ -1,17 +1,21 @@
 // pages/myCar/myCar.js
+const app = getApp();
+var util = require('../../utils/util.js');
+var config = require('../../config.js');
+var network = require('../../network.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    carList:[],
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getCarList();
   },
 
   /**
@@ -25,7 +29,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    //this.getCarList();
   },
 
   /**
@@ -61,5 +65,27 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+  //获取监测站列表
+  getCarList: function () {
+    var _this = this;
+    network.getCarList(function (res, xhr) {
+      console.log(res.data);
+      if (res.data.code == config.SUCCESS_CODE) {
+        console.info("res.result" + res.data.result);
+        if (res.data.result != undefined && res.data.result != null
+          && res.data.result.length > 0) {
+          _this.setData({
+            carList: res.data.result,
+          });
+        }
+      }
+    })
+  },
+  goAddCar() {
+    wx.navigateTo({
+      url: '../uploadDrivingLicense/uploadDrivingLicense',
+    })
+  },
+
 })

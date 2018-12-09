@@ -49,3 +49,18 @@
   width: 18rpx;
   margin-left: 30rpx
 }
+.tip{
+  margin: 0 40rpx;
+  font-size: 13px;
+  color: #cecece;
+  line-height: 40px
+}
+.saveBt{
+  text-align: center;
+  margin: 20px 10px;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #fff;
+  font-size: 15px;
+  background-color: #00a0e9;
+}

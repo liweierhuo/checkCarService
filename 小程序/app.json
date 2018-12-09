@@ -1,13 +1,20 @@
 {
   "pages": [
+    "pages/personal/personal",
+    "pages/uploadDrivingLicense/uploadDrivingLicense",
+    "pages/addCar/addCar",
     "pages/index/index",
+    "pages/getUserInfo/getUserInfo",
+    
+  
+    
     "pages/recommend/recommend",
     "pages/appointment/appointment",
     "pages/location/location",
     "pages/orderList/orderList",
     "pages/auditFailure/auditFailure",
-    "pages/uploadDrivingLicense/uploadDrivingLicense",
-    "pages/addCar/addCar",
+    
+    
     "pages/appointmentConfirmation/appointmentConfirmation",
     "pages/myOrder/myOrder",
     "pages/auditingReview/auditingReview",
@@ -19,11 +26,11 @@
     "pages/review/review",
     "pages/myData/myData",
     "pages/myCar/myCar",
-    "pages/personal/personal",
+    
     "pages/myNewDetail/myNewDetail",
     "pages/myNew/myNew",
-    "pages/pretrialConfirmation/pretrialConfirmation",
-    "pages/getUserInfo/getUserInfo"
+    "pages/pretrialConfirmation/pretrialConfirmation"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

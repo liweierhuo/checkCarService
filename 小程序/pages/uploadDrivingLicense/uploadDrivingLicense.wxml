@@ -9,11 +9,20 @@
 
   <view class='chooseNumber'>
     <view>车牌号*</view>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <input name="carNumber" placeholder="请输入车牌号" bindblur="carNumberInput" value="{{carNumber}}"/>
+    </form>
+    <!--
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" class='datePicker'>
       <view>
         {{array[index]}}
       </view>
     </picker>
      <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
+     -->
   </view>
+     <view class='tip'>
+      *您的车辆信息仅用于车辆服务，我们将严格保密。
+    </view>
+    <view class='saveBt' bindtap='saveFunc'>保存</view>
 </view>
