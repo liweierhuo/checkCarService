@@ -64,14 +64,7 @@ Page({
     wx.setStorageSync(config.USER_INFO_KEY, JSON.stringify(e.detail.userInfo));
     handleLogin.login(function() {
       console.info("异步登录");
-      //获取当前页面js里面的pages里的所有信息。
-      let pages = getCurrentPages(); 
-        //prevPage 是获取上一个页面的js里面的pages的所有信息。 -2 是上一个页面，-3是上上个页面以此类推。
-      let prevPage = pages[pages.length - 1];
-      // 将我们想要传递的参数在这里直接setData。上个页面就会执行这里的操作。
-      prevPage.setData({  
-        isBack:true,
-      })
+      app.globalData.isBack = true;
       wx.navigateBack({
         delta:1,
       })

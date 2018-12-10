@@ -92,5 +92,6 @@ App({
   },
   globalData: {
     userInfo: null,
+    isBack : false,
   },
 })

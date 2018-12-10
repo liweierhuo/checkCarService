@@ -42,6 +42,9 @@ function sessionIntercepter(url) {
     config.carListUrl,
     config.carDetailUrl,
     config.addCard,
+    config.updateCarInfo,
+    config.deleteCarInfo,
+    config.addAuditor,
   ];
   for (var index in intercep) {
     let str = intercep[index];
@@ -83,6 +86,19 @@ module.exports = {
   //新增车辆
   addCard: function (car_number, callback) {
     execute(config.addCard, 'POST', {car_number:car_number}, callback);
+  },
+
+  //修改车辆信息
+  updateCarInfo: function (id, car_number, callback) {
+    execute(config.updateCarInfo + id, 'PUT', { car_number: car_number }, callback);
+  },
+  //删除车辆
+  deleteCarInfo: function (id, callback) {
+    execute(config.deleteCarInfo + id, 'DELETE', {}, callback);
+  },
+  //新增审核信息
+  addAuditor: function (id, callback) {
+    execute(config.addAuditor, 'POST', {}, callback);
   },
 
 };
