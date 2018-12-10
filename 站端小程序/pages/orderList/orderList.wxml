@@ -28,5 +28,7 @@
       <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
     </view>
   </view>
+  <!--
   <view class='tips'>订单列表</view>
+  -->
 </view>

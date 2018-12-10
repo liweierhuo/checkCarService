@@ -1,4 +1,5 @@
 // pages/auditingReview/auditingReview.js
+import Page from '../../common/page';
 Page({
 
   /**

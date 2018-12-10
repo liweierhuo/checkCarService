@@ -1,4 +1,5 @@
 // pages/orderList/orderList.js
+import Page from '../../common/page';
 Page({
 
   /**

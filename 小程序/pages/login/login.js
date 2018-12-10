@@ -1,4 +1,5 @@
 // pages/login/login.js
+import Page from '../../common/page';
 Page({
 
   /**

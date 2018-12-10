@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+import Page from '../../common/page';
 Page({
   data: {
     imgSrc: "../../img/upload.png",

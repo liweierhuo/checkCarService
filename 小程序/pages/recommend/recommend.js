@@ -3,12 +3,14 @@ const app = getApp();
 var util = require('../../utils/util.js'); 
 var config = require('../../config.js');
 var network = require('../../network.js');
+import Page from '../../common/page';
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     stationList: [],
+    isBack:false,
 
   },
 

@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "上传行驶证"
+  "navigationBarTitleText": "上传行驶证",
+  "usingComponents": {
+    "van-notify": "/miniprogram_npm/vant-weapp/notify/index"
+  }
 }

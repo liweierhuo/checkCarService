@@ -3,6 +3,8 @@ const app = getApp();
 var util = require('../../utils/util.js');
 var config = require('../../config.js');
 var network = require('../../network.js');
+import Page from '../../common/page';
+import Notify from '../../miniprogram_npm/vant-weapp/notify/notify.js';
 Page({
 
   /**
@@ -54,6 +56,10 @@ Page({
 
   saveFunc : function() {
     console.info("this.carNumber=="+this.data.carNumber);
+    if (!util.isNotBlank(this.data.carNumber)) {
+      Notify('请输入车牌号');
+      return;
+    }
     network.addCard(this.data.carNumber, function (res, xhr){
       console.log(res.data);
       if (res.data.code == config.SUCCESS_CODE) {

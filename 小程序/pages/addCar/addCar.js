@@ -1,4 +1,5 @@
 // pages/addCar/addCar.js
+import Page from '../../common/page';
 Page({
 
   /**

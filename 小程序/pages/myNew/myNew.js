@@ -1,4 +1,5 @@
 // pages/myNew/myNew.js
+import Page from '../../common/page';
 Page({
 
   /**

@@ -1,4 +1,5 @@
 // pages/appointment/appointment.js
+import Page from '../../common/page';
 var util = require('../../utils/util.js');
 const config = require('../../config');
 const app = getApp();

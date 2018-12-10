@@ -26,3 +26,5 @@
     </view>
     <view class='saveBt' bindtap='saveFunc'>保存</view>
 </view>
+
+<van-notify id="van-notify" />

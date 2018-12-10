@@ -6,6 +6,7 @@
       <image class='jiazi2' mode="widthFix" src="../../img/jiazi.png"></image>
       <view class='carNumber'>{{item.car_number}}</view>
       <view class='carBts'>
+        <view class='bt1'>修改</view>
         <view class='bt2'>删除</view>
       </view>
     </view>

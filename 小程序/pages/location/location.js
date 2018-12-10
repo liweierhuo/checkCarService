@@ -1,6 +1,7 @@
 // pages/location/location.js
 var QQMapWX = require('../../libs/qqmap-wx-jssdk.min.js');
 var util = require('../../utils/util.js');
+import Page from '../../common/page';
 var qqmapsdk;
 const app = getApp();
 Page({

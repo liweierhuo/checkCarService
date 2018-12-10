@@ -3,6 +3,7 @@ const app = getApp();
 var util = require('../../utils/util.js');
 var config = require('../../config.js');
 var network = require('../../network.js');
+import Page from '../../common/page';
 Page({
 
   /**
@@ -29,7 +30,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    //this.getCarList();
+    if (this.data.isBack) {
+      this.getCarList();
+    }
   },
 
   /**

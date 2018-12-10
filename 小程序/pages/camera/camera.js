@@ -1,4 +1,5 @@
 // pages/camera/camera.js
+import Page from '../../common/page';
 Page({
 
   /**

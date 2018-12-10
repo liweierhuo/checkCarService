@@ -16,6 +16,15 @@
         张三
       </view>
     </view>
+      <view class='myItem'>
+      <view class='myItem1'>性别</view>
+      <view class='myItem2'>
+        <input placeholder=''></input>
+      </view>
+      <view class='rightArrow'>
+        <image class='Arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
+      </view>
+    </view>
     <view class='myItem'>
       <view class='myItem1'>手机号</view>
       <view class='myItem2'>
@@ -28,13 +37,14 @@
         <input placeholder='请输入地区'></input>
       </view>
     </view>
+    <!--
     <view class='myItem'>
       <view class='myItem1'>详细地址</view>
       <view class='myItem2'>
         <input placeholder='请输入详细地址'></input>
       </view>
     </view>
-
+    -->
   </view>
   <view class='saveBt'>
     保存

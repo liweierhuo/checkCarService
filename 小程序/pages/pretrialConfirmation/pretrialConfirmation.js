@@ -1,4 +1,5 @@
 // pages/pretrialConfirmation/pretrialConfirmation.js
+import Page from '../../common/page';
 Page({
 
   /**

@@ -1,4 +1,5 @@
 // pages/success/success.js
+import Page from '../../common/page';
 Page({
 
   /**

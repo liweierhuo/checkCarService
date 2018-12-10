@@ -1,4 +1,5 @@
 // pages/appointmentConfirmation/appointmentConfirmation.js
+import Page from '../../common/page';
 Page({
 
   /**

@@ -3,6 +3,7 @@ var util = require('../../utils/util.js');
 var handleLogin = require('../../utils/handleLogin.js');
 var config = require('../../config.js');
 const app = getApp();     // 取得全局App
+import Page from '../../common/page';
 Page({
 
   /**

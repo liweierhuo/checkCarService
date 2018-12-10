@@ -5,6 +5,9 @@ export default function (options = {}) {
         title: '贴心小助手'
       };
     },
+    data: {
+      isBack:false,
+    },
     ...options
   });
 }

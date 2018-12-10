@@ -1,4 +1,5 @@
 // pages/auditFailure/auditFailure.js
+import Page from '../../common/page';
 Page({
 
   /**

@@ -1,4 +1,5 @@
 // pages/myData/myData.js
+import Page from '../../common/page';
 Page({
 
   /**

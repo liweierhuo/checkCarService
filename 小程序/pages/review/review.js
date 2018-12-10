@@ -1,4 +1,5 @@
 // pages/review/review.js
+import Page from '../../common/page';
 Page({
 
   /**

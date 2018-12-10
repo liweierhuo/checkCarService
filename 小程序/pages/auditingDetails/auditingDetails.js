@@ -1,4 +1,5 @@
 // pages/auditingDetails/auditingDetails.js
+import Page from '../../common/page';
 const date = new Date()
 const years = []
 const months = []
