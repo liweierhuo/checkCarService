@@ -36,6 +36,29 @@ Page({
     }
   },
 
+  deleteCarInfo:function(e){
+    var _this = this;
+    console.log("car_id:"+e.currentTarget.dataset.id);
+    network.deleteCarInfo(e.currentTarget.dataset.id, function (ret, xhr) {
+      console.log("network.deleteCarInfo result：" + ret);
+      if (ret.data.code == config.SUCCESS_CODE) {
+        wx.showToast({
+          title: '删除成功',
+        })
+      }
+      _this.getCarList();
+    });
+  },
+
+  updateCarInfo:function(e) {
+    var _this = this;
+    console.log("car_id:" + e.currentTarget.dataset.id);
+    wx.navigateTo({
+      url: '../uploadDrivingLicense/uploadDrivingLicense?carId=' + e.currentTarget.dataset.id,
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面隐藏
    */

@@ -16,6 +16,7 @@ Page({
     array: ['贵A12345', '贵A111111'],
     index: 0,
     carNumber : '',
+    carId:'',
   },
   showPhoto:function(){
     this.setData({
@@ -60,23 +61,54 @@ Page({
       Notify('请输入车牌号');
       return;
     }
-    network.addCard(this.data.carNumber, function (res, xhr){
-      console.log(res.data);
-      if (res.data.code == config.SUCCESS_CODE) {
-        wx.showToast({
-          title: '添加成功',
-        })
-      }
-    });
+    console.info("this.carId==" + this.data.carId);
+    if (this.data.carId) {
+      network.updateCarInfo(this.data.carId, this.data.carNumber,function(res,xhr) {
+        console.log("network.updateCarInfo result:"+res.data);
+        if (res.data.code == config.SUCCESS_CODE) {
+          wx.showToast({
+            title: '修改成功',
+          })
+        }
+      });
+    } else {
+      network.addCard(this.data.carNumber, function (res, xhr) {
+        console.log(res.data);
+        if (res.data.code == config.SUCCESS_CODE) {
+          wx.showToast({
+            title: '添加成功',
+          })
+        }
+      });
+    }
+    app.globalData.isBack = true;
+    wx.navigateBack({
+      delta:1
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var _this = this;
+    console.info("stationId:" + options.carId);
+    if (util.isNotBlank(options.carId)) {
+      _this.getCarInfoById(options.carId);
+    }
   },
 
+  getCarInfoById:function(id) {
+    var _this = this;
+    network.getCarDetail(id,function(res,xhr){
+      if (res.data.code == config.SUCCESS_CODE) {
+        _this.setData({
+          carNumber: res.data.result.car_number,
+          carId: res.data.result.id,
+        });
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
