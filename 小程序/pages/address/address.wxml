@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="">
+    <view class="content">
+     <view>{{item.content}}</view>
+       <image class='pencil' mode="widthFix" src='../../img/bi.png' bindtap='goChange'></image>
+    </view>
+    <view class="del" catchtap="del" data-index="{{index}}">删除</view>
+  </view>
+  <view class='add'>添加地址</view>
+</view>
