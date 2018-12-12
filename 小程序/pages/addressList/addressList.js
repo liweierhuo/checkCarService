@@ -1,8 +1,8 @@
 // pages/address/addressList/addressList.js
 var app = getApp();
-var util = require('../../../utils/util.js');
-const config = require('../../../config');
-var network = require('../../../network.js');
+var util = require('../../utils/util.js');
+const config = require('../../config');
+var network = require('../../network.js');
 Page({
 
   /**
@@ -74,6 +74,13 @@ Page({
       url: '../addAddress/addAddress',
     })
   },
+
+  updateAddress:function(e) {
+    console.info("updateAddress param id:" + e.currentTarget.dataset.id);
+    wx.navigateTo({
+      url: '../addAddress/addAddress?addressId=' + e.currentTarget.dataset.id,
+    })
+  },
   getAddressList : function () {
     var _this = this;
     network.addressList(function(res,xhr){
@@ -84,6 +91,40 @@ Page({
         });
       }
     });
+  },
+
+  //用户选择收货地址
+  chooseAddress: function () {
+    var that = this;
+    if (wx.chooseAddress) {
+      wx.chooseAddress({
+        success: function (res) {
+          console.log(JSON.stringify(res));
+          console.log(res);
+          network.addOrUpdateAddress('', res.provinceName, 
+            res.cityName, res.countyName, res.detailInfo, function (res, xhr) {
+              console.log("network.addOrUpdateAddress result:" + res.data);
+              if (res.data.code == config.SUCCESS_CODE) {
+                wx.showToast({
+                  title: '获取成功',
+                });
+                that.getAddressList();
+              }
+            });
+        },
+        fail: function (err) {
+          console.log(JSON.stringify(err));
+          console.info("收货地址授权失败");
+          wx.showToast({
+            title: '授权失败，重新授权请删除小程序后再次进入',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    } else {
+      console.log('当前微信版本不支持chooseAddress');
+    }
   },
 
 })

@@ -9,13 +9,14 @@
 
 
 
-  <view class='orderList' wx:for="{{addressList}}" wx:for-item="item" wx:key="addressListKey">
+  <view class='orderList' wx:for="{{addressList}}" wx:for-item="item" wx:key="addressListKey" bindtap='updateAddress' data-id='{{item.id}}'>
     <view>{{item.province}}{{item.city}}{{item.country}}{{item.detail}}</view>
-    <image class='arrow' mode="widthFix" src="../../../img/address/edit_address.png"></image>
+    <image class='arrow' mode="widthFix" src="../../img/address/edit_address.png"></image>
   </view>
 
 
 
 </view>
 <view class='addCar' bindtap="goAddAddress">添加地址</view>
+<view class='bottom' bindtap="chooseAddress">从微信获取</view>
 </view>

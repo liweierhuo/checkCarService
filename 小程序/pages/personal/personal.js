@@ -124,7 +124,7 @@ Page({
   },
   goMyAddress:function() {
     wx.navigateTo({
-      url: '../myAddressList/myAddressList',
+      url: '../addressList/addressList',
     })
   },
   getUserInfoByStore : function() {

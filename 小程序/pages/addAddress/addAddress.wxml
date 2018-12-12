@@ -7,13 +7,14 @@
         {{region[0]}}-{{region[1]}}-{{region[2]}}
       </view>
     </picker>
-    <image class='arrow' bindtap='getUserAddress' mode="widthFix" src="../../../img/map/location.png"></image>
+    <image class='arrow' bindtap='getUserAddress' mode="widthFix" src="../../img/map/location.png"></image>
   </view>
   <view class='number'>
       详细地址
-      <input placeholder="" class='numberInput' bindinput='detailInput'/>
+      <input placeholder="" class='numberInput' bindinput='detailInput' value='{{detail}}'/>
     </view>
     </view>
     <view class='nextBt' bindtap="savaAddress">保存</view>
+    <view class='nextBt' bindtap="deleteAddress" wx:if='{{addressId}}'>删除</view>
 </view>
 <van-notify id="van-notify" />
