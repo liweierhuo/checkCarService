@@ -2,7 +2,6 @@ const config = require('../config');
 const app = getApp();     // 取得全局App
 // 开始login
 function login(callback) {
-  wx.showLoading()
   wx.login({
     success(res) {
       if (res.code) {
@@ -31,7 +30,6 @@ function getUserInfo(code, callback) {
     },
     // 获取失败，弹窗提示一键登录
     fail() {
-      wx.hideLoading()
       // 获取用户信息失败，清楚全局存储的登录状态，弹窗提示一键登录
       // 使用token管理登录态的，清楚存储全局的token
       // 使用cookie管理登录态的，可以清楚全局登录状态管理的变量
@@ -44,6 +42,9 @@ function getUserInfo(code, callback) {
 
 // 开发者服务端登录
 function postLogin(code, signature, iv, encryptedData, rawData, callback) {
+  wx.showLoading({
+    title: '加载中',
+  })
   wx.request({
     url: config.loginUrl,
     method: 'POST',
@@ -55,13 +56,19 @@ function postLogin(code, signature, iv, encryptedData, rawData, callback) {
       rawData: rawData
     },
     success: function (res) {
+      console.log("postLogin :"+res)
       wx.hideLoading();
       // 登录成功，
       // 使用token管理登录态的，存储全局token，用于当做登录态判断，
       // 使用cookie管理登录态的，可以存任意变量当做已登录状态
-      wx.setStorageSync(config.SESSION_KEY, res.data.token);
-      callback && callback();
-      console.log('成功登录')
+      if (res.data.code == config.SUCCESS_CODE) {
+        wx.setStorageSync(config.SESSION_KEY, res.data.result.token);
+        callback && callback();
+        console.log('成功登录');
+      }else{
+        console.log('登录失败');
+        showToast();
+      }
     },
     fail: function (res) {
       showToast();

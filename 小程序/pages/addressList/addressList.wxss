@@ -1,0 +1,36 @@
+/* pages/address/addressList/addressList.wxss */
+
+page {
+  min-height: 100%;
+  background-color: #ffffff;
+}
+.orderLists {
+  background-color: #fff;
+}
+.orderList {
+  display: flex;
+  height: 120rpx;
+  padding: 0 40rpx;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #7fc3f3;
+  position: relative;
+}
+
+.arrow {
+  width: 50rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 24px;
+}
+.addCar{
+  background-color: #00b7ee;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx
+}

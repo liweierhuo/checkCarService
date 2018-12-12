@@ -2,6 +2,10 @@
 const config = require('./config');
 App({
   onLaunch: function () {
+
+    this.globalData.deviceInfo = wx.getSystemInfoSync();
+    console.log(this.globalData.deviceInfo);
+
     var _this = this;
     wx.checkSession({
       success: function () {
@@ -93,5 +97,6 @@ App({
   globalData: {
     userInfo: null,
     isBack : false,
+    deviceInfo: {},
   },
 })

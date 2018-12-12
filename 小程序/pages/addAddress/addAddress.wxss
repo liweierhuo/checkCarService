@@ -1,0 +1,43 @@
+/* pages/address/addAddress/addAddress.wxss */
+.container {
+  /* border-top: 3px solid #99d6f5; */
+}
+.items {
+  padding: 0 30rpx;
+  color: #000;
+}
+.number, .china, .locationWrap {
+  height: 115rpx;
+  border-bottom: 1px solid #d0d0d0;
+  margin-top: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+.picker1 {
+  width: 100%;
+  height: 55rpx;
+  position: relative;
+  line-height: 65rpx;
+  font-size: 28rpx;
+}
+.arrow{
+  width: 80rpx;
+  margin-right: 15px
+}
+.numberInput {
+  flex: 1;
+  margin: 0 10rpx;
+  text-align: right
+}
+.nextBt {
+  width: 470rpx;
+  height: 115rpx;
+  margin: 60rpx auto;
+  color: #fff;
+  text-align: center;
+  line-height: 115rpx;
+  background-color: #1cace1;
+  font-size: 28rpx;
+  border-radius: 5px;
+}

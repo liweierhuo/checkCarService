@@ -1,0 +1,21 @@
+<!--pages/address/addressList/addressList.wxml-->
+<view class='container'>
+  <view class='orderLists'>
+
+    
+
+
+
+
+
+
+  <view class='orderList' wx:for="{{addressList}}" wx:for-item="item" wx:key="addressListKey">
+    <view>{{item.province}}{{item.city}}{{item.country}}{{item.detail}}</view>
+    <image class='arrow' mode="widthFix" src="../../../img/address/edit_address.png"></image>
+  </view>
+
+
+
+</view>
+<view class='addCar' bindtap="goAddAddress">添加地址</view>
+</view>

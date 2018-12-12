@@ -28,7 +28,7 @@ function initQQMapWx () {
   }
 }
 
-function reverseGeocoder(latitude, longitude) {
+function reverseGeocoder(latitude, longitude,callBack) {
   initQQMapWx();
   // 调用接口
   qqmapsdk.reverseGeocoder({
@@ -36,8 +36,8 @@ function reverseGeocoder(latitude, longitude) {
       latitude: latitude,
       longitude: longitude
     },
-    success: function (res) {
-      return res;
+    success: function (res){
+      callBack(res);
     },
     fail: function (res) {
       wx.showToast({

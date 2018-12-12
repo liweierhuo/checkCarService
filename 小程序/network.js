@@ -45,6 +45,10 @@ function sessionIntercepter(url) {
     config.updateCarInfo,
     config.deleteCarInfo,
     config.addAuditor,
+    config.getAddressList,
+    config.addOrUpdateAddress,
+    config.getAddressById,
+    config.deleteAddress,
   ];
   for (var index in intercep) {
     let str = intercep[index];
@@ -99,6 +103,32 @@ module.exports = {
   //新增审核信息
   addAuditor: function (id, callback) {
     execute(config.addAuditor, 'POST', {}, callback);
+  },
+
+  //获取用户所有地址
+  addressList: function (callback) {
+    execute(config.getAddressList, 'GET', {}, callback);
+  },
+
+  //新增地址
+  addOrUpdateAddress: function (id,province, city, country, detail,callback) {
+    var param;
+    if(id) {
+      param = {id:id,province: province, city: city, country: country, detail: detail };
+    } else{
+      param = { province: province, city: city, country: country, detail: detail };
+    }
+    execute(config.addOrUpdateAddress, 'POST', param, callback);
+  },
+
+  //获取用户单个地址信息
+  getAddressById: function (id,callback) {
+    execute(config.getAddressById + id, 'GET', {}, callback);
+  },
+
+  //删除地址信息
+  deleteAddress: function (id, callback) {
+    execute(config.deleteAddress + id, 'DELETE', {}, callback);
   },
 
 };

@@ -122,6 +122,11 @@ Page({
       url: '../myNew/myNew',
     })
   },
+  goMyAddress:function() {
+    wx.navigateTo({
+      url: '../myAddressList/myAddressList',
+    })
+  },
   getUserInfoByStore : function() {
     var storeUserInfo;
     try {

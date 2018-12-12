@@ -34,7 +34,7 @@
       <image class='myOrder' mode="widthFix" src="../../img/my_order.png"></image>
       我的订单
     </view>
-    <view class='item'>
+    <view class='item' bindtap='goMyAddress'>
       <image class='myDai' mode="widthFix" src="../../img/my_address.png"></image>
       地址列表
     </view>
