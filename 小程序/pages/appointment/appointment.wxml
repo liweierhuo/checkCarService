@@ -1,7 +1,7 @@
 <view class='container'>
   <view class='face'>
-    <image class='faceImg' mode="widthFix" src="../../img/face.png"></image>
-    张三
+    <image class='faceImg' mode="widthFix" src="{{avatarUrl}}"></image>
+    {{nickName}}
   </view>
   <view class='items'>
     <view class='number'>
@@ -25,13 +25,10 @@
       </picker>
       <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
     </view>
-    <view class='locationWrap'>
-      <view>{{address}}</view>
-      <image class='location' mode="widthFix" src="../../img/location.png" bindtap='selectAddress'></image>
-    </view>
     <view class='number'>
       详情地址（选填）
-      <input placeholder="" class='numberInput' />
+      <input placeholder="" class='numberInput' value='{{detail}}'/>
+      <image class='location' mode="widthFix" src="../../img/location.png" bindtap='selectAddress'></image>
     </view>
     <view class='chooseTime'>
       <view class="section__title">日期：</view>
@@ -40,14 +37,10 @@
           {{date}}
         </view>
       </picker>
-    </view>
-    <view class='chooseTime'>
-      <view class="section__title">时段：</view>
-      <picker bindchange="bindDateChange" value="{{index}}" range="{{array}}" class='datePicker'>
-        <view>
-          {{array[index]}}
-        </view>
-      </picker>
+      <view class='timeDayView'>
+        <text class='timeDayText'>上午</text>
+        <image class='arrow1' mode="widthFix" src="../../img/arrow_black.png" bindtap=''></image>
+      </view>
     </view>
   </view>
   <view class='nextBt' bindtap="next">下一步</view>

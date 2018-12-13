@@ -2,10 +2,6 @@
 const config = require('./config');
 App({
   onLaunch: function () {
-
-    this.globalData.deviceInfo = wx.getSystemInfoSync();
-    console.log(this.globalData.deviceInfo);
-
     var _this = this;
     wx.checkSession({
       success: function () {
@@ -75,12 +71,12 @@ App({
           wx.getUserInfo({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
+              _this.globalData.userInfo = res.userInfo
               wx.setStorageSync(config.USER_INFO_KEY, JSON.stringify(res.userInfo));
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
+              if (_this.userInfoReadyCallback) {
+                _this.userInfoReadyCallback(res)
               }
             }
           })

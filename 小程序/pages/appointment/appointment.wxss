@@ -120,3 +120,16 @@
   -o-transform: rotate(90deg);
   margin-right: 15px
 }
+
+.arrow1{
+  width: 18rpx;
+  margin-right: 15px
+}
+.timeDayText{
+  margin-right: 20rpx;
+}
+.timeDayView{
+  display: flex;
+  justify-content:center;
+  align-items:Center;
+}

@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/address/address",
-    "pages/personal/personal",
-    "pages/addAddress/addAddress",
     "pages/appointment/appointment",
+    "pages/personal/personal",
+    "pages/address/address",
+    "pages/addAddress/addAddress",
+    
     "pages/addressList/addressList",
     "pages/uploadDrivingLicense/uploadDrivingLicense",
     "pages/addCar/addCar",
@@ -26,8 +27,7 @@
     "pages/myCar/myCar",
     "pages/myNewDetail/myNewDetail",
     "pages/myNew/myNew",
-    "pages/pretrialConfirmation/pretrialConfirmation",
-    "pages/myAddressList/myAddressList"
+    "pages/pretrialConfirmation/pretrialConfirmation"
   ],
   "window": {
     "backgroundTextStyle": "light",
