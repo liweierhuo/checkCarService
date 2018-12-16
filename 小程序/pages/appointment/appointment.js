@@ -2,7 +2,9 @@
 var util = require('../../utils/util.js');
 const config = require('../../config');
 var network = require('../../network.js');
+import WxValidate from '../../libs/WxValidate.js'
 import Page from '../../common/page';
+import Notify from '../../miniprogram_npm/vant-weapp/notify/notify.js';
 const app = getApp();
 Page({
 
@@ -13,12 +15,13 @@ Page({
     avatarUrl: "../../img/face.png",
     nickName:'张三',
     region: ['广东省', '广州市', '海珠区'],
-    date: '2016-09-01',
-    array: ['上午', '下午'],
-    index: 0,
+    date: '',
+    timeArray: ['上午', '下午'],
+    timeArrayIndex:0,
     numberArray: ['贵A123456', '贵A111111'],
     numberIndex: 0,
     detail:'',
+    mobile:'',
   },
   bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -26,10 +29,14 @@ Page({
       region: e.detail.value
     })
   },
-
+  timeChange:function(e) {
+    this.setData({
+      timeArrayIndex: e.detail.value
+    })
+  },
   bindDateChange: function (e) {
     this.setData({
-      index: e.detail.value
+      date: e.detail.value
     })
   },
   bindNumberChange: function (e) {
@@ -37,7 +44,18 @@ Page({
       numberIndex: e.detail.value
     })
   },
-  next: function () {
+  formSubmit: function (e) {
+    // 传入表单数据，调用验证方法
+    const params = e.detail.value;
+    params.carNumber = this.data.numberArray[params.carNumber];
+    params.time = this.data.timeArray[params.time];
+    console.log(params)
+    if (!this.WxValidate.checkForm(params)) {
+      const error = this.WxValidate.errorList[0];
+      Notify(error.msg);
+      return false
+    }
+    wx.setStorageSync(config.TAKE_ORDER_KEY, JSON.stringify(params));
     wx.navigateTo({
       url: '../appointmentConfirmation/appointmentConfirmation'
     })
@@ -47,17 +65,9 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
-    var userInfo;
-    if (app.globalData.userInfo) {
-      userInfo = app.globalData.userInfo;
-    } else {
-      userInfo = JSON.parse(_this.getUserInfoByStore());
-    }
-    this.setData({
-      avatarUrl: userInfo.avatarUrl,
-      nickName: userInfo.nickName
-    })
+   
     _this.getCarList();
+
   },
 
   /**
@@ -71,6 +81,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var _this = this;
+    this.initValidate();
+    var userInfo;
+    if (app.globalData.userInfo) {
+      userInfo = app.globalData.userInfo;
+    } else {
+      userInfo = JSON.parse(util.getUserInfoByStore());
+    }
+    this.setData({
+      avatarUrl: userInfo.avatarUrl,
+      nickName: userInfo.nickName,
+      date:util.formatTime(new Date()),
+    })
+    if (app.globalData.isBack) {
+      _this.getCarList();
+      app.globalData.isBack = false;
+    }
   },
 
   /**
@@ -148,36 +175,37 @@ Page({
           _this.setData({
             numberArray: myCarNumberList,
           });
-        } else {
-          wx.showModal({
-            title: '提示',
-            content: '您还没有添加车辆，现在去添加车辆',
-            success(res) {
-              if (res.confirm) {
-                wx.navigateTo({
-                  url: '../uploadDrivingLicense/uploadDrivingLicense',
-                })
-              } else if (res.cancel) {
-                console.log('用户点击取消')
-              }
+        } 
+      } else if(res.data.code == config.NO_DATA){
+        wx.showModal({
+          title: '提示',
+          content: '您还没有添加车辆，现在去添加车辆',
+          success(res) {
+            if (res.confirm) {
+              wx.navigateTo({
+                url: '../uploadDrivingLicense/uploadDrivingLicense',
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
             }
-          })
-        }
+          }
+        })
       }
     })
   },
-  getUserInfoByStore: function () {
-    var storeUserInfo;
-    try {
-      var value = wx.getStorageSync(config.USER_INFO_KEY)
-      if (value) {
-        console.log(value);
-        storeUserInfo = value;
+  initValidate() {
+    const rules = {
+      mobile: {
+        required: true,
+        tel: true
       }
-    } catch (e) {
-      // Do something when catch error
-      console.error("getUserInfoByStore is error:" + e);
     }
-    return storeUserInfo;
+    const messages = {
+      mobile: {
+        required: '请填写手机号',
+        tel: '请填写正确的手机号'
+      }
+    }
+    this.WxValidate = new WxValidate(rules, messages)
   },
 })

@@ -1,14 +1,6 @@
 {
   "navigationBarTitleText": "预约",
   "usingComponents": {
-    "demo-block": "../../components/demo-block/index",
-    "van-tabbar": "/miniprogram_npm/vant-weapp/tabbar/index",
-    "van-tabbar-item": "/miniprogram_npm/vant-weapp/tabbar-item/index",
-    "van-search": "/miniprogram_npm/vant-weapp/search/index",
-    "van-panel": "/miniprogram_npm/vant-weapp/panel/index",
-    "van-button": "/miniprogram_npm/vant-weapp/button/index",
-    "van-cell": "/miniprogram_npm/vant-weapp/cell/index",
-    "van-cell-group": "/miniprogram_npm/vant-weapp/cell-group/index",
-    "van-field": "/miniprogram_npm/vant-weapp/field/index"
+    "van-notify": "/miniprogram_npm/vant-weapp/notify/index"
   }
 }

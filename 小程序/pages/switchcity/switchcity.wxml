@@ -1,0 +1,15 @@
+<!--输入框-->
+<view class="input">
+  <input bindinput="bindKeyInput" bindblur="bindBlur" placeholder="输入城市名或拼音查询" placeholder-style="font-size: 30rpx" value="{{inputName}}"></input>
+</view>
+<view class="container-inner">
+
+  <!-- 中间主体部分 -->
+  <view class="container">
+      <!-- 匹配结果列表 -->
+      <ul class="ul">
+        <li wx:for="{{completeList}}" wx:key="*this" bindtap="bindCity" data-city="{{item.city}}" class="li">{{item.city}}</li>
+      </ul>
+  </view>
+
+</view>

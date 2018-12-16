@@ -49,6 +49,10 @@ function sessionIntercepter(url) {
     config.addOrUpdateAddress,
     config.getAddressById,
     config.deleteAddress,
+    config.takeOrder,
+    config.orderListByUserId,
+    config.getUserData,
+    config.updateUserData,
   ];
   for (var index in intercep) {
     let str = intercep[index];
@@ -129,6 +133,38 @@ module.exports = {
   //删除地址信息
   deleteAddress: function (id, callback) {
     execute(config.deleteAddress + id, 'DELETE', {}, callback);
+  },
+
+  //下单
+  takeOrder: function (station_id, mobile, car_number, snap_address, app_date,app_time,callback) {
+    execute(config.takeOrder, 'POST', { station_id: station_id, mobile: mobile, car_number: car_number, snap_address: snap_address, app_date: app_date, app_time: app_time}, callback);
+  },
+  //获取我的订单列表
+  getMyOrderList: function (page,size, callback) {
+    execute(config.orderListByUserId, 'GET', { page: page, size: size }, callback);
+  },
+
+  //获取用户信息
+  getUserData: function (callback) {
+    execute(config.getUserData, 'GET', {}, callback);
+  },
+
+  //修改用户信息
+  updateUserData: function (nickname, city, gender, mobile,callback) {
+    var param = {};
+    if (util.isNotBlank(nickname)) {
+      param.nickname = nickname;
+    }
+    if (util.isNotBlank(city)) {
+      param.city = city;
+    }
+    if (gender) {
+      param.gender = gender;
+    }
+    if (util.isNotBlank(mobile)) {
+      param.mobile = mobile;
+    }
+    execute(config.updateUserData, 'PUT', param, callback);
   },
 
 };

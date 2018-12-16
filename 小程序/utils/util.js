@@ -51,9 +51,49 @@ function reverseGeocoder(latitude, longitude,callBack) {
     }
   });
 }
+const formatTime = date => {
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+  return year + '-' + month + '-' + day;
+}
+function getUserInfoByStore() {
+  var storeUserInfo;
+  try {
+    var value = wx.getStorageSync(config.USER_INFO_KEY)
+    if (value) {
+      console.log(value);
+      storeUserInfo = value;
+    }
+  } catch (e) {
+    // Do something when catch error
+    console.error("getUserInfoByStore is error:" + e);
+  }
+  return storeUserInfo;
+}
+
+function getCityByKeyword(keyword, callBack) {
+  initQQMapWx();
+  // 调用接口
+  qqmapsdk.getSuggestion({
+    keyword: keyword,
+    success: function (res) {
+      callBack(res);
+    },
+    fail: function (res) {
+      console.log(res);
+    },
+    complete: function (res) {
+      console.log(res);
+    }
+  })
+}
 
 module.exports = {
   isNotBlank: isNotBlank,
   getPages: getPages,
   reverseGeocoder: reverseGeocoder,
+  formatTime: formatTime,
+  getUserInfoByStore: getUserInfoByStore,
+  getCityByKeyword: getCityByKeyword,
 }

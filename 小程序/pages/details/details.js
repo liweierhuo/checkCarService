@@ -27,8 +27,23 @@ Page({
     }],
   },
   next: function () {
-    wx.navigateTo({
-      url: '../pretrialConfirmation/pretrialConfirmation'
+    var _this = this;
+    var orderPreData = JSON.parse(wx.getStorageSync(config.TAKE_ORDER_KEY));
+    var mobile = orderPreData.mobile;
+    var car_number = orderPreData.carNumber;
+    var snap_address = orderPreData.region[0] + orderPreData.region[1] + orderPreData.region[2] + orderPreData.detail;
+    var app_date = orderPreData.date;
+    var app_time = config.timeRange[''+orderPreData.time+''];
+    network.takeOrder(this.data.station.id, mobile, car_number, snap_address, app_date, app_time,function(res,xhr){
+      console.log("network.takeOrder res:"+res);
+      if (res.data.code == config.SUCCESS_CODE) {
+        res.data.result.stationId = _this.data.station.id;
+        res.data.result.stationName = _this.data.station.name;
+        wx.setStorageSync(config.ORDER_INFO_KEY, JSON.stringify(res.data.result));
+        wx.navigateTo({
+          url: '../pretrialConfirmation/pretrialConfirmation?stationName=' + _this.data.station.name + '&stationId=' + _this.data.station.id,
+        })
+      }
     })
   },
   /**
@@ -37,7 +52,6 @@ Page({
   onLoad: function (options) {
     console.info("stationId:"+options.stationId);
     this.getStationInfo(options.stationId);
-
   },
 
   /**

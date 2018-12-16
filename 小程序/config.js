@@ -7,12 +7,27 @@ const config = {
   // 请求成功的code
   SUCCESS_CODE: 200,
   SESSION_TIME_OUT: 401,
+  NO_DATA: 402,
   // qqMapAppKey 的参数配置
   QQ_MAP_APP_KEY: '4RPBZ-2KCK4-LFFUR-XO3OJ-LWJB6-OMFHP',
   // sessionKey : token
   SESSION_KEY : 'token',
   USER_INFO_KEY :'user_info',
-
+  USER_DATA_KEY: 'user_data',
+  TAKE_ORDER_KEY:'order_pre_data',
+  ORDER_INFO_KEY:'order_info_key',
+  timeRange:{上午:1,下午:2},
+  genderRange:{男:0,女:1},
+  orderStatus: { 
+    1: { info: '未确认', color: '#EE4000' }, 
+    2: { info: '已受理', color: '#9BCD9B' }, 
+    3: { info: '改签', color: '#FFEC8B' }
+    },
+  orderCheck:{
+    1: { info: '不预审', color: '#FFEC8B' },
+    2: { info: '未预审', color: '#EE4000' },
+    3: { info: '已预审', color: '#9BCD9B' }
+  },
   host,
   //检测站列表信息
   stationListUrl: `https://${host}/api/v1/station/all`,
@@ -45,12 +60,18 @@ const config = {
   //下单 post
   takeOrder: `https://${host}/api/v1/order`,
   //根据用户id分页获取订单列表（简要信息）GET
-  orderListByUserId: `https://${host}/api/v1/order`,
+  orderListByUserId: `https://${host}/api/v1/order/all`,
   //订单详情 GET :id
   orderDetail: `https://${host}/api/v1/order/`,
   //订单授理 PUT :id
   orderHandle: `https://${host}/api/v1/order/`,
   //改签 put
   changeOrder: `https://${host}/api/v1/change`,
+  //获取用户信息user get
+  getUserData: `https://${host}/api/v1/user`,
+  //修改用户信息user put
+  updateUserData: `https://${host}/api/v1/user`,
+  //上传图片 post
+  uploadImage: `https://${host}/api/v1/upload/image`,
 }
 module.exports = config

@@ -112,7 +112,7 @@
   border-radius: 5px;
 }
 .arrow{
-  width: 18rpx;
+  width: 15rpx;
    transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
@@ -122,7 +122,7 @@
 }
 
 .arrow1{
-  width: 18rpx;
+  width: 15rpx;
   margin-right: 15px
 }
 .timeDayText{

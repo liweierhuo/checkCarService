@@ -106,6 +106,10 @@ Page({
             carList: res.data.result,
           });
         }
+      } else if (res.data.code == config.NO_DATA) {
+        _this.setData({
+          carList: [],
+        });
       }
     })
   },

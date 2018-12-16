@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "查验拍照"
+  "navigationBarTitleText": "查验拍照",
+  "usingComponents": {
+    "van-icon": "/miniprogram_npm/vant-weapp/icon/index"
+  }
 }

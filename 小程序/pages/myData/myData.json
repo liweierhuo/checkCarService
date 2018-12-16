@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "我的资料"
+  "navigationBarTitleText": "我的资料",
+  "usingComponents": {
+    "van-notify": "/miniprogram_npm/vant-weapp/notify/index"
+  }
 }

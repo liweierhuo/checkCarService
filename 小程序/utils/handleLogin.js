@@ -21,6 +21,7 @@ function login(callback) {
 // 获取用户信息
 function getUserInfo(code, callback) {
   wx.getUserInfo({
+    lang:'zh_CN',
     // 获取成功，全局存储用户信息，开发者服务器登录
     success(res) {
       // 全局存储用户信息
@@ -112,7 +113,7 @@ function handleError(res) {
   if (res.code == config.SESSION_TIME_OUT) {
     // 弹窗提示一键登录
     showLoginModal()
-  } else if (res.code != config.SUCCESS_CODE) {
+  } else if (res.code != config.SUCCESS_CODE && res.code != config.NO_DATA) {
     // 弹窗显示错误信息
     showToast(res.msg)
   } else {

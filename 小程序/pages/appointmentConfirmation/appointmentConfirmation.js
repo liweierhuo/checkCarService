@@ -1,12 +1,13 @@
 // pages/appointmentConfirmation/appointmentConfirmation.js
 import Page from '../../common/page';
+const config = require('../../config');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    appointment:{},
   },
   next: function () {
     wx.navigateTo({
@@ -17,7 +18,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var orderPreData = wx.getStorageSync(config.TAKE_ORDER_KEY);
+    this.setData({
+      appointment: JSON.parse(orderPreData),
+    });
   },
 
   /**

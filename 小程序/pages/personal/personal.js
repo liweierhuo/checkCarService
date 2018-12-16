@@ -19,6 +19,7 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
+    /*
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -45,6 +46,17 @@ Page({
         }
       })
     }
+    */
+    var userInfo;
+    if (app.globalData.userInfo) {
+      userInfo = app.globalData.userInfo;
+    } else {
+      userInfo = JSON.parse(util.getUserInfoByStore());
+    }
+    this.setData({
+      userInfo: userInfo,
+      hasUserInfo: true
+    })
   },
   getUserInfo: function (e) {
     console.log(e)

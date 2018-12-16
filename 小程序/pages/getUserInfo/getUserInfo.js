@@ -40,6 +40,7 @@ Page({
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
+        lang: 'zh_CN',
         success: res => {
           app.globalData.userInfo = res.userInfo
           this.setData({

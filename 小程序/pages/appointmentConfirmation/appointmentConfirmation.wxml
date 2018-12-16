@@ -5,22 +5,19 @@
   </view>
   <view class='items'>
    <view class='number'>
-      车牌号：贵A123456
+      车牌号：{{appointment.carNumber}}
     </view>
     <view class='number'>
-      手机号：13600000000
+      手机号：{{appointment.mobile}}
     </view>
     <view class='number'>
-      贵州省 贵阳市 白云区
+      {{appointment.region[0]}} {{appointment.region[1]}} {{appointment.region[2]}}
     </view>
     <view class='number'>
-      详细地址....
+      详细地址：{{appointment.detail}}
     </view>
     <view class='number'>
-      详细地址（选填）
-    </view>
-    <view class='number'>
-      时间： 2018/07/07 上午
+      时间： {{appointment.date}} {{appointment.time}}
     </view>
   </view>
   <view class='nextBt' bindtap="next">下一步</view>

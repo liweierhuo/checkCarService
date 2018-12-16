@@ -1,26 +1,22 @@
 <view class="container">
   <view class="myData2">
-    <image class='faceImg' mode="widthFix" src="../../img/face.png"></image>
-    <view>张三</view>
+    <image class='faceImg' mode="widthFix" src="{{avatarUrl}}"></image>
+    <view>{{nickName}}</view>
   </view>
-  <view class='orderList'>
-    <view class='orderItem'>
-      <view>2018-01-01</view>
-      <view class='stata'>合格</view>
-    </view>
-    <view class='orderItem'>
-      <view>贵A12345</view>
-      <view class='stata2'>订单已受理</view>
-    </view>
-  </view>
-  <view class='orderList'>
-    <view class='orderItem'>
-      <view>2018-01-01</view>
-      <view class='stata'>合格</view>
-    </view>
-    <view class='orderItem'>
-      <view>贵A12345</view>
-      <view class='stata2'>订单已受理</view>
+  <view class='orderLists'>
+    <view class='orderList' wx:for="{{myOrderList}}" data-item="item" wx:for-index="idx" wx:key='orderKey'>
+      <view>
+        <view>订单号：{{item.order_no}}</view>
+        <view>车牌号：{{item.car_number}}</view>
+      </view>
+      <view class='itemright'>
+        <view class='time'>{{item.app_time}}</view>
+        <view class='statas'>
+          <view style='color:{{item.status.color}}'>{{item.status.info}}</view>
+          <view style='color:{{item.check.color}}'>{{item.check.info}}</view>
+        </view>
+      </view>
+      <image class='arrow' mode="widthFix" src="../../img/arrow.png"></image>
     </view>
   </view>
 </view>

@@ -1,32 +1,97 @@
 // pages/camera/camera.js
 import Page from '../../common/page';
+const config = require('../../config');
+var handleLogin = require('../../utils/handleLogin.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tip:"请按提示拍照",
-    src:'',
-    finish:true, //是否完成拍照
+    tip:"请按提示拍照！点击照片进行",
+    currentStep:1,
+    finish:false, //是否完成拍照
+    photoStep: {
+      1: { tip: '请拍车辆左前45度照片。', complete: false, type: 1, photo: '../../img/upload.png' },
+      2: { tip: '请拍车辆右后45度照片。', complete: false, type: 2, photo: '../../img/upload.png' },
+      3: { tip: '请拍车辆前轮胎花纹照片。', complete: false, type: 3, photo: '../../img/upload.png' },
+      4: { tip: '请拍车辆前轮胎花纹照片。', complete: false, type: 4, photo: '../../img/upload.png' },
+      5: { tip: '请拍车辆侧面照片。', complete: false, type: 5, photo: '../../img/upload.png' },
+    }
   },
   takePhoto() {
-    const ctx = wx.createCameraContext()
-    ctx.takePhoto({
-      quality: 'high',
-      success: (res) => {
-        this.setData({
-          tip:'信息采集完成',
-          src: res.tempImagePath,
-          finish:false
+    var _this = this;
+    var token = handleLogin.isLogin();
+    wx.chooseImage({
+      sizeType: ['original', 'compressed'],  //可选择原图或压缩后的图片
+      sourceType: ['album', 'camera'], //可选择性开放访问相册、相机
+      count:1,
+      success: res => {
+        console.log(res.tempFilePaths);
+        var tempFilePaths = res.tempFilePaths;
+        var photoStep = {
+          1: { tip: '请拍车辆左前45度照片。', complete: false, type: 1, photo: '../../img/upload.png' },
+          2: { tip: '请拍车辆右后45度照片。', complete: false, type: 2, photo: '../../img/upload.png' },
+          3: { tip: '请拍车辆前轮胎花纹照片。', complete: false, type: 3, photo: '../../img/upload.png' },
+          4: { tip: '请拍车辆前轮胎花纹照片。', complete: false, type: 4, photo: '../../img/upload.png' },
+          5: { tip: '请拍车辆侧面照片。', complete: false, type: 5, photo: '../../img/upload.png' },
+        };
+        photoStep[_this.data.currentStep].photo = tempFilePaths;
+        photoStep[_this.data.currentStep].complete = true,
+        wx.showLoading({
+          title: '上传中',
+        })
+        wx.uploadFile({
+          url: config.uploadImage,
+          filePath: tempFilePaths[0],
+          name: 'upload_file_' + photoStep[_this.data.currentStep].type,
+          formData: {
+            'image': tempFilePaths[0],
+            'type': photoStep[_this.data.currentStep].type
+          },
+          header: {
+            "Content-Type": "multipart/form-data",
+            'token': token
+          },
+          success: function (res) {
+            if (res.data.code == config.SUCCESS_CODE) {
+              wx.showToast({
+                title: '上传成功',
+              })
+            } else {
+              wx.showToast({
+                title: '上传失败',
+                icon:'none'
+              })
+            }
+          },
+          complete:function(res) {
+          }
+        });
+        _this.setData({
+          photoStep: photoStep
         })
       }
     })
   },
+  next:function() {
+    var currentStep = parseInt(parseInt(this.data.currentStep) + 1);
+    if (currentStep <= 5) {
+      this.setData({
+        currentStep: currentStep
+      })
+    } else {
+      this.setData({
+        tip:'查验资料采集完毕',
+        finish: true,
+      })
+    }
+
+  },
   error(e) {
     console.log(e.detail)
   },
-  next: function () {
+  goResutPage:function() {
     wx.navigateTo({
       url: '../review/review'
     })

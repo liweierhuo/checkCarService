@@ -3,10 +3,11 @@
     <image class='faceImg' mode="widthFix" src="{{avatarUrl}}"></image>
     {{nickName}}
   </view>
+    <form bindsubmit="formSubmit">
   <view class='items'>
     <view class='number'>
       车牌号：
-      <picker bindchange="bindNumberChange" value="{{numberIndex}}" range="{{numberArray}}" class='numberPicker'>
+      <picker bindchange="bindNumberChange" value="{{numberIndex}}" range="{{numberArray}}" class='numberPicker' name='carNumber'>
         <view>
           {{numberArray[numberIndex]}}
         </view>
@@ -15,10 +16,10 @@
     </view>
     <view class='number'>
       手机号：
-      <input placeholder="" class='numberInput' />
+      <input placeholder="" class='numberInput' value='{{mobile}}' name='mobile'/>
     </view>
     <view class='china'>
-      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" class="picker1">
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" class="picker1" name="region">
         <view class="picker1">
           {{region[0]}}-{{region[1]}}-{{region[2]}}
         </view>
@@ -27,21 +28,25 @@
     </view>
     <view class='number'>
       详情地址（选填）
-      <input placeholder="" class='numberInput' value='{{detail}}'/>
+      <input placeholder="" class='numberInput' value='{{detail}}' name='detail'/>
       <image class='location' mode="widthFix" src="../../img/location.png" bindtap='selectAddress'></image>
     </view>
     <view class='chooseTime'>
       <view class="section__title">日期：</view>
-      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange" class='datePicker'>
+      <picker mode="date" value="{{date}}" bindchange="bindDateChange" class='datePicker' name='date'>
         <view class="datePicker">
           {{date}}
         </view>
       </picker>
       <view class='timeDayView'>
-        <text class='timeDayText'>上午</text>
-        <image class='arrow1' mode="widthFix" src="../../img/arrow_black.png" bindtap=''></image>
+        <picker range='{{timeArray}}' value="{{timeArrayIndex}}" bindchange="timeChange" class='datePicker' name='time'>
+ <text class='timeDayText'>{{timeArray[timeArrayIndex]}}</text>
+       </picker>
+       <image class='arrow1' mode="widthFix" src="../../img/arrow_black.png" bindtap=''></image>
       </view>
     </view>
   </view>
-  <view class='nextBt' bindtap="next">下一步</view>
+  <button class='nextBt' form-type="submit">下一步</button>
+  </form>
 </view>
+<van-notify id="van-notify" />

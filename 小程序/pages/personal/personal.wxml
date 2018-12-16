@@ -2,17 +2,17 @@
 <view class='container'>
   <view class='top'>
 
-  
-   <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='getUserInfoBtn'>获取头像昵称</button>
+  <!--
+   <button wx:if="{{!hasUserInfo && canIUse}}" lang="zh_CN" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='getUserInfoBtn'>获取头像昵称</button>
     <block wx:else>
       <image class='personalImg' src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <view class='personalName'>{{userInfo.nickName}}</view>
     </block>
+  -->
 
-<!--
     <image class='personalImg' mode="widthFix" src="{{userInfo.avatarUrl}}"></image>
     <view class='personalName'>{{userInfo.nickName}}</view>
-  -->
+
 
     <view class='topBts'>
       <view class='new'>
