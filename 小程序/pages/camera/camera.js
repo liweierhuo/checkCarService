@@ -44,9 +44,8 @@ Page({
         wx.uploadFile({
           url: config.uploadImage,
           filePath: tempFilePaths[0],
-          name: 'upload_file_' + photoStep[_this.data.currentStep].type,
+          name: 'image',
           formData: {
-            'image': tempFilePaths[0],
             'type': photoStep[_this.data.currentStep].type
           },
           header: {
