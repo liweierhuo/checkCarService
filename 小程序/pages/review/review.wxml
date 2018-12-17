@@ -1,8 +1,8 @@
 <!--pages/review/review.wxml-->
 <view class='container'>
   <view class='top'>
-    <image class='personalImg' mode="widthFix" src="../../img/face.png"></image>
-    <view class='personalName'>奥斯卡欠你一堆奖</view>
+    <image class='personalImg' mode="widthFix" src="{{avatarUrl}}"></image>
+    <view class='personalName'>{{nickName}}</view>
   </view>
   <view class='scheduleList'>
     <view class='scheduleItem on'>

@@ -53,6 +53,7 @@ function sessionIntercepter(url) {
     config.orderListByUserId,
     config.getUserData,
     config.updateUserData,
+    config.orderDetail,
   ];
   for (var index in intercep) {
     let str = intercep[index];
@@ -165,6 +166,12 @@ module.exports = {
       param.mobile = mobile;
     }
     execute(config.updateUserData, 'PUT', param, callback);
+  },
+
+  //修改用户信息
+  orderDetail: function (id, callback) {
+    var param = {};
+    execute(config.orderDetail+id, 'GET', param, callback);
   },
 
 };

@@ -29,6 +29,7 @@ const config = {
     3: { info: '已预审', color: '#9BCD9B' }
   },
   host,
+  imageServer: `https://${host}/images/`,
   //检测站列表信息
   stationListUrl: `https://${host}/api/v1/station/all`,
   //检测站详细信息 +{id}

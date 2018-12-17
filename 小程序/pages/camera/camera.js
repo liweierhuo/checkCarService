@@ -3,7 +3,6 @@ import Page from '../../common/page';
 const config = require('../../config');
 var handleLogin = require('../../utils/handleLogin.js');
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -12,11 +11,11 @@ Page({
     currentStep:1,
     finish:false, //是否完成拍照
     photoStep: {
-      1: { tip: '请拍车辆左前45度照片。', complete: false, type: 1, photo: '../../img/upload.png' },
-      2: { tip: '请拍车辆右后45度照片。', complete: false, type: 2, photo: '../../img/upload.png' },
-      3: { tip: '请拍车辆前轮胎花纹照片。', complete: false, type: 3, photo: '../../img/upload.png' },
-      4: { tip: '请拍车辆前轮胎花纹照片。', complete: false, type: 4, photo: '../../img/upload.png' },
-      5: { tip: '请拍车辆侧面照片。', complete: false, type: 5, photo: '../../img/upload.png' },
+      1: { tip: '请拍车辆左前45度照片。', complete: false, type: 1, photo: config.imageServer + 'left45.png' },
+      2: { tip: '请拍车辆右后45度照片。', complete: false, type: 2, photo: config.imageServer + 'right45.png' },
+      3: { tip: '请拍车辆前轮胎花纹照片。', complete: false, type: 3, photo: config.imageServer + 'front.png' },
+      4: { tip: '请拍车辆后轮胎花纹照片。', complete: false, type: 4, photo: config.imageServer + 'rear.png' },
+      5: { tip: '请拍车辆侧面照片。', complete: false, type: 5, photo: config.imageServer + 'side.png' },
     }
   },
   takePhoto() {
@@ -30,46 +29,54 @@ Page({
         console.log(res.tempFilePaths);
         var tempFilePaths = res.tempFilePaths;
         var photoStep = {
-          1: { tip: '请拍车辆左前45度照片。', complete: false, type: 1, photo: '../../img/upload.png' },
-          2: { tip: '请拍车辆右后45度照片。', complete: false, type: 2, photo: '../../img/upload.png' },
-          3: { tip: '请拍车辆前轮胎花纹照片。', complete: false, type: 3, photo: '../../img/upload.png' },
-          4: { tip: '请拍车辆前轮胎花纹照片。', complete: false, type: 4, photo: '../../img/upload.png' },
-          5: { tip: '请拍车辆侧面照片。', complete: false, type: 5, photo: '../../img/upload.png' },
+          1: { tip: '请拍车辆左前45度照片。', complete: false, type: 1, photo: config.imageServer + 'images/left45.png'},
+          2: { tip: '请拍车辆右后45度照片。', complete: false, type: 2, photo: config.imageServer + 'images/right45.png'},
+          3: { tip: '请拍车辆前轮胎花纹照片。', complete: false, type: 3, photo: config.imageServer +'images/front.png' },
+          4: { tip: '请拍车辆后轮胎花纹照片。', complete: false, type: 4, photo: config.imageServer + 'images/rear.png' },
+          5: { tip: '请拍车辆侧面照片。', complete: false, type: 5, photo: config.imageServer+'images/side.png' },
         };
         photoStep[_this.data.currentStep].photo = tempFilePaths;
-        photoStep[_this.data.currentStep].complete = true,
+        
         wx.showLoading({
           title: '上传中',
         })
         wx.uploadFile({
           url: config.uploadImage,
+          //url: 'http://10.23.10.60:8001/lifen/video/upload.json',
           filePath: tempFilePaths[0],
           name: 'image',
           formData: {
             'type': photoStep[_this.data.currentStep].type
           },
           header: {
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "multipart/form-data;charset=UTF-8",
             'token': token
           },
           success: function (res) {
-            if (res.data.code == config.SUCCESS_CODE) {
+            console.log("wx.uploadFile res :"+res.data);
+            var data = JSON.parse(res.data);  
+            if (data.code == config.SUCCESS_CODE) {
+              photoStep[_this.data.currentStep].complete = true;
               wx.showToast({
                 title: '上传成功',
               })
+              _this.setData({
+                photoStep: photoStep
+              })
             } else {
               wx.showToast({
-                title: '上传失败',
+                title: data.msg,
                 icon:'none'
+              })
+              _this.setData({
+                photoStep: photoStep
               })
             }
           },
           complete:function(res) {
           }
         });
-        _this.setData({
-          photoStep: photoStep
-        })
+        
       }
     })
   },
