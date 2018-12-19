@@ -31,7 +31,7 @@ Page({
   },
   goUploadDriving: function () {
     wx.navigateTo({
-      url: '../uploadDrivingLicense/uploadDrivingLicense'
+      url: '../addCar/addCar'
     })
   },
   onLoad: function () {

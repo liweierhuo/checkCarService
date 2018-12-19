@@ -54,6 +54,7 @@ function sessionIntercepter(url) {
     config.getUserData,
     config.updateUserData,
     config.orderDetail,
+    config.addComment,
   ];
   for (var index in intercep) {
     let str = intercep[index];
@@ -172,6 +173,12 @@ module.exports = {
   orderDetail: function (id, callback) {
     var param = {};
     execute(config.orderDetail+id, 'GET', param, callback);
+  },
+
+  //新增评论信息
+  addComment: function (order_id, station_id, star_mark, detail, callback) {
+    var param = { order_id: order_id, station_id: station_id, star_mark: star_mark, detail: detail};
+    execute(config.addComment, 'POST', param, callback);
   },
 
 };

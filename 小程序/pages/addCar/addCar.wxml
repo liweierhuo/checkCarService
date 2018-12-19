@@ -3,7 +3,6 @@
   <view class='title'>行驶证</view>
   <view class='upload' bindtap='showTakePhoto'>
     <image class='uploadImg' mode="widthFix" src="../../img/uploadBg.jpg" wx:if="{{!showPhoto}}"></image>
-    <camera device-position="back" flash="off" binderror="error" class='uploadImg' wx:if="{{showPhoto}}"></camera>
   </view>
   <view class='items'>
     <view>车辆信息</view>
@@ -18,12 +17,14 @@
         </picker>
       </view>
       <view class='stata2'>
-        <input></input>
+        <input name="carNumber" placeholder="请输入车牌号" bindinput="carNumberInput" value="{{carNumber}}"/>
       </view>
     </view>
     <view class='tip'>
       *您的车辆信息仅用于车辆服务，我们将严格保密。
     </view>
-    <view class='saveBt'>保存</view>
+    <view class='saveBt' bindtap='saveFunc'>保存</view>
   </view>
 </view>
+
+<van-notify id="van-notify" />

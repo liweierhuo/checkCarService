@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "添加车辆"
+  "navigationBarTitleText": "添加车辆",
+  "usingComponents": {
+    "van-notify": "/miniprogram_npm/vant-weapp/notify/index"
+  }
 }

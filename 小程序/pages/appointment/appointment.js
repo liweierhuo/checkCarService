@@ -183,7 +183,7 @@ Page({
           success(res) {
             if (res.confirm) {
               wx.navigateTo({
-                url: '../uploadDrivingLicense/uploadDrivingLicense',
+                url: '../addCar/addCar',
               })
             } else if (res.cancel) {
               console.log('用户点击取消')

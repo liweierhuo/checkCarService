@@ -4,6 +4,7 @@ const app = getApp();
 var util = require('../../utils/util.js');
 var config = require('../../config.js');
 var network = require('../../network.js');
+import Notify from '../../miniprogram_npm/vant-weapp/notify/notify.js';
 Page({
 
   /**
@@ -14,7 +15,19 @@ Page({
     nickName: '张三',
     orderId :'',
     orderInfo:{},
-  
+    star_mark: 0,
+    stationId:'',
+    detail:'12341234',
+    orderStatusArry:{
+      1: { info:'未确认',tip:'待审核'},
+      2: { info: '已授理', tip: '审核成功'},
+      3: { info: '改签', tip: '改签'}
+    },
+    orderCheckArry:{
+      1:{info:'不预审'},
+      2:{info:'未预审'},
+      3:{info:'已预审'}
+    },
   },
 
   /**
@@ -22,7 +35,26 @@ Page({
    */
   onLoad: function (options) {
     this.getOrderInfoByStore();
-    this.getOrderDetail(this.data.orderId)
+    if (options.orderId) {
+      this.getOrderDetail(options.orderId);
+    } else {
+      this.getOrderDetail(this.data.orderId);
+    }
+    
+    
+  },
+
+  detailInput:function(e) {
+    console.log("detailInput e.detail:"+e.detail.value);
+    this.setData({
+      detail: e.detail.value,
+    })
+  },
+  onChange(event) {
+    console.log("rate onChange star_mark " + event.detail);
+    this.setData({
+      star_mark: event.detail
+    });
   },
 
   /**
@@ -46,6 +78,11 @@ Page({
       avatarUrl: userInfo.avatarUrl,
       nickName: userInfo.nickName,
     })
+    if(app.globalData.isBack) {
+      this.getOrderInfoByStore();
+      this.getOrderDetail(this.data.orderId);
+      app.globalData.isBack = false;
+    }
   },
 
   /**
@@ -99,6 +136,35 @@ Page({
     var orderInfo = JSON.parse(value);
     this.setData({
       orderId: orderInfo.id,
+      stationId: orderInfo.stationId,
+    })
+  },
+  addComment:function() {
+    var _this = this;
+    if (_this.data.star_mark <= 0) {
+      Notify('请选择星级');
+      return false;
+    }
+    if (!util.isNotBlank(_this.data.detail)) {
+      Notify('评论不能为空');
+      return false;
+    }
+    var order_id = _this.data.orderId;
+    var station_id = _this.data.stationId;
+    var star_mark = _this.data.star_mark;
+    var detail = _this.data.detail;
+    network.addComment(order_id, station_id, star_mark, detail,function(res,xhr){
+      console.log("network.addComment res:"+res.data);
+      if (res.data.code == config.SUCCESS_CODE) {
+        wx.showToast({
+          title: '评论成功',
+        })
+      }
+    })
+  },
+  goMySpace:function() {
+    wx.switchTab({
+      url: '/pages/personal/personal'
     })
   }
 })

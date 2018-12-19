@@ -36,7 +36,7 @@
   border: 1px solid #00a6ff;
   border-radius: 3px;
   position: absolute;
-  right: 280rpx
+  right: 480rpx
 }
 .xiala2{
   flex: 1;
@@ -52,7 +52,7 @@
   margin-right: 50rpx
 }
 .stata2{
-  width: 220rpx;
+  width: 60%;
   text-align: right
 }
 .stata3{

@@ -29,11 +29,11 @@ Page({
         console.log(res.tempFilePaths);
         var tempFilePaths = res.tempFilePaths;
         var photoStep = {
-          1: { tip: '请拍车辆左前45度照片。', complete: false, type: 1, photo: config.imageServer + 'images/left45.png'},
-          2: { tip: '请拍车辆右后45度照片。', complete: false, type: 2, photo: config.imageServer + 'images/right45.png'},
-          3: { tip: '请拍车辆前轮胎花纹照片。', complete: false, type: 3, photo: config.imageServer +'images/front.png' },
-          4: { tip: '请拍车辆后轮胎花纹照片。', complete: false, type: 4, photo: config.imageServer + 'images/rear.png' },
-          5: { tip: '请拍车辆侧面照片。', complete: false, type: 5, photo: config.imageServer+'images/side.png' },
+          1: { tip: '请拍车辆左前45度照片。', complete: false, type: 1, photo: config.imageServer + 'left45.png'},
+          2: { tip: '请拍车辆右后45度照片。', complete: false, type: 2, photo: config.imageServer + 'right45.png'},
+          3: { tip: '请拍车辆前轮胎花纹照片。', complete: false, type: 3, photo: config.imageServer +'front.png' },
+          4: { tip: '请拍车辆后轮胎花纹照片。', complete: false, type: 4, photo: config.imageServer + 'rear.png' },
+          5: { tip: '请拍车辆侧面照片。', complete: false, type: 5, photo: config.imageServer+'side.png' },
         };
         photoStep[_this.data.currentStep].photo = tempFilePaths;
         
@@ -42,7 +42,6 @@ Page({
         })
         wx.uploadFile({
           url: config.uploadImage,
-          //url: 'http://10.23.10.60:8001/lifen/video/upload.json',
           filePath: tempFilePaths[0],
           name: 'image',
           formData: {

@@ -45,8 +45,9 @@ Page({
         wx.showToast({
           title: '删除成功',
         })
+        this.data.addressList.splice(e.currentTarget.dataset.index, 1)
       }
-      _this.getCarList();
+      
     });
   },
 
@@ -54,7 +55,7 @@ Page({
     var _this = this;
     console.log("car_id:" + e.currentTarget.dataset.id);
     wx.navigateTo({
-      url: '../uploadDrivingLicense/uploadDrivingLicense?carId=' + e.currentTarget.dataset.id,
+      url: '../addCar/addCar?carId=' + e.currentTarget.dataset.id,
     })
   },
 
@@ -115,7 +116,7 @@ Page({
   },
   goAddCar() {
     wx.navigateTo({
-      url: '../uploadDrivingLicense/uploadDrivingLicense',
+      url: '../addCar/addCar',
     })
   },
 

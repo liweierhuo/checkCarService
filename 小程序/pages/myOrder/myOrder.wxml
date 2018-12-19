@@ -4,7 +4,7 @@
     <view>{{nickName}}</view>
   </view>
   <view class='orderLists'>
-    <view class='orderList' wx:for="{{myOrderList}}" data-item="item" wx:for-index="idx" wx:key='orderKey'>
+    <view class='orderList' data-item="{{item}}" wx:for="{{myOrderList}}" wx:for-item="item" wx:for-index="idx" wx:key='orderKey' bindtap='goOrderDetail'>
       <view>
         <view>订单号：{{item.order_no}}</view>
         <view>车牌号：{{item.car_number}}</view>

@@ -13,7 +13,7 @@ Page({
   data: {
     src:'../../img/uploadBg.jpg',
     finish:false,
-    array: ['贵A12345', '贵A111111'],
+    array: ['贵', '鄂'],
     index: 0,
     carNumber : '',
     carId:'',

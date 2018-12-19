@@ -9,47 +9,59 @@
       <view class='circle'></view>
       <view class='content'>
         <image class='right' mode="widthFix" src="../../img/right.png"></image>
-        <view>下单成功，正在生成订单</view>
+        <view>已下单</view>
       </view>
     </view>
-    <view class='scheduleItem '>
+    <view class='{{orderInfo.status == 1 ? "scheduleItem" : "scheduleItem on" }}'>
       <view class='circle'></view>
       <view class='content'>
-        <image class='right' mode="widthFix" src="../../img/noright.png"></image>
-        <view>审核结果</view>
+        <image class='right' mode="widthFix" wx:if='{{orderInfo.status == 1 }}' src="../../img/noright.png"></image>
+        <image class='right' mode="widthFix" wx:if='{{orderInfo.status != 1 }}' src="../../img/right.png"></image>
+        <view>{{orderStatusArry[orderInfo.status].tip}}</view>
       </view>
     </view>
-    <view class='scheduleItem '>
+    <view class='{{orderInfo.check == 3 ? "scheduleItem on" : "scheduleItem" }} ' wx:if='{{orderInfo.check != 1 }}'>
       <view class='circle'></view>
       <view class='content'>
-        <image class='right' mode="widthFix" src="../../img/noright.png"></image>
-        <view>检验</view>
+        <image class='right' mode="widthFix" wx:if='{{orderInfo.check != 3 }}'  src="../../img/noright.png"></image>
+        <image class='right' mode="widthFix" wx:if='{{orderInfo.check == 3 }}' src="../../img/right.png"></image>
+        <view>{{orderCheckArry[orderInfo.check].info}}</view>
       </view>
     </view>
   </view>
-  <view class='remark'>
+  <view class='remark' wx:if='{{orderInfo.check == 3 }}'>
+    <view>2018-12-17上午</view>
     <view>审核不成功原因：</view>
     <view class='stata'>右前轮花纹受损</view>
     <view>请您整改合格之后再来预约，谢谢使用。</view>
   </view>
-  <view class='comment'>
+  <view class='comment' wx:if='{{orderInfo.status == 2}}'>
     <view class='comment1'>
       <view class='tip'>评分：</view>
       <view class='stars'>
+      <van-rate value="{{ star_mark }}" bind:change="onChange" />
+      <!--
         <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
         <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
         <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
         <image class='starOn' mode="widthFix" src="../../img/star1.png"></image>
         <image class='starOn' mode="widthFix" src="../../img/star2.png"></image>
+        -->
       </view>
     </view>
     <view class='comment2'>
       <view class='tip'>评论：</view>
-      <textarea class='textarea'></textarea>
+      <textarea class='textarea' value='{{detail}}' bindinput='detailInput'></textarea>
     </view>
     <view class='commentTip'>
     <view class='tip1'>文字描述最多200字，还可以输入50字</view>
-    <view class='bt'>提交</view>
+    <view class='bt' bindtap='addComment'>提交</view>
     </view>
   </view>
+
+    <view bindtap='goMySpace'>
+    <image class="add_icon" src="../../img/float_bar.png"></image>
+  </view>
 </view>
+
+<van-notify id="van-notify" />

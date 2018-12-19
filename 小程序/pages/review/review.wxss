@@ -144,3 +144,13 @@
   color: #fff;
   border-radius: 3px;
 }
+
+.add_icon {
+  position: fixed;
+  width: 128rpx;
+  height: 128rpx;
+  bottom: 300rpx;
+  right: 20rpx;
+  border-radius: 50%;
+  opacity:0.4;
+}

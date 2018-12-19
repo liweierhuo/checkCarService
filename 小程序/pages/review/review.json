@@ -1,3 +1,7 @@
 {
-  "navigationBarTitleText": "查验审核"
+  "navigationBarTitleText": "查验审核",
+  "usingComponents": {
+    "van-rate": "/miniprogram_npm/vant-weapp/rate/index",
+    "van-notify": "/miniprogram_npm/vant-weapp/notify/index"
+  }
 }

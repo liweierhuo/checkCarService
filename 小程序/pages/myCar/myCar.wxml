@@ -1,7 +1,7 @@
 <!--pages/myCar/myCar.wxml-->
 <view class='container'>
   <view class='carList'>
-    <view class='carItem' wx:for="{{carList}}" wx:for-item="item" wx:key="carListKey">
+    <view class='carItem' wx:for="{{carList}}" wx:for-item="item" wx:key="carListKey" data-index="{{index}}">
       <image class='jiazi1' mode="widthFix" src="../../img/jiazi.png"></image>
       <image class='jiazi2' mode="widthFix" src="../../img/jiazi.png"></image>
       <view class='carNumber'>{{item.car_number}}</view>

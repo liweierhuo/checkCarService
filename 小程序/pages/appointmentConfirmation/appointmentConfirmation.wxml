@@ -1,7 +1,7 @@
 <view class='container'>
   <view class='face'>
-    <image class='faceImg' mode="widthFix" src="../../img/face.png"></image>
-    张三
+    <image class='faceImg' mode="widthFix" src="{{avatarUrl}}"></image>
+    {{nickName}}
   </view>
   <view class='items'>
    <view class='number'>

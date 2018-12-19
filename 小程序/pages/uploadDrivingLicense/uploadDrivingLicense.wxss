@@ -46,8 +46,16 @@
   text-align: right
 }
 .arrow{
-  width: 18rpx;
-  margin-left: 30rpx
+  width: 15rpx;
+  height: 37rpx;
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+  transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
 }
 .tip{
   margin: 0 40rpx;
@@ -63,4 +71,20 @@
   color: #fff;
   font-size: 15px;
   background-color: #00a0e9;
+}
+.xiala{
+  width: 100rpx;
+  height: 50rpx;
+  border: 1px solid #00a6ff;
+  border-radius: 3px;
+  position: absolute;
+  right: 450rpx
+}
+.picker{
+  text-align: center;
+  color: #00a6ff;
+  margin-right: 20rpx;
+  height: 50rpx;
+  font-size: 28rpx;
+  margin-bottom: 40rpx;
 }

@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/personal/personal",
+    "pages/addCar/addCar",
+    
     "pages/pretrialConfirmation/pretrialConfirmation",
     "pages/index/index",
     
@@ -14,12 +17,12 @@
     
     
     "pages/appointment/appointment",
-    "pages/personal/personal",
+    
     "pages/address/address",
     "pages/addAddress/addAddress",
     "pages/addressList/addressList",
     "pages/uploadDrivingLicense/uploadDrivingLicense",
-    "pages/addCar/addCar",
+    
     "pages/getUserInfo/getUserInfo",
     "pages/recommend/recommend",
     "pages/location/location",

@@ -9,9 +9,15 @@
 
   <view class='chooseNumber'>
     <view>车牌号*</view>
-    <form bindsubmit="formSubmit" bindreset="formReset">
+     <view class='xiala'>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class="picker">
+            {{array[index]}}
+          </view>
+          <image class='arrow' mode="widthFix" src="../../img/arrow.png"></image>
+        </picker>
+      </view>
       <input name="carNumber" placeholder="请输入车牌号" bindblur="carNumberInput" value="{{carNumber}}"/>
-    </form>
     <!--
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" class='datePicker'>
       <view>

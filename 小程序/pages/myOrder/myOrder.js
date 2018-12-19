@@ -114,6 +114,7 @@ Page({
               app_time: res.data.result[i].app_time,
               status: config.orderStatus[res.data.result[i].status],
               check: config.orderCheck[res.data.result[i].check],
+              id: res.data.result[i].id, 
               }
             orderList.push(order);
           }
@@ -127,5 +128,13 @@ Page({
         })
       }
     });
+  },
+  goOrderDetail:function(e) {
+    console.info("goOrderDetail id:" + e.currentTarget.dataset.item.id);
+    var id = e.currentTarget.dataset.item.id;
+    if (id != undefined && id != null && id)
+    wx.navigateTo({
+      url: '../review/review?orderId=' + id,
+    })
   }
 })
