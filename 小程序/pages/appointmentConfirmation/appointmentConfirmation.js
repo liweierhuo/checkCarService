@@ -2,6 +2,7 @@
 import Page from '../../common/page';
 var util = require('../../utils/util.js');
 const config = require('../../config');
+var app = getApp();
 Page({
 
   /**

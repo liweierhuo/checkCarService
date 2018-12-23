@@ -1,8 +1,8 @@
 <!--pages/addCar/addCar.wxml-->
 <view class='container'>
   <view class='title'>行驶证</view>
-  <view class='upload' bindtap='showTakePhoto'>
-    <image class='uploadImg' mode="widthFix" src="../../img/uploadBg.jpg" wx:if="{{!showPhoto}}"></image>
+  <view class='upload' bindtap='recognitionCard'>
+    <image class='uploadImg' mode="widthFix" src="{{carImgSrc}}"></image>
   </view>
   <view class='items'>
     <view>车辆信息</view>
@@ -23,7 +23,7 @@
     <view class='tip'>
       *您的车辆信息仅用于车辆服务，我们将严格保密。
     </view>
-    <view class='saveBt' bindtap='saveFunc'>保存</view>
+    <view class='saveBt' bindtap='saveFunc'>{{carId ? '修改' : '保存'}}</view>
   </view>
 </view>
 

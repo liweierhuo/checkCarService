@@ -65,7 +65,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (app.globalData.isBack) {
+      app.globalData.isBack = false;
+      wx.redirectTo({
+        url: '../recommend/recommend',
+      })
+    }
   },
 
   /**
@@ -121,8 +126,8 @@ Page({
           && res.data.result != '') {
           var marker = {
             id: 0,
-            latitude: 23.099994,
-            longitude: 113.324520,
+            latitude: res.data.result.latitude,
+            longitude: res.data.result.longitude,
             label: {
               display: "ALWAYS",
               borderRadius: 5,

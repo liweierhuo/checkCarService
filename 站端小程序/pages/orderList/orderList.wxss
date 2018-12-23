@@ -4,12 +4,6 @@ page {
   min-height: 100%;
   background-color: #9bc5f6;
 }
-
-.container {
-  /* height: 100%;
-  background-color: #9bc5f6 */
-}
-
 .top {
   background-color: #99d4f5;
   padding: 55rpx 0;
@@ -43,7 +37,7 @@ page {
 
 .orderList {
   display: flex;
-  height: 80rpx;
+  height: 120rpx;
   padding: 0 40rpx;
   align-items: center;
   justify-content: space-between;
@@ -55,11 +49,26 @@ page {
   width: 16rpx;
   position: absolute;
   right: 40rpx;
-  top: 14px;
+  top: 24px;
 }
 .tips{
   text-align: center;
   color: #fff;
   line-height: 40px;
   font-size: 14px
+}
+
+.add_icon {
+  position: fixed;
+  width: 128rpx;
+  height: 128rpx;
+  top: 350rpx;
+  left: 20rpx;
+  border-radius: 50%;
+  opacity:0.9;
+}
+.empty {
+  text-align: center;
+  margin-top: 50rpx;
+  color: #7d7d7d;
 }

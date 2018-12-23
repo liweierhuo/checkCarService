@@ -43,5 +43,4 @@ page{
   display: flex;
   justify-content: center;
   margin-bottom: 30rpx;
-  margin-top: 30rpx;
 }

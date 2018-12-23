@@ -1,9 +1,18 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/orderList/orderList",
+   
+    "pages/myData/myData",
+    
+    
+    
+    
     "pages/auditingDetails/auditingDetails",
-    "pages/orderList/orderList",  
-    "pages/auditingReview/auditingReview"
+    
+    "pages/auditingReview/auditingReview",
+    
+    "pages/getUserInfo/getUserInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

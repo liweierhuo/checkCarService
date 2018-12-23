@@ -8,6 +8,7 @@
       <view>
         <view>订单号：{{item.order_no}}</view>
         <view>车牌号：{{item.car_number}}</view>
+        <view>日期：{{item.app_date}}</view>
       </view>
       <view class='itemright'>
         <view class='time'>{{item.app_time}}</view>
@@ -18,5 +19,6 @@
       </view>
       <image class='arrow' mode="widthFix" src="../../img/arrow.png"></image>
     </view>
+    <view class='list_foot' wx:if='!isCanLoad'>-------已经是最后一页了-------</view>
   </view>
 </view>

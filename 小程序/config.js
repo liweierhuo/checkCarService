@@ -74,5 +74,8 @@ const config = {
   updateUserData: `https://${host}/api/v1/user`,
   //上传图片 post
   uploadImage: `https://${host}/api/v1/upload/image`,
+  //驾驶证识别 post
+  recognitionCard: `https://${host}/api/v1/recognition/card`,
+  
 }
 module.exports = config

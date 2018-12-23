@@ -1,14 +1,19 @@
 {
   "pages": [
+    "pages/camera/camera",
+    "pages/index/index",
+    "pages/review/review",
+   
+    "pages/orderList/orderList",
     "pages/personal/personal",
     "pages/addCar/addCar",
     
     "pages/pretrialConfirmation/pretrialConfirmation",
-    "pages/index/index",
+    
     
     "pages/myOrder/myOrder",
     "pages/auditFailure/auditFailure",
-    "pages/orderList/orderList", 
+    
     "pages/myData/myData",
     "pages/switchcity/switchcity",
       
@@ -34,8 +39,8 @@
     "pages/login/login",
     "pages/details/details",
     "pages/success/success",
-    "pages/camera/camera",
-    "pages/review/review",
+   
+    
     "pages/myCar/myCar",
     "pages/myNewDetail/myNewDetail",
     "pages/myNew/myNew"
@@ -52,7 +57,7 @@
   },
   "debug": true,
   "tabBar": {
-    "backgroundColor": "#96c3f4",
+    "backgroundColor": "#99d5f5",
     "borderStyle": "white",
     "color": "#ffffff",
     "selectedColor": "#3393ff",

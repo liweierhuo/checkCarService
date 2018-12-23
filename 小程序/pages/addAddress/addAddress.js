@@ -133,9 +133,11 @@ Page({
           var province = res1.result.address_component.province;
           var city = res1.result.address_component.city;
           var district = res1.result.address_component.district;
+          var street_number = res1.result.address_component.street_number;
           var myRegion = [province, city, district];
           _this.setData({
             region: myRegion,
+            detail: street_number
           })
         });
       },

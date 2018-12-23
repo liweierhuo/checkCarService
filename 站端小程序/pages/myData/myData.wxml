@@ -1,0 +1,45 @@
+<!--pages/myData/myData.wxml-->
+<view class='container'>
+  <view class='myList'>
+    <view class='myItem'>
+      <view class='myItem1'>头像</view>
+      <view class='myItem2'>
+        <image class='myItem2Img' mode="scaleToFill" src="{{userInfo.avatarUrl}}"></image>
+      </view>
+      <!--
+      <view class='rightArrow'>
+        <image class='Arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
+      </view>
+      -->
+    </view>
+    <view class='myItem'>
+      <view class='myItem1'>昵称</view>
+      <view class='myItem2'>
+     {{userInfo.nickName}}
+      </view>
+    </view>
+      <view class='myItem'>
+      <view class='myItem1'>性别</view>
+      <view class='myItem2'>
+      {{userInfo.gender == 1? '男' : userInfo.gender == 2 ? '女' : '未知'}}
+      </view>
+    </view>
+    <view class='myItem'>
+      <view class='myItem1'>地区</view>
+      <view class='myItem2'>
+      {{userInfo.city}}
+      </view>
+    </view>
+    <!--
+    <view class='myItem'>
+      <view class='myItem1'>详细地址</view>
+      <view class='myItem2'>
+        <input placeholder='请输入详细地址'></input>
+      </view>
+    </view>
+    -->
+  </view>
+  <button class='saveBt' bindtap='loginOut'>
+  退出登录
+  </button>
+</view>

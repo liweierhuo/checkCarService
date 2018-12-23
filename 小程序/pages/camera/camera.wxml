@@ -9,8 +9,9 @@
   <!--
       <image mode="widthFix" class='showFinishImag' src="../../img/upload.png" bindtap='takePhoto' wx:if="{{!finish}}"></image>
       -->
-    <image mode="aspectFit" class='showFinishImag' wx:if="{{finish}}" src="../../img/right.png"></image>
-   
+      <view style='background-color:#DCDCDC'>
+    <image mode="aspectFit" class='showFinishImag' wx:if="{{finish}}" src="../../img/right_ok.png"></image>
+   </view>
        <!--
     <van-icon name="passed" wx:if="{{finish}}"/>
      -->

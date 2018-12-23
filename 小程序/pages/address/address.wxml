@@ -6,6 +6,9 @@
     </view>
     <view class="del" catchtap="del" data-index="{{index}}" data-id='{{item.id}}'>删除</view>
   </view>
-<view class='add' bindtap="goAddAddress">添加地址</view>
-<view class='bottom' bindtap="chooseAddress">从微信获取</view>
+    <view class='foot'>
+    <view  bindtap="goAddAddress">添加地址</view>
+<view  bindtap="chooseAddress">从微信获取</view>
+    </view>
+
 </view>

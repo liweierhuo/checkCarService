@@ -58,3 +58,9 @@
   -webkit-transform: rotate(-30deg);
   -o-transform: rotate(-30deg);
 }
+.list_foot {
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  text-align: center;
+  color: #D8D8D8;
+}

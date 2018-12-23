@@ -1,17 +1,13 @@
 <!--pages/auditingReview/auditingReview.wxml-->
 <view class='container'>
   <view class='title'>
-    <view>订单号：123456</view>
-    <view>车牌号：123456</view>
+    <view>订单号：{{orderNo}}</view>
+    <view>车牌号：{{carNumber}}</view>
   </view>
   <view class='photos'>
-    <view class='photo'>
-      <view>左前轮胎花纹</view>
-      <image class='demoImg' mode="widthFix" src="../../img/demo1.png"></image>
-    </view>
-    <view class='photo'>
-      <view>左前轮胎花纹</view>
-      <image class='demoImg' mode="widthFix" src="../../img/demo1.png"></image>
+    <view class='photo' wx:for='{{imgArray}}' wx:key='{{imgArray}}'>
+      <view>{{item.type}}</view>
+      <image class='demoImg' mode="widthFix" src="{{item.pic.url}}"></image>
     </view>
   </view>
 </view>

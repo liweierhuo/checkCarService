@@ -48,10 +48,11 @@ page {
 }
 
 .rightArrow {
-  width: 15rpx;
+  width: 25rpx;
+  height: 40rpx;
   position: absolute;
   right: 60rpx;
-  top: 60rpx;
+  top: 50rpx;
 }
 
 .Arrow {

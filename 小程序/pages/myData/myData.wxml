@@ -7,9 +7,6 @@
       <view class='myItem2'>
         <image class='myItem2Img' mode="scaleToFill" src="{{userData.avatar_url}}"></image>
       </view>
-      <view class='rightArrow'>
-        <image class='Arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
-      </view>
     </view>
     <view class='myItem'>
       <view class='myItem1'>昵称</view>

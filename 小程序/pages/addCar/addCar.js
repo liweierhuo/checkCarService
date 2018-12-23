@@ -4,6 +4,7 @@ var config = require('../../config.js');
 var network = require('../../network.js');
 import Page from '../../common/page';
 import Notify from '../../miniprogram_npm/vant-weapp/notify/notify.js';
+var handleLogin = require('../../utils/handleLogin.js');
 var app = getApp();
 Page({
 
@@ -14,6 +15,8 @@ Page({
     carNumber:'',
     array: ['京', '津', '沪', '渝', '冀', '豫', '云', '辽', '黑', '湘', '皖', '鲁', '新', '苏', '浙', '赣', '鄂', '桂', '甘', '晋', '蒙', '陕', '吉', '闽', '贵', '粤', '青', '藏', '川', '宁', '琼', '使', '领'],
     index: 24,
+    carImgSrc:'../../img/uploadBg.jpg',
+    carId:'',
   },
   showTakePhoto() {
     wx.showToast({
@@ -91,12 +94,88 @@ Page({
     var _this = this;
     network.getCarDetail(id, function (res, xhr) {
       if (res.data.code == config.SUCCESS_CODE) {
+        var resultCarNumber = res.data.result.car_number;
+        var carNumberPrefix = util.getChinese(resultCarNumber);
+        var carNumberArrayIndex = 24;
+        for (var i = 0; i< _this.data.array.length; i++) {
+          if (carNumberPrefix == _this.data.array[i]) {
+            carNumberArrayIndex = i;
+          }
+        }
         _this.setData({
-          carNumber: res.data.result.car_number,
+          carNumber: util.removeChinese(resultCarNumber),
           carId: res.data.result.id,
+          index: carNumberArrayIndex
         });
       }
     });
+  },
+
+
+  recognitionCard() {
+    var _this = this;
+    var token = handleLogin.isLogin();
+    wx.chooseImage({
+      sizeType: ['original', 'compressed'],  //可选择原图或压缩后的图片
+      sourceType: ['album', 'camera'], //可选择性开放访问相册、相机
+      count: 1,
+      success: res => {
+        console.log(res.tempFilePaths);
+        var tempFilePaths = res.tempFilePaths;
+        _this.setData({
+          carImgSrc: tempFilePaths[0],
+        })
+        wx.showLoading({
+          title: '上传中',
+        })
+        wx.uploadFile({
+          url: config.recognitionCard,
+          filePath: tempFilePaths[0],
+          name: 'card',
+          formData: {},
+          header: {
+            "Content-Type": "multipart/form-data;charset=UTF-8",
+            'token': token
+          },
+          success: function (res) {
+            console.log("wx.uploadFile res :" + res.data);
+            var data = JSON.parse(res.data);
+            if (data.code == config.SUCCESS_CODE) {
+              wx.showToast({
+                title: '上传成功',
+              })
+              var resultCarNumber = data.result.car_number;
+              var carNumberPrefix = util.getChinese(resultCarNumber);
+              var carNumberArrayIndex = 24;
+              for (var i = 0; i < _this.data.array.length; i++) {
+                if (carNumberPrefix == _this.data.array[i]) {
+                  carNumberArrayIndex = i;
+                }
+              }
+
+              _this.setData({
+                
+                carNumber: util.removeChinese(resultCarNumber),
+                index: carNumberArrayIndex,
+                carId: data.result.id,
+              })
+            } else {
+              wx.showToast({
+                title: data.msg,
+                icon: 'none'
+              })
+              _this.setData({
+                carImgSrc: tempFilePaths[0],
+                carNumber: data.result.car_number,
+              })
+            }
+          },
+          complete: function (res) {
+          }
+        });
+
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

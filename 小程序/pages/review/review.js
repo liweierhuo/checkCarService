@@ -17,7 +17,9 @@ Page({
     orderInfo:{},
     star_mark: 0,
     stationId:'',
-    detail:'12341234',
+    detail:'',
+    detailMax:140,
+    remainNum:140,
     orderStatusArry:{
       1: { info:'未确认',tip:'待审核'},
       2: { info: '已授理', tip: '审核成功'},
@@ -34,10 +36,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getOrderInfoByStore();
     if (options.orderId) {
       this.getOrderDetail(options.orderId);
     } else {
+      this.getOrderInfoByStore();
       this.getOrderDetail(this.data.orderId);
     }
     
@@ -46,8 +48,13 @@ Page({
 
   detailInput:function(e) {
     console.log("detailInput e.detail:"+e.detail.value);
+    var length = util.getStrLength(e.detail.value);
+    if (length >= this.data.detailMax) {
+      e.detail.value = e.detail.value.substr(0, this.data.detailMax);
+    }
     this.setData({
       detail: e.detail.value,
+      remainNum: this.data.detailMax - length,
     })
   },
   onChange(event) {
@@ -126,6 +133,7 @@ Page({
       if (res.data.code == config.SUCCESS_CODE) {
         _this.setData({
           orderInfo: res.data.result,
+          stationId: res.data.result.station.id,
         });
       }
     });

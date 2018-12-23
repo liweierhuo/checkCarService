@@ -24,7 +24,7 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
-    this.getMyOrderList(_this.data.currentPage, _this.data.pageSize);
+    this.getMyOrderList(_this.data.currentPage, _this.data.pageSize,'');
   },
 
   /**
@@ -50,7 +50,7 @@ Page({
       nickName: userInfo.nickName,
     })
     if (app.globalData.isBack) {
-      _this.getMyOrderList(_this.data.currentPage,_this.data.pageSize);
+      _this.getMyOrderList(_this.data.currentPage,_this.data.pageSize,'');
       app.globalData.isBack = false;
     }
   },
@@ -77,8 +77,10 @@ Page({
     var _this = this;
     _this.setData({
       currentPage:1,
+      isCanLoad:true,
     });
-    this.getMyOrderList(_this.data.currentPage, _this.data.pageSize);
+    var type = 'pullDownRefresh';
+    this.getMyOrderList(_this.data.currentPage, _this.data.pageSize, type);
 
   },
 
@@ -90,7 +92,11 @@ Page({
     if (_this.data.isCanLoad) {
       var currentPage = _this.data.currentPage + 1;
       var pageSize = _this.data.pageSize;
-      _this.getMyOrderList(currentPage, pageSize);
+      _this.setData({
+        currentPage: currentPage,
+        pageSize: pageSize
+      })
+      _this.getMyOrderList(currentPage, pageSize,'');
     }
   },
 
@@ -100,13 +106,21 @@ Page({
   onShareAppMessage: function () {
 
   },
-  getMyOrderList(currentPage,pageSize) {
+  getMyOrderList(currentPage,pageSize,type) {
     var _this = this;
     network.getMyOrderList(currentPage, pageSize,function(res,xhr){
       console.log("network.getMyOrderList res:"+res);
       if (res.data.code == config.SUCCESS_CODE) {
+      
+        if (type == 'pullDownRefresh') {
+          //停止下拉刷新
+          wx.stopPullDownRefresh();
+          _this.setData({
+            orderListTemp:[],
+          })
+        }
+        var list = _this.data.orderListTemp;
         if (res.data.result != undefined && res.data.result != null && res.data.result.length > 0) {
-          var orderList = [];
           for (var i = 0; i < res.data.result.length; i++ ) {
             var order = { car_number: res.data.result[i].car_number, 
               app_date: res.data.result[i].app_date, 
@@ -116,10 +130,11 @@ Page({
               check: config.orderCheck[res.data.result[i].check],
               id: res.data.result[i].id, 
               }
-            orderList.push(order);
+            list.push(order);
           }
 
-          _this.setData({ myOrderList: orderList });
+          _this.setData({ orderListTemp: list });
+          _this.setData({ myOrderList: list });
         }
        
       } else if (res.data.code == config.NO_DATA) {

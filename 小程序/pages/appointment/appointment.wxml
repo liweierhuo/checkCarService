@@ -16,7 +16,7 @@
     </view>
     <view class='number'>
       手机号：
-      <input placeholder="" class='numberInput' value='{{mobile}}' name='mobile'/>
+      <input placeholder="请输入手机号" class='numberInput' value='{{mobile}}' name='mobile'/>
     </view>
     <view class='china'>
       <picker mode="region" bindchange="bindRegionChange" value="{{region}}" class="picker1" name="region">
@@ -33,7 +33,7 @@
     </view>
     <view class='chooseTime'>
       <view class="section__title">日期：</view>
-      <picker mode="date" value="{{date}}" bindchange="bindDateChange" class='datePicker' name='date'>
+      <picker mode="date" start='{{appStart}}' end='{{appEnd}}' value="{{date}}" bindchange="bindDateChange" class='datePicker' name='date'>
         <view class="datePicker">
           {{date}}
         </view>

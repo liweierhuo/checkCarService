@@ -2,10 +2,10 @@
 <view class='container'>
   <view class='main'>
     <view>预约基本信息：</view>
-    <view>订单号：123456</view>
-    <view>车牌号：A1234</view>
-    <view>电话：13600000000</view>
-    <view bindtap='showLayer'>时间：{{year}}年{{month}}月{{day}}日</view>
+    <view>订单号：{{orderInfo.order_no}}</view>
+    <view>车牌号：{{orderInfo.car_number}}</view>
+    <view>电话：{{orderInfo.mobile}}</view>
+    <view bindtap='showLayer'>时间：{{orderInfo.app_date}}{{orderInfo.app_time}}</view>
   </view>
   <view class='layer' hidden="{{!showLayer}}">
     <view class='layerMain'>
@@ -13,13 +13,16 @@
         <view class='layerTip'>选择改签时间：</view>
         <picker-view style="width: 100%; height: 100px;text-align:center;line-height:30px" value="{{value}}" bindchange="bindChange">
           <picker-view-column>
-            <view wx:for="{{years}}">{{item}}年</view>
+            <view wx:for="{{years}}" wx:key='yearsKey'>{{item}}年</view>
           </picker-view-column>
           <picker-view-column>
-            <view wx:for="{{months}}">{{item}}月</view>
+            <view wx:for="{{months}}" wx:key='monthsKey'>{{item}}月</view>
           </picker-view-column>
           <picker-view-column>
-            <view wx:for="{{days}}">{{item}}日</view>
+            <view wx:for="{{days}}" wx:key='daysKey'>{{item}}日</view>
+          </picker-view-column>
+          <picker-view-column>
+            <view wx:for="{{times}}" wx:key='timesKey'>{{item}}</view>
           </picker-view-column>
         </picker-view>
         <view class='layerBt'>
@@ -33,7 +36,7 @@
       </view>
     </view>
   </view>
-  <view class='tip' bindtap='reviewImg'>点击查看查验预审图片</view>
+  <view class='tip' bindtap='reviewImg' data-id='{{orderInfo.id}}' data-order_no='{{orderInfo.order_no}}' data-car_number='{{orderInfo.car_number}}'>点击查看查验预审图片</view>
   <view class='foot'>
     <view bindtap='showLayer'>改签</view>
     <view bindtap='showOk'>受理</view>

@@ -3,11 +3,11 @@
   <view class='loginform'>
     <view class='loginItem'>
       账号：
-      <input type='text' placeholder='请输入账号'></input>
+      <input type='text' placeholder='请输入账号' bindinput='usernameInput' name='username' value='{{username}}'></input>
     </view>
     <view class='loginItem'>
       密码：
-      <input type='password' placeholder='请输入密码'></input>
+      <input type='password' placeholder='请输入密码' bindinput='passwordInput' name='password' value='{{password}}'></input>
     </view>
     <view class='loginBt' bindtap='login'>登录</view>
   </view>

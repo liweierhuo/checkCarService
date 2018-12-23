@@ -41,6 +41,6 @@
     <view>{{station.introduction}}</view>
   </view>
   <view class='mapTip'>{{station.name}}交通地图</view>
-  <map id="map" longitude="113.324520" latitude="23.099994" enable-zoom="true" scale="14" markers="{{markers}}" show-location style="width: 100%; height: 475rpx;"></map>
+  <map id="map" longitude='{{station.longitude}}' latitude='{{station.latitude}}' enable-zoom="true" scale="14" markers="{{markers}}" show-location style="width: 100%; height: 475rpx;"></map>
   <view class='bt' bindtap='next'>下单</view>
 </view>

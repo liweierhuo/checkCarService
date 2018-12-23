@@ -45,7 +45,10 @@ Page({
         wx.showToast({
           title: '删除成功',
         })
-        this.data.addressList.splice(e.currentTarget.dataset.index, 1)
+        _this.data.carList.splice(e.currentTarget.dataset.index, 1);
+        _this.setData({
+          carList: _this.data.carList
+        })
       }
       
     });

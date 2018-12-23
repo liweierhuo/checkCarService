@@ -29,13 +29,21 @@
       </view>
     </view>
   </view>
+  <view class='remark' wx:if='{{orderInfo.status != 2 }}'>
+    <view>订单号：{{orderInfo.order_no}}</view>
+    <view>车牌号：{{orderInfo.car_number}}</view>
+    <view>手机号：{{orderInfo.mobile}}</view>
+    <view>检测站名称：{{orderInfo.station.name}}</view>
+    <view>时间：{{orderInfo.app_date}}{{orderInfo.app_time}}</view>
+    <view>地址：{{orderInfo.snap_address}}</view>
+  </view>
   <view class='remark' wx:if='{{orderInfo.check == 3 }}'>
     <view>2018-12-17上午</view>
     <view>审核不成功原因：</view>
     <view class='stata'>右前轮花纹受损</view>
     <view>请您整改合格之后再来预约，谢谢使用。</view>
   </view>
-  <view class='comment' wx:if='{{orderInfo.status == 2}}'>
+  <view class='comment' wx:if='{{orderInfo.status == 1}}'>
     <view class='comment1'>
       <view class='tip'>评分：</view>
       <view class='stars'>
@@ -54,7 +62,7 @@
       <textarea class='textarea' value='{{detail}}' bindinput='detailInput'></textarea>
     </view>
     <view class='commentTip'>
-    <view class='tip1'>文字描述最多200字，还可以输入50字</view>
+    <view class='tip1'>文字描述最多{{detailMax}}字，还可以输入<text style="color:{{remainNum == 0 ? 'Red' : 'Black'}}">{{remainNum}}</text>字</view>
     <view class='bt' bindtap='addComment'>提交</view>
     </view>
   </view>

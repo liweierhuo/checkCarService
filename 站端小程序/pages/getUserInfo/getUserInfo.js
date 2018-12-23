@@ -10,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    avatarUrl: "../../img/face.png",
+    avatarUrl: "../../img/default_img.png",
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
 

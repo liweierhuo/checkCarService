@@ -22,6 +22,8 @@ Page({
     numberIndex: 0,
     detail:'',
     mobile:'',
+    appStart:'',
+    appEnd:'',
   },
   bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -65,7 +67,21 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
-   
+    var userInfo;
+    if (app.globalData.userInfo) {
+      userInfo = app.globalData.userInfo;
+    } else {
+      userInfo = JSON.parse(util.getUserInfoByStore());
+    }
+    if (userInfo != undefined && userInfo != null) {
+      this.setData({
+        avatarUrl: userInfo.avatarUrl,
+        nickName: userInfo.nickName,
+        date: util.formatTime(new Date(),1),
+        appStart: util.formatTime(new Date(),1),
+        appEnd: util.formatTime(new Date(),30),
+      })
+    }
     _this.getCarList();
 
   },
@@ -83,18 +99,22 @@ Page({
   onShow: function () {
     var _this = this;
     this.initValidate();
-    var userInfo;
-    if (app.globalData.userInfo) {
-      userInfo = app.globalData.userInfo;
-    } else {
-      userInfo = JSON.parse(util.getUserInfoByStore());
-    }
-    this.setData({
-      avatarUrl: userInfo.avatarUrl,
-      nickName: userInfo.nickName,
-      date:util.formatTime(new Date()),
-    })
     if (app.globalData.isBack) {
+      var userInfo;
+      if (app.globalData.userInfo) {
+        userInfo = app.globalData.userInfo;
+      } else {
+        userInfo = JSON.parse(util.getUserInfoByStore());
+      }
+      if (userInfo != undefined && userInfo != null) {
+        this.setData({
+          avatarUrl: userInfo.avatarUrl,
+          nickName: userInfo.nickName,
+          date: util.formatTime(new Date(), 1),
+          appStart: util.formatTime(new Date(), 1),
+          appEnd: util.formatTime(new Date(), 30),
+        })
+      }
       _this.getCarList();
       app.globalData.isBack = false;
     }
