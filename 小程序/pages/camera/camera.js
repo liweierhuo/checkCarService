@@ -62,6 +62,10 @@ Page({
               _this.setData({
                 photoStep: photoStep
               })
+            } else if (data.code == config.SESSION_TIME_OUT){
+              wx.navigateTo({
+                url: '../getUserInfo/getUserInfo',
+              })
             } else {
               wx.showToast({
                 title: data.msg,

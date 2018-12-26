@@ -19,9 +19,6 @@
         <view class='address'>
           {{station.address}}
         </view>
-        <view class='rightArrow'>
-          <image class='arrow' mode="widthFix" src="../../img/arrow.png"></image>
-        </view>
       </view>
       <view class='right1'>
         <view class='costPrice'>￥{{station.old_price}}</view>

@@ -11,16 +11,47 @@ Page({
    */
   data: {
     orderList:[],
+    orderListTemp: [],
+    isCanLoad: true,
     currentPage:1,
     pageSize:20,
-
+    keywords:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getOrderList();
+    var _this = this;
+    var type = 'init';
+    _this.getOrderList(_this.data.currentPage, _this.data.pageSize, _this.data.keywords, type);
+  },
+  keyWordsInput:function(e) {
+    console.log("keyWordsInput value :" + e.detail.value);
+    if (util.isNotBlank(e.detail.value)) {
+      this.setData({
+        keywords: e.detail.value,
+      })
+    }
+  },
+  searchClick:function() {
+    this.search(this.data.keywords);
+  },
+  search:function(keywords){
+    if (util.isNotBlank(keywords)) {
+      var _this = this;
+      var type = 'search';
+      _this.setData({
+        currentPage: 1,
+      })
+      _this.getOrderList(_this.data.currentPage, _this.data.pageSize, keywords, type);
+    }
+  },
+
+  keyWordsConfirm: function (e) {
+    console.log("keyWordsInput value :" + e.detail.value);
+    this.search(e.detail.value);
+    
   },
   goMySpace:function() {
     wx.navigateTo({
@@ -38,8 +69,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var _this = this;
     if (app.globalData.isBack) {
-      this.getOrderList();
+      var type = 'init';
+      _this.getOrderList(_this.data.currentPage, _this.data.pageSize, _this.data.keywords, type);
       app.globalData.isBack = false;
     }
   },
@@ -62,17 +95,31 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    console.info("下拉");
-    this.getOrderList();
-    // 停止下拉动作
-    wx.stopPullDownRefresh();
+    console.log("onPullDownRefresh is flush");
+    var _this = this;
+    _this.setData({
+      currentPage: 1,
+      isCanLoad: true,
+    });
+    var type = 'pullDownRefresh';
+    _this.getOrderList(_this.data.currentPage, _this.data.pageSize, _this.data.keywords, type);
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    var _this = this;
+    if (_this.data.isCanLoad) {
+      var currentPage = _this.data.currentPage + 1;
+      var pageSize = _this.data.pageSize;
+      _this.setData({
+        currentPage: currentPage,
+        pageSize: pageSize
+      })
+      var type = 'reachBottom';
+      _this.getOrderList(_this.data.currentPage, _this.data.pageSize, _this.data.keywords, type);
+    }
   },
 
   /**
@@ -90,29 +137,39 @@ Page({
       })
     }
   },
-  getOrderList:function() {
-    var page = this.data.currentPage;
-    var size = this.data.pageSize;
+  getOrderList: function (page, size, keywords,type) {
     var _this = this;
-    network.getStationOrderPage(page,size,function(res,xhr){
+    network.getStationOrderPage(page, size, keywords,function(res,xhr){
       console.info("network.getStationOrderPage res :" + res.data);
       if (res.data.code == config.SUCCESS_CODE) {
-        var resList = res.data.result;
-        var list = [];
-        for (var i = 0; i < resList.length; i++) {
-          var order = {
-            car_number: resList[i].car_number,
-            app_date: resList[i].app_date,
-            order_no: resList[i].order_no,
-            app_time: resList[i].app_time,
-            status: config.orderStatus[resList[i].status],
-            check: config.orderCheck[resList[i].check],
-            id: resList[i].id,
-          }
-          list.push(order);
+        if (type == 'pullDownRefresh' || type == 'search' || type == 'init') {
+          //停止下拉刷新
+          wx.stopPullDownRefresh();
+          _this.setData({
+            orderListTemp: [],
+          })
         }
+        var list = _this.data.orderListTemp;
+        var resList = res.data.result;
+        if (resList != undefined && resList != null && resList.length > 0) {
+          for (var i = 0; i < resList.length; i++) {
+            var order = {
+              car_number: resList[i].car_number,
+              app_date: resList[i].app_date,
+              order_no: resList[i].order_no,
+              app_time: resList[i].app_time,
+              status: config.orderStatus[resList[i].status],
+              check: config.orderCheck[resList[i].check],
+              id: resList[i].id,
+            }
+            list.push(order);
+          }
+        }
+        _this.setData({ orderListTemp: list });
+        _this.setData({ orderList: list });
+      } else if (res.data.code == config.NO_DATA) {
         _this.setData({
-          orderList: list,
+          isCanLoad: false
         })
       }
     })

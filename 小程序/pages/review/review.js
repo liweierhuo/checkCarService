@@ -133,6 +133,7 @@ Page({
       if (res.data.code == config.SUCCESS_CODE) {
         _this.setData({
           orderInfo: res.data.result,
+          orderId: res.data.result.id,
           stationId: res.data.result.station.id,
         });
       }

@@ -55,6 +55,7 @@ function sessionIntercepter(url) {
     config.updateUserData,
     config.orderDetail,
     config.addComment,
+    config.orderAudit,
   ];
   for (var index in intercep) {
     let str = intercep[index];
@@ -179,6 +180,12 @@ module.exports = {
   addComment: function (order_id, station_id, star_mark, detail, callback) {
     var param = { order_id: order_id, station_id: station_id, star_mark: star_mark, detail: detail};
     execute(config.addComment, 'POST', param, callback);
+  },
+
+  //提交预审信息
+  orderAudit: function (order_id, callback) {
+    var param = {};
+    execute(config.orderAudit + order_id, 'POST', param, callback);
   },
 
 };

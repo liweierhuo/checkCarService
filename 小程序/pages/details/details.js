@@ -43,6 +43,11 @@ Page({
         wx.navigateTo({
           url: '../pretrialConfirmation/pretrialConfirmation?stationName=' + _this.data.station.name + '&stationId=' + _this.data.station.id,
         })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon:'none'
+        })
       }
     })
   },

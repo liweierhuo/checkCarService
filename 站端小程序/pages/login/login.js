@@ -2,6 +2,7 @@
 import Page from '../../common/page';
 const app = getApp();
 var util = require('../../utils/util.js');
+//const handleLogin = require('../../utils/handleLogin.js');
 var config = require('../../config.js');
 var network = require('../../network.js');
 Page({
@@ -18,12 +19,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    /*
     var userName = wx.getStorageSync(config.USER_NAME);
     if (util.isNotBlank(userName)) {
       wx.redirectTo({
         url: '../orderList/orderList',
       })
     }
+    */
+    var token = wx.getStorageSync(config.SESSION_KEY);
+    var header = {
+      'content-type': 'application/json', // 默认值
+      'token': token
+    };
+    wx.request({
+      url: config.getLoginInfo,
+      header: header,
+      success:function(res) {
+        console.log("getLoginInfo res :"+res.data);
+        if (res.data.code == config.SUCCESS_CODE) {
+          return;
+        } else if (res.data.code == config.SESSION_TIME_OUT) {
+          wx.navigateTo({
+            url: '../getUserInfo/getUserInfo',
+          })
+        }
+      }
+    })
 
   },
 
@@ -105,7 +127,7 @@ Page({
       console.log("network.userLogin res:"+res.data);
       if (res.data.code == config.SUCCESS_CODE) {
         wx.setStorageSync(config.USER_NAME, res.data.result.username);
-        wx.navigateTo({
+        wx.redirectTo({
           url: '../orderList/orderList',
         })
       } else {

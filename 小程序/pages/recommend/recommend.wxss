@@ -14,15 +14,14 @@
 .recommendItemImg {
   display: block;
   width: 195rpx;
-  height: 135rpx;
+  height: 130rpx;
   margin-right: 50rpx;
 }
 
 .recommendItemImg2 {
   display: block;
-  width: 195rpx;
-  height: 135rpx;
-  border-radius: 10rpx;
+  width: 170rpx;
+  border-radius:50%
 }
 
 .recommendItemRight {

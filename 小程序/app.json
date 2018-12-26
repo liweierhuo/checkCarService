@@ -1,14 +1,20 @@
 {
   "pages": [
-    "pages/camera/camera",
     "pages/index/index",
+    "pages/recommend/recommend",
+    
+    "pages/pretrialConfirmation/pretrialConfirmation",
+    "pages/appointmentConfirmation/appointmentConfirmation",
+    
+    "pages/camera/camera",
+    
     "pages/review/review",
    
     "pages/orderList/orderList",
     "pages/personal/personal",
     "pages/addCar/addCar",
     
-    "pages/pretrialConfirmation/pretrialConfirmation",
+   
     
     
     "pages/myOrder/myOrder",
@@ -29,11 +35,11 @@
     "pages/uploadDrivingLicense/uploadDrivingLicense",
     
     "pages/getUserInfo/getUserInfo",
-    "pages/recommend/recommend",
+   
     "pages/location/location",
     
     
-    "pages/appointmentConfirmation/appointmentConfirmation",
+    
     "pages/auditingReview/auditingReview",
     "pages/auditingDetails/auditingDetails",
     "pages/login/login",

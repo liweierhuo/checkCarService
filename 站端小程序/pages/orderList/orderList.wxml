@@ -2,8 +2,8 @@
 <view class='container'>
   <view class='top'>
     <view class='search'>
-      <input placeholder='输入车牌号查询' placeholder-style="color:#99d4f5;"></input>
-      <image class='searchIcon' mode="widthFix" src="../../img/search.png"></image>
+      <input placeholder='输入车牌号查询' placeholder-style="color:#99d4f5;" bindinput='keyWordsInput' name='keywords' value='{{keywords}}' bindconfirm='keyWordsConfirm'></input>
+      <image class='searchIcon' mode="widthFix" src="../../img/search.png" bindtap='searchClick'></image>
     </view>
   </view>
   <view class='orderLists'>

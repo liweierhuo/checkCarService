@@ -44,8 +44,8 @@ Page({
     handleLogin.login(function() {
       console.info("异步登录");
       app.globalData.isBack = true;
-      wx.navigateBack({
-        delta:1,
+      wx.reLaunch({
+        url: '../login/login',
       })
     });
   },

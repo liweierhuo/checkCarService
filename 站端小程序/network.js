@@ -44,6 +44,7 @@ function sessionIntercepter(url) {
     config.orderHandle,
     config.orderChange,
     config.orderPicDetail,
+    config.getLoginInfo,
   ];
   for (var index in intercep) {
     let str = intercep[index];
@@ -70,8 +71,8 @@ module.exports = {
     execute(config.loginOut, 'GET', {}, callback);
   },
   //分页获取检测站当天订单列表
-  getStationOrderPage: function (page,size,callback) {
-    execute(config.getStationOrder, 'GET', { page: page, size: size}, callback);
+  getStationOrderPage: function (page, size,keywords,callback) {
+    execute(config.getStationOrder, 'GET', { page: page, size: size, keywords: keywords}, callback);
   },
   //站端订单详情
   getStationOrderDetail: function (id, callback) {
@@ -88,6 +89,10 @@ module.exports = {
   //站端订单审核照片详情
   orderPicDetail: function (id, callback) {
     execute(config.orderPicDetail+id, 'GET', {}, callback);
+  },
+  //获取用户的信息
+  getLoginInfo: function (callback) {
+    execute(config.getLoginInfo, 'GET', {}, callback);
   },
 
 };

@@ -18,9 +18,8 @@
 
 .recommendItemImg2 {
   display: block;
-  width: 195rpx;
-  height: 135rpx;
-  border-radius: 10rpx;
+  width: 170rpx;
+  border-radius:50%
 }
 
 .recommendItemRight {

@@ -2,6 +2,7 @@
 import Page from '../../common/page';
 var util = require('../../utils/util.js');
 var config = require('../../config.js');
+var network = require('../../network.js');
 Page({
 
   /**
@@ -14,11 +15,23 @@ Page({
     address: '测试地址',
     date: '2018-10-10',
     time:'上午',
+    orderId:'',
   },
   next: function () {
-    wx.navigateTo({
-      url: '../camera/camera'
+    network.orderAudit(this.data.orderId,function(res,xhr){
+      console.log("network.orderAudit res :"+res.data);
+      if (res.data.code == config.SUCCESS_CODE) {
+        wx.navigateTo({
+          url: '../camera/camera'
+        })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon:'none'
+        })
+      }
     })
+    
   },
   goOrderInfo : function() {
     wx.navigateTo({
@@ -50,9 +63,9 @@ Page({
    */
   onShow: function () {
     this.getOrderPreDataByStore();
-    /*
+
     this.getOrderInfoByStore();
-    */
+
   },
 
   /**
@@ -100,13 +113,13 @@ Page({
       time:orderPreData.time,
     })
   },
-  /*
+
   getOrderInfoByStore : function () {
     var value = wx.getStorageSync(config.ORDER_INFO_KEY);
     var orderInfo = JSON.parse(value);
     this.setData({
-      statinoName:orderInfo.statinoName,
+      statinoName: orderInfo.stationName,
+      orderId: orderInfo.id,
     })
   }
-  */
 })

@@ -76,6 +76,8 @@ const config = {
   uploadImage: `https://${host}/api/v1/upload/image`,
   //驾驶证识别 post
   recognitionCard: `https://${host}/api/v1/recognition/card`,
+  //车主端订单照片预审 post :id
+  orderAudit: `https://${host}/api/v1/order/auditor/`,
   
 }
 module.exports = config

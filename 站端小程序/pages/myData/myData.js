@@ -55,7 +55,7 @@ Page({
       console.log("network.loginOut res:"+res.data);
       if(res.data.code == config.SUCCESS_CODE) {
         wx.removeStorageSync(config.USER_NAME);
-        wx.redirectTo({
+        wx.reLaunch({
           url: '../login/login',
         })
       }else {
