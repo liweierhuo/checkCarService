@@ -36,7 +36,7 @@
       </view>
     </view>
   </view>
-  <view class='tip' bindtap='reviewImg' data-id='{{orderInfo.id}}' data-order_no='{{orderInfo.order_no}}' data-car_number='{{orderInfo.car_number}}'>点击查看查验预审图片</view>
+  <view class='tip' bindtap='reviewImg' data-id='{{orderInfo.id}}' data-order_no='{{orderInfo.order_no}}' data-car_number='{{orderInfo.car_number}}' wx:if='{{orderInfo.check != 1 }}'>点击查看查验预审图片</view>
   <view class='foot'>
     <view bindtap='showLayer'>改签</view>
     <view bindtap='showOk'>受理</view>
