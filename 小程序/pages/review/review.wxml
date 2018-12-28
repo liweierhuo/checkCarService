@@ -62,8 +62,9 @@
       <textarea class='textarea' value='{{detail}}' bindinput='detailInput'></textarea>
     </view>
     <view class='commentTip'>
-    <view class='tip1'>文字描述最多{{detailMax}}字，还可以输入<text style="color:{{remainNum == 0 ? 'Red' : 'Black'}}">{{remainNum}}</text>字</view>
-    <view class='bt' bindtap='addComment'>提交</view>
+    <view class='tip1'>文字描述最多{{detailMax}}字，还可以输入
+    <text style="color:{{remainNum == 0 ? 'Red' : 'Black'}}">{{remainNum}}</text>字</view>
+     <view class='nextBt' bindtap='addComment'>提交</view>
     </view>
   </view>
 

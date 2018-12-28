@@ -125,7 +125,9 @@
 }
 
 .commentTip {
+  /**
   display: flex;
+  */
   margin-top: 40rpx;
   padding-bottom: 50rpx
 }
@@ -149,8 +151,20 @@
   position: fixed;
   width: 128rpx;
   height: 128rpx;
-  bottom: 300rpx;
+  bottom: 750rpx;
   right: 20rpx;
   border-radius: 50%;
   opacity:0.4;
+}
+
+.nextBt {
+  width: 470rpx;
+  height: 115rpx;
+  margin: 60rpx auto;
+  color: #fff;
+  text-align: center;
+  line-height: 115rpx;
+  background-color: #1cace1;
+  font-size: 28rpx;
+  border-radius: 5px;
 }

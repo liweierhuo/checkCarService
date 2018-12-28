@@ -45,7 +45,8 @@ Page({
           filePath: tempFilePaths[0],
           name: 'image',
           formData: {
-            'type': photoStep[_this.data.currentStep].type
+            'type': photoStep[_this.data.currentStep].type,
+            'id': _this.getOrderInfoByStore(),
           },
           header: {
             "Content-Type": "multipart/form-data;charset=UTF-8",
@@ -159,5 +160,10 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  getOrderInfoByStore: function () {
+    var value = wx.getStorageSync(config.ORDER_INFO_KEY);
+    var orderInfo = JSON.parse(value);
+    return orderInfo.id;
+  },
 })

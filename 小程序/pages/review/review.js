@@ -168,6 +168,9 @@ Page({
         wx.showToast({
           title: '评论成功',
         })
+        wx.navigateTo({
+          url: '../myOrder/myOrder',
+        })
       }
     })
   },

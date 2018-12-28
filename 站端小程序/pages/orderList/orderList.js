@@ -171,6 +171,10 @@ Page({
         _this.setData({
           isCanLoad: false
         })
+        if (type == 'pullDownRefresh' || type == 'search' || type == 'init') {
+          //停止下拉刷新
+          wx.stopPullDownRefresh();
+        }
       }
     })
   }

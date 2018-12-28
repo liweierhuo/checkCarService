@@ -60,6 +60,9 @@ Page({
           icon: 'success',
           duration: 2000
         })
+        wx.redirectTo({
+          url: '../orderList/orderList',
+        })
       }
     })
     
@@ -92,6 +95,9 @@ Page({
         wx.showToast({
           title: '改签成功',
         });
+        wx.redirectTo({
+          url: '../orderList/orderList',
+        })
       } else {
         wx.showToast({
           title: res.data.msg,

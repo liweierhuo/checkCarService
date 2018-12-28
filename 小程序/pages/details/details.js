@@ -156,8 +156,8 @@ Page({
   },
   previewImage : function () {
     wx.previewImage({
-      current: 'http://www.tjfae.com/res/cms/upload/201807/261335019tyf.png', // 当前显示图片的http链接
-      urls: ['http://www.tjfae.com/res/cms/upload/201807/261335019tyf.png'], // 需要预览的图片http链接列表
+      current: this.data.station.log_img.url, // 当前显示图片的http链接
+      urls: [this.data.station.log_img.url], // 需要预览的图片http链接列表
       success: function (res) {
         // success
       },
