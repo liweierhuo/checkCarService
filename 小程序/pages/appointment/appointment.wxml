@@ -12,7 +12,7 @@
           {{numberArray[numberIndex]}}
         </view>
       </picker>
-      <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
+     <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
     </view>
     <view class='number'>
       手机号：

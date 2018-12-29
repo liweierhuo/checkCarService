@@ -40,7 +40,7 @@ const config = {
     3: { info: '改签', color: '#FFEC8B' }
   },
   orderCheck: {
-    1: { info: '不预审', color: '#FFEC8B' },
+    1: { info: '无预审', color: '#FFEC8B' },
     2: { info: '未预审', color: '#EE4000' },
     3: { info: '已预审', color: '#9BCD9B' }
   },

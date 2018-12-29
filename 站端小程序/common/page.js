@@ -2,7 +2,7 @@ export default function (options = {}) {
   return Page({
     onShareAppMessage() {
       return {
-        title: '贴心小助手'
+        title: '贵阳市机动车业务服务机构'
       };
     },
     data: {

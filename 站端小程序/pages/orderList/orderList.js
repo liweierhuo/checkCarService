@@ -100,6 +100,7 @@ Page({
     _this.setData({
       currentPage: 1,
       isCanLoad: true,
+      keywords:'',
     });
     var type = 'pullDownRefresh';
     _this.getOrderList(_this.data.currentPage, _this.data.pageSize, _this.data.keywords, type);
