@@ -49,8 +49,8 @@ Page({
   formSubmit: function (e) {
     // 传入表单数据，调用验证方法
     const params = e.detail.value;
-    params.carNumber = this.data.numberArray[params.carNumber];
-    params.time = this.data.timeArray[params.time];
+    params.carNumber = this.data.numberArray[this.data.numberIndex];
+    params.time = this.data.timeArray[this.data.timeArrayIndex];
     console.log(params)
     if (!this.WxValidate.checkForm(params)) {
       const error = this.WxValidate.errorList[0];
