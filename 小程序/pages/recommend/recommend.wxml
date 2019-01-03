@@ -24,8 +24,10 @@
           </view>
         </view>
         <view class='right1'>
+        <!--
           <view class='costPrice'>￥{{item.old_price}}</view>
           <image class='rightArrow2' mode="widthFix" src="../../img/arrow2.png"></image>
+          -->
           <view class='discountedPrice'>￥{{item.now_price}}</view>
         </view>
       </view>

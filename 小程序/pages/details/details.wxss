@@ -103,6 +103,7 @@
   color: #88c9f3;
 }
 .abstract{
+  margin-top: 40rpx;
   border: 1px solid #dfdfdf;
   border-radius: 5px;
   padding: 20rpx;

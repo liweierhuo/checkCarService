@@ -151,8 +151,3 @@
   justify-content:center;
   align-items:Center;
 }
-.array_text {
-  width: 80%;
-  align-items: center;
-  margin-top: 30rpx;
-}

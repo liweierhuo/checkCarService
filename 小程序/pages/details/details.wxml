@@ -21,18 +21,31 @@
         </view>
       </view>
       <view class='right1'>
+      <!--
         <view class='costPrice'>￥{{station.old_price}}</view>
         <image class='rightArrow2' mode="widthFix" src="../../img/arrow2.png"></image>
+        -->
         <view class='discountedPrice'>￥{{station.now_price}}</view>
+      </view>
+          <view class='right1'>
+      <!--
+        <view class='costPrice'>￥{{station.old_price}}</view>
+        <image class='rightArrow2' mode="widthFix" src="../../img/arrow2.png"></image>
+        -->
+        <view>服务时间：{{station.service_time}}</view>
       </view>
     </view>
   </view>
-  <view class='infomation'>
+  <view class='right1 infomation'>
+  <!--
     <view bindtap="makePhoneCall" data-phone='{{station.mobile}}'>电话：
       <text>{{station.mobile}}</text>
     </view>
+    
     <view>服务时间：{{station.service_time}}</view>
+      -->
   </view>
+
   <view class='abstract'>
     <view>公司简介：</view>
     <view>{{station.introduction}}</view>
