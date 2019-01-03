@@ -9,9 +9,8 @@
       车牌号：
       <picker bindchange="bindNumberChange" value="{{numberIndex}}" range="{{numberArray}}" class='numberPicker' name='carNumber'>
         <view >{{numberArray[numberIndex]}}</view>
-
+<image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
       </picker>
-            <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
     </view>
     <view class='number'>
       手机号：
@@ -22,8 +21,8 @@
         <view class="picker1">
           {{region[0]}}-{{region[1]}}-{{region[2]}}
         </view>
+         <image class='arrow arrow1' mode="widthFix" src="../../img/arrow_black.png"></image>
       </picker>
-      <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
     </view>
     <view class='number'>
       详情地址（选填）
@@ -40,8 +39,8 @@
       <view class='timeDayView'>
         <picker range='{{timeArray}}' value="{{timeArrayIndex}}" bindchange="timeChange" class='datePicker' name='time'>
  <text class='timeDayText'>{{timeArray[timeArrayIndex]}}</text>
+  <image class='arrow1' mode="widthFix" src="../../img/arrow_black.png" bindtap=''></image>
        </picker>
-       <image class='arrow1' mode="widthFix" src="../../img/arrow_black.png" bindtap=''></image>
       </view>
     </view>
   </view>

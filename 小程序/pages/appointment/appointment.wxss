@@ -55,8 +55,12 @@
 .numberPicker{
   flex: 1;
   margin-right: 20px;
-  text-align: right
-  
+  text-align: right;
+  position: relative
+}
+.numberPicker view{
+  flex: 1;
+  margin-right: 5px
 }
 .xiala {
   width: 15rpx;
@@ -113,13 +117,16 @@
   border-radius: 5px;
 }
 .arrow{
+  position: absolute;
+  right: -20rpx;
+  top: 5rpx;
   width: 15rpx;
    transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   -webkit-transform: rotate(90deg);
   -o-transform: rotate(90deg);
-  margin-right: 15px
+  
 }
 .arrow_inner{
   width: 15rpx;
@@ -133,7 +140,8 @@
 
 .arrow1{
   width: 15rpx;
-  margin-right: 15px
+   right: 15rpx;
+  top: 15rpx;
 }
 .timeDayText{
   margin-right: 20rpx;
