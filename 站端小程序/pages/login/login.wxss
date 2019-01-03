@@ -1,7 +1,9 @@
 /* pages/login/login.wxss */
 
 page {
+  /*
   height: 100%;
+  */
   background: -webkit-linear-gradient(#6ba5e8, #7daee4); /* Safari 5.1 - 6.0 */
   background: -o-linear-gradient(#6ba5e8, #7daee4); /* Opera 11.1 - 12.0 */
   background: -moz-linear-gradient(#6ba5e8, #7daee4); /* Firefox 3.6 - 15 */

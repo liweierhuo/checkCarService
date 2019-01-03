@@ -127,6 +127,7 @@ function showLoginModal() {
     title: '提示',
     content: '你还未登录，登录后可获得完整体验 ',
     confirmText: '一键登录',
+    showCancel:false,
     success(res) {
       // 点击一键登录，去授权页面
       if (res.confirm) {
