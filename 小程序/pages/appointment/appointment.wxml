@@ -8,11 +8,10 @@
     <view class='number'>
       车牌号：
       <picker bindchange="bindNumberChange" value="{{numberIndex}}" range="{{numberArray}}" class='numberPicker' name='carNumber'>
-        <view>
-          {{numberArray[numberIndex]}}
-        </view>
+        <view >{{numberArray[numberIndex]}}</view>
+
       </picker>
-     <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
+            <image class='arrow' mode="widthFix" src="../../img/arrow_black.png"></image>
     </view>
     <view class='number'>
       手机号：

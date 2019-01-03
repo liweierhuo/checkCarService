@@ -25,10 +25,10 @@ Page({
     appStart:'',
     appEnd:'',
   },
-  bindRegionChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+  bindRegionChange: function (event) {
+    console.log('picker发送选择改变，携带值为', event.detail)
     this.setData({
-      region: e.detail.value
+      region: event.detail.value
     })
   },
   timeChange:function(e) {

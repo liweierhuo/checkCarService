@@ -18,7 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getStation();
+    this.getStation('');
   },
 
   /**
@@ -33,7 +33,7 @@ Page({
    */
   onShow: function() {
     if (app.globalData.isBack) {
-      this.getStation();
+      this.getStation('');
       app.globalData.isBack = false;
     }
   },
@@ -59,13 +59,8 @@ Page({
     // 显示顶部刷新图标
     wx.showNavigationBarLoading();
     console.info("下拉");
-    // 隐藏导航栏加载框
-    wx.hideNavigationBarLoading();
-    // 停止下拉动作
-    wx.stopPullDownRefresh();
-  
-
-
+    var type = 'pullDownRefresh';
+    this.getStation(type);
   },
 
   /**
@@ -73,13 +68,6 @@ Page({
    */
   onReachBottom: function() {
     console.info("上拉");
-    // 显示加载图标
-    wx.showLoading({
-      title: '玩命加载中',
-    })
-    // 隐藏加载框
-    wx.hideLoading();
-
   },
 
   /**
@@ -95,11 +83,17 @@ Page({
     })
   },
   //获取监测站列表
-  getStation : function () {
+  getStation : function (type) {
     var _this = this;
     network.getStationList(function (res, xhr) {
       console.log(res.data);
       if (res.data.code == config.SUCCESS_CODE) {
+        if (type == 'pullDownRefresh') {
+          // 隐藏导航栏加载框
+          wx.hideNavigationBarLoading();
+          // 停止下拉动作
+          wx.stopPullDownRefresh();
+        }
         console.info("res.result" + res.data.result);
         if (res.data.result != undefined && res.data.result != null
           && res.data.result.length > 0) {

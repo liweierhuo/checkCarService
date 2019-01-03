@@ -9,9 +9,15 @@
       <view class='personalName'>{{userInfo.nickName}}</view>
     </block>
   -->
-
+  <block wx:if="{{!hasUserInfo}}">
+    <image class='personalImg' mode="widthFix" src="{{avatarUrl}}"></image>
+    <view class='personalName'>昵称加载中...</view>
+  </block>
+  <block wx:else>
     <image class='personalImg' mode="widthFix" src="{{userInfo.avatarUrl}}"></image>
     <view class='personalName'>{{userInfo.nickName}}</view>
+   </block>
+    
 
 
     <view class='topBts'>

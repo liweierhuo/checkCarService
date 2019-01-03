@@ -47,16 +47,8 @@ Page({
       })
     }
     */
-    var userInfo;
-    if (app.globalData.userInfo) {
-      userInfo = app.globalData.userInfo;
-    } else {
-      userInfo = JSON.parse(util.getUserInfoByStore());
-    }
-    this.setData({
-      userInfo: userInfo,
-      hasUserInfo: true
-    })
+    var type = 'init';
+    this.pageOnload(type);
   },
   getUserInfo: function (e) {
     console.log(e)
@@ -98,7 +90,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    // 显示顶部刷新图标
+    wx.showNavigationBarLoading();
+    console.info("下拉");
+    var type = 'pullDownRefresh';
+    this.pageOnload(type);
+    
   },
 
   /**
@@ -153,5 +150,30 @@ Page({
     }
     return storeUserInfo;
   },
+
+  pageOnload:function (type) {
+    var userInfo;
+    if (app.globalData.userInfo) {
+      userInfo = app.globalData.userInfo;
+    } else {
+      var userInfoStore = util.getUserInfoByStore();
+      if (userInfoStore != undefined && userInfoStore != null) {
+        userInfo = JSON.parse(userInfoStore);
+      }
+    }
+    if (userInfo != undefined && userInfo != null) {
+      this.setData({
+        userInfo: userInfo,
+        hasUserInfo: true
+      })
+    }
+    if (type = 'pullDownRefresh') {
+
+      // 隐藏导航栏加载框
+      wx.hideNavigationBarLoading();
+      // 停止下拉动作
+      wx.stopPullDownRefresh();
+    }
+  }
 
 })

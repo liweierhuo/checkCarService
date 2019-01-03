@@ -56,6 +56,7 @@
   flex: 1;
   margin-right: 20px;
   text-align: right
+  
 }
 .xiala {
   width: 15rpx;
@@ -120,6 +121,15 @@
   -o-transform: rotate(90deg);
   margin-right: 15px
 }
+.arrow_inner{
+  width: 15rpx;
+   transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  margin-right: 15px
+}
 
 .arrow1{
   width: 15rpx;
@@ -132,4 +142,9 @@
   display: flex;
   justify-content:center;
   align-items:Center;
+}
+.array_text {
+  width: 80%;
+  align-items: center;
+  margin-top: 30rpx;
 }
