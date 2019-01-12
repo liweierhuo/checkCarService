@@ -21,14 +21,15 @@ Page({
     detailMax:140,
     remainNum:140,
     orderStatusArry:{
-      1: { info: '未确认', tip:'未确认'},
-      2: { info: '已授理', tip: '已授理'},
-      3: { info: '改签', tip: '改签'}
+      1: { info: '未确认', tip:'审核结果'},
+      2: { info: '已授理', tip: '检验已受理'},
+      3: { info: '改签', tip:'审核结果'},
+      4: { info: '已评价', tip: '已评价' },
     },
     orderCheckArry:{
       1:{info:'不预审'},
-      2:{info:'未预审'},
-      3:{info:'已预审'}
+      2:{info:'检验'},
+      3:{info:'审核成功'}
     },
   },
 

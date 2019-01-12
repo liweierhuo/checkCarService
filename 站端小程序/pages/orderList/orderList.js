@@ -28,24 +28,20 @@ Page({
   },
   keyWordsInput:function(e) {
     console.log("keyWordsInput value :" + e.detail.value);
-    if (util.isNotBlank(e.detail.value)) {
-      this.setData({
-        keywords: e.detail.value,
-      })
-    }
+    this.setData({
+      keywords: e.detail.value,
+    })
   },
   searchClick:function() {
     this.search(this.data.keywords);
   },
   search:function(keywords){
-    if (util.isNotBlank(keywords)) {
-      var _this = this;
-      var type = 'search';
-      _this.setData({
-        currentPage: 1,
-      })
-      _this.getOrderList(_this.data.currentPage, _this.data.pageSize, keywords, type);
-    }
+    var _this = this;
+    var type = 'search';
+    _this.setData({
+      currentPage: 1,
+    })
+    _this.getOrderList(_this.data.currentPage, _this.data.pageSize, keywords, type);
   },
 
   keyWordsConfirm: function (e) {
@@ -142,14 +138,14 @@ Page({
     var _this = this;
     network.getStationOrderPage(page, size, keywords,function(res,xhr){
       console.info("network.getStationOrderPage res :" + res.data);
+      if (type == 'pullDownRefresh' || type == 'search' || type == 'init') {
+        //停止下拉刷新
+        wx.stopPullDownRefresh();
+        _this.setData({
+          orderListTemp: [],
+        })
+      }
       if (res.data.code == config.SUCCESS_CODE) {
-        if (type == 'pullDownRefresh' || type == 'search' || type == 'init') {
-          //停止下拉刷新
-          wx.stopPullDownRefresh();
-          _this.setData({
-            orderListTemp: [],
-          })
-        }
         var list = _this.data.orderListTemp;
         var resList = res.data.result;
         if (resList != undefined && resList != null && resList.length > 0) {
@@ -175,6 +171,7 @@ Page({
         if (type == 'pullDownRefresh' || type == 'search' || type == 'init') {
           //停止下拉刷新
           wx.stopPullDownRefresh();
+          _this.setData({ orderList: []});
         }
       }
     })

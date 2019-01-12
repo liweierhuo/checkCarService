@@ -48,7 +48,7 @@ Page({
       return;
     }
     var fullCarNumber = this.data.array[this.data.index]+this.data.carNumber;
-    var re = /^[\u4e00-\u9fa5]{1}[A-Z]{1}[A-Z_0-9]{5}$/;
+    var re = /^[\u4e00-\u9fa5]{1}[A-Z]{1}[A-Z_0-9]{4}[A-Z_0-9\u4e00-\u9fa5]{1,2}$/;
     if (!re.test(fullCarNumber)) {
       Notify('请输入正确的车牌号码');
       return;

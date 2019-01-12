@@ -8,10 +8,11 @@
     <view>4.携带行驶证原件和保单副本</view>
   </view>
   <view class='item2'>
-    <view>监测站：{{statinoName}}</view>
+    <view>检测站：{{statinoName}}</view>
+    <view>地址：{{address}}</view>
     <view>车牌号：{{carNumber}}</view>
     <view>手机号：{{mobile}}</view>
-    <view>地址：{{address}}</view>
+    
     <view>时间：{{date}} {{time}}</view>
   </view>
   <view class='bt' bindtap='next'>减少往返先预审</view>

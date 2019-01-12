@@ -21,7 +21,8 @@ const config = {
   orderStatus: { 
     1: { info: '未确认', color: '#EE4000' }, 
     2: { info: '已受理', color: '#9BCD9B' }, 
-    3: { info: '改签', color: '#FFEC8B' }
+    3: { info: '改签', color: '#FFEC8B' },
+    4: { info: '已评价', color: '#7FFF00' },
     },
   orderCheck:{
     1: { info: '无预审', color: '#FFEC8B' },

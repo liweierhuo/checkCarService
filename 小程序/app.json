@@ -2,10 +2,13 @@
   "pages": [
     "pages/index/index",
     "pages/recommend/recommend",
-    
-    
-    
     "pages/pretrialConfirmation/pretrialConfirmation",
+    
+    
+    
+    
+    
+   
     "pages/appointmentConfirmation/appointmentConfirmation",
     
     "pages/camera/camera",

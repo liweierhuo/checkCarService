@@ -32,9 +32,9 @@
   margin-right: 5px
 }
 .items{
-padding: 70rpx 40rpx;
-background-color: #fff;
-display: flex;
+  padding: 70rpx 40rpx;
+  background-color: #fff;
+  display: flex;
   box-shadow: 0px 7px 16px 0px rgba(38, 46, 49, 0.3);
 }
 .item{

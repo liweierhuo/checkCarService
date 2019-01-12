@@ -10,6 +10,7 @@ Page({
     tip:"请按提示拍照！点击照片进行",
     currentStep:1,
     finish:false, //是否完成拍照
+    orderId:'',
     photoStep: {
       1: { tip: '请拍车辆左前45度照片。', complete: false, type: 1, photo: config.imageServer + 'left45.png' },
       2: { tip: '请拍车辆右后45度照片。', complete: false, type: 2, photo: config.imageServer + 'right45.png' },
@@ -20,6 +21,7 @@ Page({
   },
   takePhoto() {
     var _this = this;
+    _this.getOrderInfoByStore();
     var token = handleLogin.isLogin();
     wx.chooseImage({
       sizeType: ['original', 'compressed'],  //可选择原图或压缩后的图片
@@ -46,7 +48,7 @@ Page({
           name: 'image',
           formData: {
             'type': photoStep[_this.data.currentStep].type,
-            'id': _this.getOrderInfoByStore(),
+            'id': _this.data.orderId,
           },
           header: {
             "Content-Type": "multipart/form-data;charset=UTF-8",
@@ -164,6 +166,9 @@ Page({
   getOrderInfoByStore: function () {
     var value = wx.getStorageSync(config.ORDER_INFO_KEY);
     var orderInfo = JSON.parse(value);
+    this.setData({
+      orderId:orderInfo.id,
+    })
     return orderInfo.id;
   },
 })

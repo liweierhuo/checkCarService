@@ -22,7 +22,7 @@ Page({
         bgColor:'#fff',
         borderColor:"#aeaeae",
         padding:5,
-        content:"均运汽车检测有限公司\n地址：贵州省贵阳市白云区\n电话：1360000000"
+        content: "均运汽车检测有限公司\n地址：贵州省贵阳市白云区\n电话：1360000000"
       }
     }],
   },
@@ -141,7 +141,7 @@ Page({
               borderColor: "#aeaeae",
               padding: 5,
               content: res.data.result.name + "\n地址：" + res.data.result.address + "\n电话："
-                + res.data.result.mobile
+                + res.data.result.mobile,
             }
           };
           var myMarkers = new Array(1);
